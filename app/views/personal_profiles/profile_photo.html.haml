@@ -1,0 +1,13 @@
+= form_for current_user, url: personal_profile_path do |f|
+  %fieldset
+    %legend
+      = title 'Add a profile photo'
+    
+    = hidden_field_tag "user[finished_profile]", true
+    .col-lg-3.col-md-4.col-sm-5.col-xs-12.control-group
+      .controls
+        = f.file_field :profile_photo_file, class: "file-inputs btn btn-default", title: "Please Select a Photo"
+    
+    .col-lg-2.col-md-3.col-sm-3.col-xs-12.control-group
+      .controls
+        = f.submit "Continue", class: 'btn btn-success btn-block'

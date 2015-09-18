@@ -1,0 +1,74 @@
+- if !current_user.finished_profile
+  = content_for :top_right do
+    .col-lg-10.col-md-9.col-sm-8.col-xs-10
+      = link_to basic_info_personal_profile_path(medical_editor: :conditions, finish_profile: false), id: :skip_link, class: "pull-right" do
+        Skip This For Now
+        = fa_icon 'arrow-right'
+
+%fieldset
+  %legend
+    - unless current_user.finished_profile
+      Your profile is naked! Put on some clothes.
+    - else
+      Primary Condition
+
+  = form_tag personal_profile_path, method: :put, html: {class: 'form-horizontal'} do
+    = hidden_field_tag 'user[finished_profile]', true
+    = hidden_field_tag 'user[main_condition_step]', true
+
+    .row.align-to-middle-and-smaller
+      .col-lg-3.col-md-3.col-sm-3.col-xs-12.control-group.set-min-width  
+        = label_tag :user_main_condition_id, "Primary Condition", class: 'control-label'
+        .controls
+          = select_tag "user[main_condition_id]", options_for_select([['Please Select', '']] + Condition.active.order('name asc').map{|c| [c.name, c.id]}), class: "select2 form-control"
+          %i (you can add more conditions later)
+      
+      .col-lg-7.col-md-8.col-sm-8.col-xs-12.control-group
+        = label_tag :user_main_condition_diagnosed_at, "When were you diagnosed?", class: 'control-label'
+        
+        .controls.date_select
+          = date_select :user, :main_condition_diagnosed_at, {discard_day: true, order: [:month, :year], prompt: true, start_year: 1900, end_year: Time.now.year}, class: "select2 form-control"
+    .row.align-to-middle-and-smaller
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12.control-group
+        %label
+          = check_box_tag "user[main_condition_not_officially_diagnosed]"
+          Not Officially Diagnosed
+    .row.align-to-middle-and-smaller 
+      .col-lg-2.col-md-2.col-sm-2.col-xs-12.set-custom-position
+        .controls
+          = submit_tag "Continue", class: 'btn btn-success expand-on-xs', style: "margin-top: 20px"
+
+%fieldset.col-lg-3.col-md-4.col-sm-5.col-xs-12.compensate.no-padding.set-min-width.set-mergin-bottom 
+  = form_for(@user_condition, remote: true, html: {class: "form-inline"}) do |f|
+    .control-group
+      = f.label :condition_id, 'Other Conditions', class: 'control-label'
+      .controls.height-34.full-select2
+        = f.select :condition_id, [['Please Select', '']] + Condition.active.order('name asc').reject{|c| c.name.blank?}.map{|c| [c.name, c.id]}, {}, class: "form-control select2"
+    
+    .controls
+      .clearfix
+      = f.submit 'Add', class: 'btn btn-success expand-on-xs'
+      = link_to "Don't see yours listed?", "javascript:void(0);", id: "suggest_condition_link"    
+
+    .clearfix
+
+%fieldset.col-lg-3.col-md-3.col-sm-5.col-xs-12.compensate.no-padding.set-mergin-bottom 
+  #suggest_condition_container{style: "display:none;"}
+    = form_for @user_condition, remote: true, html: {class: "form-inline"} do |f|
+      .control-group
+        = f.label :condition_name, class: "control-label"
+        .controls
+          = f.text_field :condition_name, placeholder: "Enter diagnosis", class: "form-control"
+      
+      .controls
+        .clearfix
+        = f.submit "Suggest", class: 'btn btn-success expand-on-xs'
+
+    .clearfix
+.clearfix
+
+%br
+
+%fieldset.col-lg-12.col-md-12.col-sm-12.col-xs-12.well#conditions_container.hide
+  = render partial: 'personal_profiles/user_conditions'
+.clearfix

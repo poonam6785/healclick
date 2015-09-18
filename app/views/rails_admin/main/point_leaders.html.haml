@@ -1,0 +1,21 @@
+.well
+  .btn-group#leaderboard-sort{"data-toggle" => "buttons-radio"}
+    %button.btn.btn-info.active{type: "button", "data-sort" => "highest_total"} Highest cumulative
+    %button.btn.btn-info{type: "button", "data-sort" => "highest_weekly"} Highest weekly points
+    %button.btn.btn-info{type: "button", "data-sort" => "highest_monthly"} Highest monthly points
+%table.table.table-condensed.table-striped
+  %thead
+    %tr
+      %th Username
+      %th Points
+  %tbody#users-list
+    = render partial: 'user', collection: @users
+
+= content_for :scripts do
+  :javascript
+    $('#leaderboard-sort button').on('click', function() {
+      return $.ajax({
+        url: "/users/leaderboard?sort=" + ($(this).data('sort')),
+        dataType: 'script'
+      });
+    });

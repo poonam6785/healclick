@@ -1,0 +1,21 @@
+- tabs = my_health_tabs
+- editor_tab = params.fetch(:medical_editor, tabs.first)
+
+.col-lg-12.col-md-12.col-sm-12.col-xs-12
+  %ul#medical_tabs.nav.nav-tabs
+    - tabs.each do |tab|
+      %li{:class => editor_tab == tab ? 'active' : '', :id => "#{tab}_tab"}
+        = link_to my_health_personal_profile_path(medical_editor: tab) do
+          = t(tab, scope: %w(medical_editor tabs))
+
+  .tab-content#medical_tabs_content
+    - if my_health_tabs.include?(editor_tab)
+      .tab-pane{:class => 'active', :id => editor_tab}
+        - if (notice = t(editor_tab, scope: %w(medical_editor notices), default: '')).present? && editor_tab != 'treatments' && current_user.settings.send("medical_editor_notice_#{editor_tab}_hidden").blank?
+          %br
+          .alert.alert-info.notice
+            = notice
+            = link_to set_setting_path(settings: {"medical_editor_notice_#{editor_tab}_hidden" => true}, flash: false), method: :post, remote: true, 'data-hide' => :alert, class: 'close' do
+              = fa_icon 'times-circle'
+        = render "#{editor_tab}_container"
+.clearfix

@@ -1,0 +1,13 @@
+:plain
+  if ($('#subcomment_container_#{@comment_id}').length > 0) {
+    $('#subcomment_container_#{@comment_id}').hide();
+  }
+  if ($('#comment_container_#{@comment_id}').length > 0) {
+    $('#comment_container_#{@comment_id}').hide();
+  }  
+  if($('#replies_count_#{@commentable.id}').length > 0) {
+    $('#replies_count_#{@commentable.id}').html('#{replies_number(@commentable.interactions_count)}')
+  }
+  if($('#subcomments_for_#{@parent.try(:id)}_link').length > 0) {
+    $('#subcomments_for_#{@parent.try(:id)}_link').html('#{pluralize(@parent.try(:comments).try(:count), 'comment')}')
+  }

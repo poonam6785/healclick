@@ -1,0 +1,20 @@
+%fieldset
+  %legend Notification Details
+
+  = render partial: "messages/messages_tabs"
+
+.well
+  .post-header
+    .left
+      %p
+        = notification_author_link(@notification)
+    .right
+      %span.timestamp= time_ago_in_words(@notification.created_at) + " ago"
+      %br/
+      = link_to 'Delete', notification_path(@notification), confirm: "Are yo sure you want to remove this notification?", method: :delete
+    .clearfix
+  .post-body
+    - if @notification.target_url.blank?
+      This has been deleted
+    - else
+      = notification_content(@notification, 10000)

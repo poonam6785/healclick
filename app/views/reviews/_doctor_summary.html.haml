@@ -1,0 +1,15 @@
+.post-container.treatment-summary-container{id: "doctor_container_#{doctor_summary.id}"}
+
+  %h4= link_to doctor_summary.doctor_name, summary_doctor_reviews_path(doctor_summary), class: 'green'
+
+  .left.post-body.treatment-res
+    %div
+      .pull-left.bolder.doctor-rating
+        - if doctor_summary.rating
+          Rating: #{doctor_summary.rating.to_i}%
+      = link_to "(See all #{pluralize(doctor_summary.reviews_count, 'review')})", summary_doctor_reviews_path(doctor_summary_id: doctor_summary.id), class: 'see-all'
+    - if (latest_review = doctor_summary.latest_review).present?
+      .post-absolute-right.timestamp
+        = time_ago_in_words(doctor_summary.latest_review.try(:created_at)) + " ago"
+
+  .clearfix

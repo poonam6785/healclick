@@ -1,0 +1,6 @@
+.hidden-lg.hidden-md
+	.col-sm-6.col-xs-6.add-margin-select-category.no-padding Select Category:
+	.col-sm-6.col-xs-6.no-padding
+		- params[:condition_id] = get_cached_condition_id
+		- get_params = {condition_id: params[:condition_id], query: params[:query]}
+		= select_tag 'page_category', options_for_select([['Everything', home_path(get_params)], ['Topics', topics_path(get_params)], ['Medical', medical_topics_path(get_params)], ['Social', social_topics_path(get_params)], ['Fun Stuff', fun_stuff_path(get_params)], ['Introductions', introductions_path(get_params)], ['Treatment Reviews', summary_reviews_path(get_params)]], selected_page_category), class: 'form-control'

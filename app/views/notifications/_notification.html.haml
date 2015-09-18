@@ -1,0 +1,19 @@
+.well.notification{id: "notification_#{notification.id}", style: "font-weight: #{notification.is_read? ? "normal" : (params[:action] == 'sent' ? 'normal' : 'bold')}"}
+  .post-header.transparent
+    .col-lg-2.col-md-3.col-sm-4.col-xs-3.text-center
+      = notification_author_link(notification, '120x120')
+    
+    .col-lg-10.col-md-9.col-sm-8.col-xs-9
+      .pull-right.timestamp
+        = time_ago_in_words(notification.created_at) + " ago"      
+        .clearfix
+      .clearfix
+
+      .post-body
+        - if notification.target_url.blank?
+          This has been deleted
+        - else
+          = notification_content(notification, 200)
+  
+      = link_to 'Delete', notification_path(notification), confirm: 'Are yo sure you want to remove this notification?', method: :delete
+    .clearfix

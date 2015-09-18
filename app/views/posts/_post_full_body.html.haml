@@ -1,0 +1,77 @@
+- no_all_reviews ||= false
+.userNamePadding
+  .col-lg-9.col-md-8.col-sm-7.col-xs-12.pull-right
+    .pull-left.inline
+      .hidden-xs.timestamp
+        = time_ago_in_words(post.created_at) + " ago" if current_user || post.user.privacy != 3
+    .pull-right.inline   
+      - if current_user && !post.tracking_update? && !post.activity_reply?
+        - if post.is_a?(Review)
+          - if post.user == current_user || current_user.is_admin?
+            - if post.doctor_review_id.nil?
+              = link_to 'Edit', edit_review_path(post), remote: true
+            - else
+              = link_to 'Edit', edit_doctor_review_path(post), remote: true
+        - elsif post.user == current_user  || current_user.is_admin
+          = link_to 'Edit', edit_post_path(post), remote: true
+          |
+          = link_to 'Delete', post_path(post), method: :delete, remote: true, confirm: 'Are you sure you want to delete this post?'
+
+    .clearfix
+
+.col-lg-3.col-md-4.col-sm-5.col-xs-12
+  .centered
+    .hidden-xs
+      = author_link(post, '150x150')
+
+.col-lg-9.col-md-8.col-sm-7.col-xs-12
+  .post-right
+    .hidden-xs
+      - if !post.tracking_update? && !post.activity_reply?
+        - if current_user || post.user.privacy != 3
+          %h4
+            = link_to post.to_s, post_review_path_helper(post), class: 'color-green'
+
+    .visible-xs
+      .pull-left
+        = author_link(post, '150x150')
+
+      - if !post.tracking_update? && !post.activity_reply?
+        - if current_user || post.user.privacy != 3
+          %h4
+            = link_to post.to_s, post_review_path_helper(post), class: 'color-green'
+
+          %span.timestamp= time_ago_in_words(post.created_at) + ' ago' if current_user || post.user.privacy != 3
+          %br
+          %br
+
+  = render partial: 'posts/post_body', locals: {post: post}
+
+  - if post.is_a?(Review) && post.treatment_review.present? && post.treatment_review.treatment.present? && params[:controller] == 'home' && post.treatment_review.treatment.treatment_summary.present?
+    .treatment-summary-container
+      %span.rating
+        %span.empty
+          - 5.times do
+            = fa_icon 'star-o'
+        %span.filled{style: "width: #{post.treatment_review.treatment.treatment_summary.live_average('any', current_user)/5.00*93.00}px"}
+          - 5.times do
+            = fa_icon 'star'
+      = link_to "(See all #{pluralize(post.treatment_review.treatment.treatment_summary.post_count_by_condition(current_user), 'review')})", treatment_summary_reviews_path(post.treatment_review.treatment.treatment_summary), class: 'see-all'
+
+  .clearfix
+  %br1
+
+    = render partial: 'posts/post_bottom', locals: {post: post} if current_user || post.user.privacy != 3
+.clearfix
+.col-lg-12.col-md-12.col-sm-12.col-xs-12.no-padding-xs
+  .replies-wrapper.well.bluewell.padding-5-xxs{style: ('display: none' unless summary_pages?)}
+    = render partial: 'posts/post_full_reply_form', locals: {post: post, comment: @comment, container_class: 'top'} if current_user
+
+    %br
+    .replies_container{id: "replies_container_#{post.id}"}
+      = render partial: 'comments/comment', collection: post.comments.without_parent.order('created_at asc') if summary_pages?
+    %br
+    .clearfix
+
+    = render partial: 'posts/post_full_reply_form', locals: {post: post, comment: @comment} if current_user
+.clearfix

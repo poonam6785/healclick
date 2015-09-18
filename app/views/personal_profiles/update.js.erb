@@ -1,0 +1,8 @@
+$(".tab-pane#conditions").html("<%= escape_javascript render('conditions_container') %>");
+$('<div class="alert alert-success">Primary condition was successfully updated</div>')
+  .insertBefore('#update-primary-condition-form');
+setTimeout(function() {
+  $('.tab-pane#conditions .alert').fadeOut(function() {
+    $(this).remove();
+  })
+}, 3000);

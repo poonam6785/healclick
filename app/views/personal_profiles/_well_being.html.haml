@@ -1,0 +1,14 @@
+- blank ||= false
+.well-being-gradient
+  - WellBeing::LEVELS.each do |level|
+    .well-being-level
+      %span{class: level}
+        = render_svg level
+
+- current_user.build_well_being if current_user.well_being.blank?
+
+= form.fields_for :well_being do |ff|
+  = ff.hidden_field :id
+  = ff.hidden_field :user_id
+  = render 'symptoms/level', symptom: ff.object, form: ff, blank: blank
+.clearfix

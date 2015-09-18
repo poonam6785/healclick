@@ -1,0 +1,3 @@
+$('#eventModal<%= @event.id%>').remove()
+$("<%= escape_javascript(render "events/modal", :e => @event) %>").appendTo(".ev-cont");
+$('#eventModal<%= @event.id%>').modal('show')

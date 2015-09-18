@@ -1,0 +1,15 @@
+%p
+	Hello, #{@user.username}
+
+- @results.sort_by{|r| r[:created_at]}.each_with_index do |result, index|
+	- if result[:item].is_a?(Notification)
+		= notification_content result[:item], 100, false, index + 1
+	- else
+		%p= "#{index + 1}. You have a new message from #{result[:item].from_user.try(:username)}"
+		= simple_format "#{result[:item].from_user.try(:username)} wrote: #{truncate(result[:item].content, :length => 200, :omission => ".... (continued)")}" 
+	To read more, go to
+	%br
+	= link_to result[:link], result[:link]
+
+%p
+	The HealClick Team

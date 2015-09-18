@@ -1,0 +1,14 @@
+:plain
+  $(".notifications-widget").replaceWith("#{j render("shared/notifications")}");
+  $('#top-notifications-link')
+    .popover('destroy')
+    .popover({
+      html: true,
+      title: $(".notifications-widget .header").html(),
+      content: $("#latest_notifications_container").html(),
+      placement: "bottom",
+      container: ".notifications-widget"
+    });
+  $("#new_notifications_count_badge .notification-cricle").removeClass('has-notifications').html('0');
+
+= render 'shared/update_page_title'

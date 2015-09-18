@@ -1,0 +1,4 @@
+:plain
+  $('#comment_form_container').html('#{escape_javascript(render partial: 'shared/comment_form', locals: {comment: @comment})}')
+  $('#new_comment_container').modal({keyboard: false, backdrop: 'static'});
+  window.attach_users_typehead_event($('.simple_form.edit_comment .users-typehead'));

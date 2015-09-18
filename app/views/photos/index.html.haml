@@ -1,0 +1,41 @@
+%fieldset
+  %legend= title "#{current_user == @user ? "My" : "#{@user.username}'s"} Photos"
+
+  - if @user == current_user
+    .well
+      = form_for [current_user, @photo], class: "form-horizontal", html: { multipart: true } do |f|
+        .form-group
+          = f.label :attachment, 'Add a New Photo', class: 'control-label'
+          .controls
+            = f.file_field :attachment, class: "file-inputs btn btn-default", title: "Search for a File to Add"
+
+        .form-group
+          = f.label :description, 'Describe Your Photo', class: 'control-label'
+          .controls
+            = f.text_area :description, rows: 3, class: 'input-xxlarge form-control'
+
+        .form-group
+          .controls
+            = f.submit 'Upload', class: 'btn btn-success'
+
+  .right
+    = paginate @photos
+  .clearfix
+
+  .text-center.div-centered.photos-container
+    - if @photos.blank?
+      %p1 There are no photos right now
+    - else
+
+      - @photos.each_with_index do |photo, index|
+
+        = render partial: "photo", locals: {photo: photo}
+
+        - if (index + 1) % 3 == 0
+          .clearfix
+
+      .clearfix
+
+  .right
+    = paginate @photos
+  .clearfix

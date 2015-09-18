@@ -1,0 +1,43 @@
+#map-canvas
+
+= content_for :scripts do
+  :javascript
+    var latitude = '#{current_user.latitude}';
+    var longitude = '#{current_user.longitude}';
+    zoom = 8;
+    if (!latitude || !longitude){
+      zoom = 2;
+    }
+    var mapOptions = {
+      center: new google.maps.LatLng(latitude, longitude),
+      zoom: zoom,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    var oms = new OverlappingMarkerSpiderfier(map, {keepSpiderfied: true});
+    var iw = new google.maps.InfoWindow();
+    oms.addListener('click', function(marker, event) {
+      $.ajax({
+        url: '/users/' + marker.id,
+        data: {google_map: true},
+        success:function (contentString) {
+          iw.setContent(contentString);
+          iw.open(map, marker);
+        }
+      });
+
+    });
+    var markers = [];
+    $.getJSON( "/users/map.json", function(users) {
+      $('.gm-style').removeClass('gm-style')
+      $.each(users, function(key, user) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(user.latitude, user.longitude),
+          map: map
+        });
+        markers.push(marker);
+        marker.id = user.id;
+        oms.addMarker(marker)
+      });
+    });

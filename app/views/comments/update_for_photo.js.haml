@@ -1,0 +1,3 @@
+:plain
+  $('#comment_container_#{@comment.id}').replaceWith('#{j render(partial: 'photos/comment', locals: {comment: @comment})}');
+  $('#new_comment_container').modal('hide');

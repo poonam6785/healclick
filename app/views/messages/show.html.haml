@@ -1,0 +1,10 @@
+%fieldset
+  %legend Message Details
+
+  = render partial: 'messages_tabs'
+#dialog-box
+  = render @messages.reverse
+#paginate-messages.hidden
+  = paginate @messages
+
+= render partial: 'form', locals: {message: @reply_message}

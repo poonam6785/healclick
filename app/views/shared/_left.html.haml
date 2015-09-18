@@ -1,0 +1,8 @@
+- if render_left_profile
+  = render partial: 'shared/left_navbar/left_profile'
+- else 
+  = render partial: 'shared/left_navbar/left_big_category'
+  = render 'questionnaire/questionnaire' if show_questionnaire?
+
+.navbar.white.visible-md.visible-lg.visible-xs.border.set-xs-width-terms-privacy
+  = render 'shared/footer'

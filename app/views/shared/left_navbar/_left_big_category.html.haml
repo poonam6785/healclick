@@ -1,0 +1,39 @@
+%nav.navbar.navbar-default.set-xs-margin-header{role: "navigation"}
+  .container-fluid.categories.border
+    .navbar-header
+      %button.navbar-toggle{type: "button", 'data-toggle' => 'collapse', 'data-target' => "#left-big-category"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      .hidden-xs    
+        %a.navbar-brand
+          CATEGORY
+
+    .navbar-collapse.collapse#left-big-category
+      - params[:condition_id] = current_user.settings.condition_id if current_user && params[:condition_id].blank?
+      
+      %ul.nav.navbar-nav
+        %li
+          = link_to 'Everything', everything_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('everything')
+        
+        %li
+          = link_to 'Topics', topics_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('all_topics')
+          = render 'shared/left_navbar/left_small_category'
+        
+        %li
+          - if params[:condition_id] == "any"
+            = link_to 'Treatment Reviews', summary_reviews_path(), class: category_is_active?('treatment_reviews')
+          - else
+            = link_to 'Treatment Reviews', summary_reviews_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('treatment_reviews')
+        %li
+          = link_to 'My Bookmarks', bookmarks_personal_profile_path, class: ('active' if params[:action] == 'bookmarks')
+        %li
+          = link_to 'My Topics', my_topics_personal_profile_path(target: 'Post'), class: ('active' if params[:target] == 'Post')
+        %li
+          = link_to 'My Reviews', my_topics_personal_profile_path(target: 'Review'), class: ('active' if params[:target] == 'Review')
+        - if Post.faqs.any?
+          %li
+            = link_to 'FAQs', faq_path, class: category_is_active?('faq')
+        - if Post.blogs.any?
+          %li
+            = link_to 'Blog', blog_path, class: category_is_active?('blog')

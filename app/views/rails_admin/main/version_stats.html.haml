@@ -1,0 +1,37 @@
+:css
+  .all-link{
+    border-bottom: 1px dotted;
+    cursor: pointer;
+  }
+%form.form-horizontal
+  .control-group
+    = label_tag 'Models'
+    %p
+      %small.text-info.all-link All
+    %label.checkbox.inline
+      = check_box_tag 'models[]', 'Symptom', false, class: 'model'
+      Symptoms
+    %label.checkbox.inline
+      = check_box_tag 'models[]', 'Treatment', false, class: 'model'
+      Treatments
+    %label.checkbox.inline
+      = check_box_tag 'models[]', 'Event', false, class: 'model'
+      Events
+    %label.checkbox.inline
+      = check_box_tag 'models[]', 'Lab', false, class: 'model'
+      Labs
+    %label.checkbox.inline
+      = check_box_tag 'models[]', 'Doctor', false, class: 'model'
+      Doctors
+  .control-group
+    = label_tag 'Start date'
+    = date_select nil, :start_date, default: Date.today - 1.month
+    %br/
+    = label_tag 'End date'
+    = date_select nil, :end_date
+  %p
+    = submit_tag 'Download CSV', class: 'btn btn-success'
+
+:coffee
+  $('.all-link').on 'click', ->
+    $('.model').prop 'checked', true

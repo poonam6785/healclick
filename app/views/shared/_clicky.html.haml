@@ -1,0 +1,9 @@
+.clearfix.left.clicky
+  %a{title: "Web Analytics", href:"http://clicky.com/100619836"}
+    %img{alt:"Web Analytics", src:"//static.getclicky.com/media/links/badge.gif", border:"0"}
+  = javascript_include_tag "//static.getclicky.com/js"
+  :javascript
+    try{ clicky.init(100619836); }catch(e){}
+  %noscript
+    %p
+      %img{alt: "Clicky", width: "1", height: "1", src:"//in.getclicky.com/100619836ns.gif"}

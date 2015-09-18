@@ -1,0 +1,22 @@
+- target = post.comment_id.blank? ? post : post.comment
+- unless target.blank?
+  - path = post.comment_id.blank? ? mark_as_helpful_post_path(target) : mark_as_helpful_comment_path(target)
+  - helpful_exists = current_user ? target.helpfuls.map(&:user_id).include?(current_user.id) : false
+  - if current_user
+    = link_to path, id: "helpful_#{target.id}", class: "helpful-post #{helpful_exists ? "active" : ""}", remote: true do
+      - if helpful_exists
+        = fa_icon 'star'
+      - else
+        = fa_icon 'star-o'
+      Helpful
+      %span.count
+        = target.helpfuls_count.to_i
+  - else
+    .helpful-post
+      - if helpful_exists
+        = fa_icon 'star'
+      - else
+        = fa_icon 'star-o'
+      Helpful
+      %span.count
+        = target.helpfuls_count.to_i

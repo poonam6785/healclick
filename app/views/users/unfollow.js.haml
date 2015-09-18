@@ -1,0 +1,10 @@
+:plain
+  if($('#user_links_container_#{@user.id}').length > 0) {
+    $('#user_links_container_#{@user.id}').html('#{escape_javascript(render(partial: 'user_links', locals: {user: @user}))}')
+  }
+  if ($('.add-team-#{@user.id}').length > 0) {
+    $('.add-team-#{@user.id}').replaceWith('#{j render(partial: 'shared/add_team', locals: {user: @user})}')
+  }
+  if ($('.profile-popup').length > 0){
+    $('.profile-popup').replaceWith('#{j render file: 'users/show', locals: {user: @user}}');
+  }

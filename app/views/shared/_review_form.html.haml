@@ -1,0 +1,16 @@
+- id ||= :review_form
+- @treatment_review ||= @treatment.treatment_review.nil? ? @treatment.build_treatment_review : @treatment.treatment_review
+
+.modal.fade.review_form_modal{id: id}
+  .modal-dialog
+    .modal-content
+      = form_for @treatment_review, class: "form-horizontal", remote: @remote do |f|
+        = hidden_field_tag :date, params[:date]
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} &times;
+          %h3
+            = @treatment_review.new_record? ? 'New' : 'Update'
+            Review
+      
+        .modal-body
+          = render 'shared/review_form_body', f: f

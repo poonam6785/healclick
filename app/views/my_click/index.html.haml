@@ -1,0 +1,28 @@
+%fieldset.homepagefilter
+
+  - if current_user
+    #post_form_container
+      = render partial: 'shared/post_form', locals: {post: @post}
+
+  .clearfix
+
+  #posts_container.scroll-pagination
+    = render 'feed_batch'
+    - if @combined_records.blank?
+      %center
+        %p.lead
+          You haven't added anyone to Your Team! Find similar patients by checking out our #{link_to 'Users', users_path}, #{link_to 'Topics', topics_path}, and #{link_to 'Treatment Reviews', summary_reviews_path} from our #{link_to "#{current_user.main_condition.try(:name).try(:titleize)} community", conditions_path(current_user.main_condition.try(:slug))}
+
+  .more_posts.centered{style: 'margin: 20px;'}
+    = hidden_field_tag :current_page, 1, id: :current_page
+    = hidden_field_tag :content_type, 'my_click', id: :content_type
+    = hidden_field_tag :content_path, post_sorter_path(params[:sort_by]), id: :content_path
+
+    .loading_container
+      = image_tag 'loading.gif', size: '20x20'
+
+#post_form_container
+  = render partial: 'shared/post_form', locals: {post: @post}
+= render 'shared/tabbed_review_form'
+
+#profile_popup

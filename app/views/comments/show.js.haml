@@ -1,0 +1,7 @@
+:plain
+  content = "#{j linked_mentions(@comment.content)}";
+  $("#comment-text-#{@comment.id}").html(content);
+  if ($('#activitiable_#{@comment.id}').length > 0){
+  	$('#activitiable_#{@comment.id} .post-right p:last').html(content);
+  	$('#activitiable_#{@comment.id} .read-more-link').remove();
+  }

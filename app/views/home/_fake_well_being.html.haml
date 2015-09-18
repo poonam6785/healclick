@@ -1,0 +1,12 @@
+.well-being-gradient
+  - WellBeing::LEVELS.each do |level|
+    .well-being-level
+      %span{class: level}
+        = render_svg level
+.symptom-level
+  .btn-group.btn-group-justified
+
+    - Symptom::SCALE.each do |n|
+      %a.btn{data: {level: n}, href: say_something_posts_path}
+        %span.muted &bull;
+        %span.rate= n

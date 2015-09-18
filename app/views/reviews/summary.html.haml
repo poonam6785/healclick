@@ -1,0 +1,27 @@
+- content_for :title do
+  = title 'Treatment Reviews', :treatment_reviews
+
+.tab-content
+  .tab-pane.active
+    .top-post.padding-10
+      .bolder.search-count.pull-left= "Showing #{@summaries.total_count} Results" if params[:query].present?
+      .clearfix
+      = render 'shared/page_category_select'
+      = render partial: 'reviews/summaries_sorter' unless params[:query].present?
+    
+    #treatments_container.scroll-pagination
+      = render partial: 'reviews/summaries_batch'
+
+    .more_posts.centered{style: 'margin: 20px;'}
+      = hidden_field_tag :current_page, 1, id: :current_page
+      = hidden_field_tag :content_type, 'treatment_summaries', id: :content_type
+      = hidden_field_tag :content_path, treatment_sorter_path(params[:sort_by]), id: :content_path
+    
+      .loading_container
+        = image_tag 'loading.gif', size: '20x20'
+
+= render 'shared/tabbed_review_form' if current_user
+
+#comment_form_container
+#post_form_container
+#profile_popup

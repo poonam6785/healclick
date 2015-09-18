@@ -1,0 +1,47 @@
+:plain
+  $('.comment_content').val('');
+- if @post.comments.without_parent.any?
+  :plain
+    $('#replies_container_#{@post.id}').html('#{escape_javascript(render partial: "comments/comment", collection: @post.comments.without_parent.order("created_at asc"))}');
+- else
+  - if current_user.blank?
+    :plain
+      $('#post_container_#{@post.id} .replies-wrapper').hide();
+  - else
+    :plain
+      $('#replies_container_#{@post.id}').html('')
+
+- if @post.interactions_count.to_i > 0
+  :plain
+    $('.add_reply_container[data-post-id=#{@post.id}]').removeClass('only').show();
+- else
+  :plain
+    $('.add_reply_container[data-post-id=#{@post.id}]:first').addClass('only').show();
+
+:plain
+  window.attach_users_typehead_event($('#post_container_#{@post.id}').find('.users-typehead'));
+  $('.file-inputs:not(.changed)').addClass('changed').bootstrapFileInput();
+
+- if @latest_comment.present?
+  - if params[:skip_to_latest]
+    :plain
+      window.location.hash = '#';
+
+  - if @latest_comment.parent.present?
+    - if params[:skip_to_latest]
+      :plain
+        imagesLoaded('#replies_container_#{@post.id}', function() {
+          $(window).scrollTo( $('#comment_container_#{@latest_comment.parent_id}'), 500, {offset: {top: -150}} );
+        });
+
+        $('#subcomments_for_#{@latest_comment.parent_id}').toggle();
+  - else
+    - if params[:skip_to_latest]
+      :plain
+        imagesLoaded('#replies_container_#{@post.id}', function() {
+          $(window).scrollTo( $('#comment_container_#{@latest_comment.id}'), 500, {offset: {top: -150}} );
+        });
+
+  - unless params[:skip_to_latest]
+    :plain
+      $("#replies_container_#{@post.id} .comments_container.with-comments").show();

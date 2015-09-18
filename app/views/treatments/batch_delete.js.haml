@@ -1,0 +1,5 @@
+:plain
+  $('#treatments_container').html('#{j render partial: 'personal_profiles/treatments'}');
+  $('body').trigger('init_treatment_toggles');
+  init_treatments_select2();
+  $('.scrollable-area').css({'height': ($(window).height() - 90) + 'px'})

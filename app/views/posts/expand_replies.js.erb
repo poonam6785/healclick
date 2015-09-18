@@ -1,0 +1,2 @@
+$('#post_container_<%= @post.id %>').replaceWith('<%= j render(partial: 'posts/post', locals: {post: @parent_post}) %>');
+$('#post_container_<%= @parent_post.id %>').find('.post-comments').trigger('click');

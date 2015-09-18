@@ -1,0 +1,9 @@
+%li.list-group-item{ :id => "tab-ev-#{event.id}"}
+  %a.edit-event{:href => "#", "data-id" => event.id }
+    %span
+      = event.body
+    %span
+      - if event.date.present? && event.date != event.created_at.to_date
+        = l event.date, format: :month_day
+      - else
+        = event.created_at.strftime("%l:%M %P EST, %B %d, %Y")

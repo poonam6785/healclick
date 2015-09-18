@@ -1,0 +1,25 @@
+%fieldset.padding-10
+
+  %legend Sign In
+
+  = form_for(resource, :as => resource_name, :url => session_url(resource_name, protocol: authentication_protocol), html: {class: "form-horizontal col-lg-4"}) do |f|
+    .control-group
+      = f.label :login, class: 'control-label'
+      .controls
+        = f.text_field :login, :autofocus => true, class: "form-control"
+    .control-group
+      = f.label :password, class: 'control-label'
+      .controls
+        = f.password_field :password, class: "form-control"
+    - if devise_mapping.rememberable?
+      .control-group
+        .controls
+          = f.label class: 'control-label checkbox' do
+            = f.check_box :remember_me, value: true, class: 'checkbox-label'
+            Remember Me
+            |
+            = link_to "Forgot your password?", new_password_path('user')
+    .control-group
+      .controls
+        = f.submit "Sign in", class: 'btn btn-success'
+        = render "devise/shared/links"

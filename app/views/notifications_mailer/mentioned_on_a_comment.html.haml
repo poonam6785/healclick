@@ -1,0 +1,16 @@
+%p
+  Hello, #{@user.username}
+
+%p
+  #{@object.anonymous ? "Anonymous" : @by_user.username} mentioned you in: 
+  %br/
+  "#{truncate(@object.content, :length => 200, :omission => "... (continued)")}"
+
+%p
+  To read more, go to: 
+  %br/
+  - url = "#{post_url(@object.commentable)}?comment_id=#{@comment.parent.id}&expanded=true#comment_#{@comment.id}"
+  = link_to url, url
+
+%p
+  The HealClick Team

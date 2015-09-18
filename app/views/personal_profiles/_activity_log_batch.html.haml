@@ -1,0 +1,4 @@
+- @activity_logs.each do |activity_log|
+  = render partial: 'activity_log', locals: {activity_log: activity_log}
+
+= paginate @activity_logs if @activity_logs.respond_to?(:current_page)

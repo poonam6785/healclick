@@ -1,0 +1,251 @@
+@import compass
+@import health-icons
+@import variables
+$grid-float-breakpoint: 992px
+
+form.feed-filter #query
+  width: 140px
+
+.post-container
+  padding: 5px
+  &.without_border
+    border-bottom: none
+
+.userNamePadding
+  height: 30px
+  width: 100%
+  display: inline-block
+
+.post-left
+  background: #f9fdff
+  border: 1px solid #bed6f0
+  +border-radius(4px)
+  text-align: center
+  padding-bottom: 10px
+  margin: 0px 0 20px
+  img
+    height: auto !important
+    +border-radius(2px)
+
+  h4
+    color: $blue
+    font-size: 16px
+    font-weight: bold
+    margin: -35px 0 31px
+    white-space: nowrap
+
+.visible-xs
+  margin-top: -10px
+  .pull-left
+    .post-left
+      margin-bottom: 5px
+      margin-right: 10px
+      margin-left: -15px
+      
+      @media (max-width: 768px)
+        margin-left: 2px
+
+      h4
+        position: absolute
+        margin-top: -27px
+        margin-left: 14px
+
+        @media (max-width: 410px)
+          margin-left: 0px
+
+      img
+        margin: 10px
+        width: 90px  
+
+.post-right
+  h4
+    margin: 0 0 10px
+    font-weight: bold
+  .post_content
+    margin: 0 0 20px
+    img, iframe
+      @extend .img-responsive      
+    iframe
+      height: 315px
+  .content
+    color: #444
+    font-size: 13px
+
+.post-body img,
+.comment-right .comment-text img, #post-container .left img, .activity-content img, .treatment-summary-container .content img
+  display: block
+  max-width: 100%
+  height: auto
+
+.all-reviews-link, .read-more-link
+  font-weight: bold
+  color: $blue
+
+.post-far-right
+  float: none
+  position: absolute
+  text-align: right
+  font-size: 12px
+  color: #444
+  right: 0
+  padding-right: 25px
+
+.top-form-container
+  select
+    max-width: 170px
+  .form-group
+    margin: 0 0 0 10px
+
+.luv-post
+  display: block
+  background: asset_url("btn_sprite.png") 0px -711px
+  width: 133px
+  padding: 0 10px
+  height: 36px
+  text-align: left
+  color: #fff
+  line-height: 36px
+  font-size: 15px
+  position: relative
+  font-weight: bold
+  span.count
+    position: absolute
+    top: 0
+    right: 8px
+    width: 35px
+    text-align: center
+    color: #666
+  &:hover
+    text-decoration: none
+    color: #fff
+  &.active
+    .fa-heart
+      color: #fff
+
+.helpful-post
+  display: block
+  background: asset_url("btn_sprite.png") 0px -746px
+  width: 133px
+  padding: 0 10px
+  height: 36px
+  text-align: left
+  color: #666
+  line-height: 36px
+  font-size: 15px
+  position: relative
+  font-weight: bold
+  span.count
+    position: absolute
+    top: 0
+    right: 8px
+    width: 35px
+    text-align: center
+    color: #666
+  &:hover
+    text-decoration: none
+    color: #444
+  &.active
+    .fa-star
+      color: green
+
+.post-buttons-container
+  background: asset_url("btn_sprite.png") 0px -629px
+  float: right
+  padding: 4px
+  width: 141
+  height: 81px
+  transform: scale(0.9, 0.9)
+  -ms-transform: scale(0.9, 0.9)
+  -webkit-transform: scale(0.9, 0.9)
+  -moz-transform: scale(0.9, 0.9)
+  zoom: 1.12
+  &.with_margin
+    @media (max-width: 768px)
+      margin-top: 0px    
+      
+.post-comments    
+  span
+    color: #3c7ccf
+    margin-right: 5px
+
+.replies-wrapper
+  border: 1px solid #9ACEFF
+
+a.file-input-wrapper
+  border-color: #cccccc
+  background-color: white
+  color: black
+
+.comment_content
+  margin-bottom: 10px
+
+.add_reply_container.top
+  border-bottom: 1px solid #DDDDDD
+  &:after
+    @extend .clearfix
+
+.add_reply_container
+  display: none
+  padding: 10px 0 10px 0
+
+.grey-border-bottom
+  height: 10px
+  background-color: #e6e6e6
+  position: relative
+  @media (max-width: 768px)
+    margin-left: -10%
+
+.control-group  
+  padding-top: 5px
+
+.search-by
+  position: absolute
+  z-index: 100
+  background-color: #f9fdff
+  border: 1px solid #ccc
+  +border-radius(10px)
+  width: 33%
+  right: 7px
+  top: 52px
+  padding: 47px 7px 0px 11px
+  display: none
+  .search-btn
+    width: 100%
+  @media (max-width: 992px)
+    width: 96%
+    padding: 47px 5px 0
+  @media (max-width: 768px)
+    padding: 65px 5px 0
+    width: 97%
+.posts-search
+  @media (max-width: 768px)
+    width: 100%
+    height: 34px
+
+.post-filter
+  height: 34px
+  @media (max-width: 992px)
+    margin-bottom: 16px
+
+.visible-xs
+  .row  
+    .col-lg-4.col-md-4.col-sm-4.col-xs-6
+      .pull-right.btn.btn-primary 
+        margin-top: 5px
+
+.visible-xs
+  .col-lg-5.col-md-5.col-sm-5.col-xs-6
+    a.file-input-wrapper.btn.file.optional.file-inputs.changed
+      padding: 6px 4px
+  .col-lg-4.col-md-4.col-sm-4.col-xs-6
+    input[value="Comment"]
+      margin-top: 5px
+
+.activity-content .image-activity-thumb
+  display: inline-block
+  margin-right: 22px
+  margin-top: 14px
+
+.post-header-title
+  margin: 0
+  font-family: Calibri

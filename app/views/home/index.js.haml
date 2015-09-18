@@ -1,0 +1,22 @@
+:plain
+  new_page = '#{j render(partial: "posts/posts_batch")}';
+- if params[:page].present?
+  :plain
+    $('#posts_container').append(new_page);
+- else
+  :plain
+    $('#posts_container').html(new_page);
+
+- if params[:query].blank?
+  :plain
+    $('.sorting-container .right').show()
+    $('.search-count').text('')
+- else
+  :plain
+    $('#sort_by').parent().hide()
+    $('.search-count').text('Showing #{@posts.total_count} Results')
+
+:plain
+  $('.loading_container').hide();
+  load_useful_link_listeners();
+  $('.file-inputs:not(.changed)').addClass('changed').bootstrapFileInput();

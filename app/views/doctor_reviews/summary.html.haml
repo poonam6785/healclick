@@ -1,0 +1,43 @@
+.top-post
+  .breadcrumb
+    = link_to 'All Doctors', doctor_reviews_path
+    &gt;
+    = link_to @doctor_summary.doctor_name, summary_doctor_reviews_path(doctor_summary_id: @doctor_summary.id)
+
+
+  .treatment_heading.col.sm-12
+    %h4.color-green.treatmentHeading
+      = title @doctor_summary.doctor_name
+
+    .treatment-summary-container
+      - if @doctor_summary.rating.to_i > 0
+        Rating: 
+        = "#{@doctor_summary.rating.to_i}%"
+        (#{@doctor_summary.positives_rating} out of #{@doctor_summary.total_recommended} recommended)
+    .clearfix
+    .location
+      = @doctor_summary.doctors.try(:first).try(:location)
+    = render partial: "reviews/reviews_sorter" unless params[:query].present?
+
+  .clearfix
+.clearfix
+.tab-content
+  .tab-pane.active
+
+    #posts_container.scroll-pagination
+      = render partial: 'posts/posts_batch', locals: {no_all_reviews: true}
+
+    .more_posts.centered{style: "margin: 20px;"}
+      = hidden_field_tag :current_page, 1, id: :current_page
+      = hidden_field_tag :content_type, 'reviews', id: :content_type
+      = hidden_field_tag :content_path, post_sorter_path(params[:sort_by]), id: :content_path
+
+      .loading_container
+        = image_tag 'loading.gif', size: "20x20"
+
+= render 'shared/tabbed_review_form' if current_user
+
+#comment_form_container
+#post_form_container
+
+#profile_popup

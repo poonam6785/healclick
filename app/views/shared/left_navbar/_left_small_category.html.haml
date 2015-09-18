@@ -1,0 +1,10 @@
+- if render_left_small_category
+  %ul
+    %li
+      = link_to 'Medical', medical_topics_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('medical_topics')
+    %li
+      = link_to 'Social', social_topics_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('social_topics')
+    %li
+      = link_to 'Fun Stuff', fun_stuff_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('fun_stuff')
+    %li
+      = link_to 'Introductions', introductions_path(condition_id: params[:condition_id], query: params[:query]), class: category_is_active?('introductions')

@@ -1,0 +1,24 @@
+.well
+	%h3 Period
+	.btn-group#ranking-sort{"data-toggle" => "buttons-radio"}
+		%button.btn.btn-info.active{type: "button", "data-sort" => "two_month"} Last 2 month
+		%button.btn.btn-info{type: "button", "data-sort" => "one_month"} Last month
+		%button.btn.btn-info{type: "button", "data-sort" => "week"} Last week
+		%button.btn.btn-info{type: "button", "data-sort" => "all"} All Time
+%table.table.table-condensed.table-striped
+	%thead
+		%tr
+			%th Rank
+			%th Username
+			%th #
+	%tbody#users-list
+		= render partial: 'user_ranking', collection: @users
+
+= content_for :scripts do
+	:javascript
+		$('#ranking-sort button').on('click', function() {
+			return $.ajax({
+				url: "/users/ranking?sort=" + ($(this).data('sort')),
+				dataType: 'script'
+			});
+		});

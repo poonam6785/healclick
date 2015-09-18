@@ -1,0 +1,117 @@
+.row
+  = form_for current_user, url: settings_path do |f|
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12
+      %legend Edit E-mail and Password
+
+    .col-lg-6.col-md-6.col-sm-12.col-xs-12  
+      - if current_user.errors.any?
+        .alert.alert-danger
+          - current_user.errors.full_messages.each do |msg|
+            %div= msg
+    
+      .control-group
+        E-mail
+        .controls
+          = f.text_field :email, class: "form-control"
+      .control-group
+        Enter Password
+        .controls
+          = f.password_field :password, class: "form-control"      
+      
+      .control-group
+        Confirm Password
+        .controls
+          = f.password_field :password_confirmation, class: "form-control"
+    .clearfix
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.add-margin-top
+      %legend Please E-mail me When
+
+    .col-lg-10.col-md-10.col-sm-12.col-xs-12
+      %table.notification-table.table.borderless.initial-width
+        %tr.remove-table-top-border
+          %th
+          %th
+          %th Send Daily Digest Instead
+
+        %tr
+          %td I receive a new private message
+          %td= f.check_box :gets_email_for_private_message
+          %td= f.check_box :email_digest_for_private_message
+
+        %tr
+          %td Someone adds me
+          %td= f.check_box :gets_email_for_follower
+          %td= f.check_box :email_digest_for_follower
+
+        %tr
+          %td Someone marks my content as helpful
+          %td= f.check_box :gets_email_for_helpful
+          %td= f.check_box :email_digest_for_helpful
+
+        %tr
+          %td Someone mentions me
+          %td= f.check_box :gets_email_when_mentioned
+          %td= f.check_box :email_digest_when_mentioned
+
+        %tr
+          %td Someone replies to my post
+          %td= f.check_box :gets_email_when_reply
+          %td= f.check_box :email_digest_when_reply
+
+        %tr
+          %td Someone comments on my reply
+          %td= f.check_box :gets_email_when_comment
+          %td= f.check_box :email_digest_when_comment
+
+        %tr
+          %td Someone comments after my comment
+          %td= f.check_box :gets_email_when_comment_after
+          %td= f.check_box :email_digest_when_comment_after
+
+        %tr
+          %td Someone Luvs my profile
+          %td= f.check_box :gets_email_when_luv
+          %td= f.check_box :email_digest_when_luv
+
+        %tr
+          %td Someone Luvs my post
+          %td= f.check_box :gets_email_when_luv_post
+          %td= f.check_box :email_digest_when_luv_post
+
+        %tr
+          %td Someone added a new reply to the item you are following on
+          %td= f.check_box :gets_email_when_subscribed
+          %td= f.check_box :email_digest_when_subscribed
+    .clearfix
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12      
+      %legend Email Me Tracking Reminders
+
+    .col-lg-3.col-md-3.col-sm-12.col-xs-12    
+      .control-group
+        .controls
+          = f.select :tracking_email, options_for_select([['Never', 1], ['Daily', 2], ['Weekly', 3]], current_user.tracking_email), {}, class: 'form-control'
+    .clearfix
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.add-margin-top   
+      %legend
+        Privacy
+        %i.font-15 (*Note: Your username, pictures, and profile will always be hidden from the public)
+
+
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12
+      %label.radio.add-margin-left
+        = f.radio_button :privacy, 1
+        Show my posts and reviews to the public
+
+      %label.radio.add-margin-left
+        = f.radio_button :privacy, 2
+        Show my reviews to the public (but not my posts)
+      
+      %label.radio.add-margin-left
+        = f.radio_button :privacy, 3
+        Show none of my content to the public
+
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12    
+      .control-group        
+        = f.submit 'Save Settings', class: 'btn btn-success'
+    .clearfix
+  .clearfix

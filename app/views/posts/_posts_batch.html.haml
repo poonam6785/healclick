@@ -1,0 +1,20 @@
+- no_all_reviews ||= false
+
+- if @posts.any?
+  %hr
+  = render partial: 'posts/post', collection: @posts, locals: {no_all_reviews: no_all_reviews}
+  = paginate @posts if @posts.respond_to?(:current_page)
+
+- else
+  - unless params[:format] == 'js'
+    .well
+      %p
+        &nbsp;
+      %p#no_content
+        - if params[:controller] == 'my_click'
+          This is where you follow everyone you want to stay connected with.
+          To add someone, click on their picture and press "Add To My Team."
+        - else
+          There is no content available
+      %p
+        &nbsp;

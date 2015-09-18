@@ -1,0 +1,13 @@
+:plain
+  $('#symptoms_container').html('#{j render(partial: 'personal_profiles/symptoms')}');
+  $(window).scrollTo($('#symptoms_container .symptom:last'));
+  $('#tags-symptoms').tagsinput('removeAll');
+  $('.symptoms-submit').text('Add').prop('disabled', false);
+  $(document).trigger('medical_editor:init');
+  var errors = "#{@errors}";
+  if (errors){
+    $.bootstrapGrowl(errors, {
+      type: 'error',
+      offset: {from: 'top', amount: 80}
+    });
+  }

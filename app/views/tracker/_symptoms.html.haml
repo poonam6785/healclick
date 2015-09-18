@@ -1,0 +1,24 @@
+= form_for current_user, url: batch_update_symptoms_path, remote: true do |f|
+
+  %center
+    %h4 How are these symptoms right now?
+  
+  = render 'symptoms/gradient'
+  
+  .mood-container.scroll
+    - current_user.symptoms.notify.by_rank.each do |symptom|
+      .item
+        .desc= symptom.to_s.upcase
+        = f.fields_for :symptoms, symptom do |ff|
+          = render 'symptoms/level', symptom: symptom, form: ff
+
+  .row
+    .col-lg-7.col-md-7.col-sm-7.col-xs-7
+      = f.submit "Save", class: "btn btn-success btn-block"
+    .col-lg-5.col-md-5.col-sm-5.col-xs-5
+      = link_to "Cancel", "#", class: "btn btn-default btn-block secondary menu-link", 'data-screen' => :menu
+  
+  %p.text-center
+    = link_to my_health_personal_profile_path(medical_editor: :symptoms), class: 'see-all-link' do
+      See All Symptoms
+  .clearfix

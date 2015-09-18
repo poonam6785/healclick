@@ -1,0 +1,2 @@
+:plain
+  $('#post_luv_container_#{@post.id}').html('#{escape_javascript(render(partial: 'posts/luv_link', locals: {post: @post.reload}))}')

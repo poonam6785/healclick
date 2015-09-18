@@ -1,0 +1,19 @@
+.well.top-form-container.doctors-filters
+  = form_tag '', class: 'form-inline', method: :get do
+    %fieldset
+      .form-group
+        = label_tag :condition_id, 'Condition: '
+        - base_conditions = current_user ? [['All Conditions', 'all'], ['My Conditions', 'my_conditions']] : [['All Conditions', 'all']]
+        = select_tag :condition_id, options_for_select(base_conditions + Condition.active.order('name asc').where("name <> '' and name is not null").map{|c| [c.name, c.id.to_s]}, params[:condition_id]), class: 'input-medium select2-without-search'
+      .form-group
+        = label_tag :country, 'Country: '
+        = select_tag :country_id, options_for_select([['Please Select', '']] + Country.order('name asc').map{|c| [c.name, c.id]}, selected: default_country), class: 'form-control'
+      .form-group{class: ('v-hidden' if !params[:country_id].present? || Country.find(params[:country_id]).try(:name) != 'United States')}
+        = label_tag :state, 'State: '
+        = select_tag :state, options_for_select([['None', '']] + Country.us_states), class: 'form-control'
+    %fieldset
+      .form-group
+        = label_tag :query, 'Name: '
+        = text_field_tag :query, params[:query], class: 'form-control doctor-query'
+      .form-group
+        = submit_tag 'Search', class: 'btn btn-success'

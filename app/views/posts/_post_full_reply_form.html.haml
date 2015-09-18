@@ -1,0 +1,21 @@
+- slug = SecureRandom.hex(5)
+
+.add_reply_container{data: {'post-id' => post.id}, class: ('display-block' if summary_pages?)}
+  .col-lg-3.col-md-3.col-sm-3.hidden-xs
+    = user_avatar(current_user, size: '100x100')
+
+  = simple_form_for [post, comment], url: post_comments_path(post, format: :js, _: slug), html: {id: "new_comment_#{slug}", class: 'new_comment jquery-form'} do |f|
+    = auth_token_tag
+    .col-lg-9.col-md-9.col-sm-9.col-xs-12
+      = f.input :content, label: false, input_html: {class: 'form-control comment_content users-typehead', rows: 3, placeholder: 'Enter a reply...'}
+      .row
+        .col-lg-5.col-md-5.col-sm-5.col-xs-12
+          = f.input :attachment, label: false, input_html: {class: 'file-inputs', title: 'Upload photo'}
+
+        .col-lg-4.col-md-4.col-sm-4.col-xs-12
+          = f.input :anonymous, inline_label: 'Post Anonymously', label: false
+
+        .col-lg-3.col-md-3.col-sm-3.col-xs-12
+          = f.submit 'Reply', 'data-disable-with' => 'Posting...', class: 'pull-right btn btn-success expand-on-xs'
+
+.clearfix

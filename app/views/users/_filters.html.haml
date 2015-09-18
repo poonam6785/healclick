@@ -1,0 +1,30 @@
+.well.top-form-container#inner-search-content-map
+  = form_tag '', class: 'form-inline form-filter-patients-map', method: :get do
+    = hidden_field_tag :query, params[:query]
+    .form-group
+      = select_tag :gender, options_for_select([['Any Gender', ''], %w(Male male), %w(Female female)], params[:gender]), class: 'form-control select2-without-search'
+
+    .form-group
+      = select_tag :age_from, options_for_select([['From Age', '']] + (18..100).to_a, params[:age_from].to_i), class: 'form-control select2'
+      %span.hidden-xs
+        \-
+      = select_tag :age_to, options_for_select([['To Age', '']] + (18..100).to_a, params[:age_to].to_i), class: 'form-control select2'
+
+    .form-group
+      = select_tag :condition_id, options_for_select([['Any Diagnosis', '']] + Condition.active.order('name asc').map{|c| [c.name, c.id] unless c.name.blank?}.compact, params[:condition_id].to_i), class: 'form-control select2'
+
+    .form-group
+      = select_tag :country, options_for_select([['Any Country', '']] + Country.all.map{|c| [c.name, c.id]}, params[:country]), class: 'form-control select2'
+
+    .state-select.form-group.hide
+      = select_tag :state, options_for_select([['Any', '']] + Country.us_states, params[:state]), class: 'input-small select2'
+
+    .clearfix
+    .form-group
+      = select_tag :with_photos_only, options_for_select([['With or Without Photos', ''], ['With Photos Only', '1']]), class: 'form-control select2-without-search'
+
+    .form-group.pull-right
+      = submit_tag 'Search', class: 'btn btn-success expand-on-xs', id: 'submit-search-btn'
+
+    .form-group
+      = select_tag :last_signed_in, options_for_select([['Online Anytime', ''], ['Online in the last week', 'week'], ['Online in the last month', 'month'], ['Online in the last 6 months', 'six_months'], ['Online in the last year', 'year']], params[:last_signed_in]), class: 'select2-without-search'

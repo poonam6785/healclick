@@ -1,0 +1,6 @@
+<%- if @flash %>
+  $("<div class='alert alert-info'>Settings saved successfully</div>").appendTo('span#flash');
+<%- end %>
+window.setTimeout(function() {
+  $('#flash .alert').fadeOut();
+}, 3000);

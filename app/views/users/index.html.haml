@@ -1,0 +1,28 @@
+- if !current_user.patient_matches_populated?
+  %center
+    %h2.calculating{style: 'margin-top: 100px'} We're calculating your matches....
+
+- else
+  %fieldset
+    %legend
+      .col-lg-2.col-sm-3.col-md-3.col-xs-6
+        %span.view-list.pull-left
+          = link_to_unless_current 'View List', {action: 'index'}
+      
+      .col-lg-2.col-sm-3.col-md-3.col-xs-6
+        %span.view-map.pull-right
+          = link_to_unless_current 'View Map', {action: 'map'}
+      .clearfix
+      %br
+
+    = render 'filters'
+
+    .pull-left
+      = render partial: 'user_sorter'
+
+    .pull-right.sorting-container
+      Showing #{pluralize @count, 'User'}
+    .clearfix
+    = render 'users_batch'
+    .loading_container.centered
+      = image_tag 'loading.gif', size: "20x20"

@@ -1,0 +1,19 @@
+- title, desc = MetaTag.display(params, request.fullpath)
+= meta_tag(title, desc)
+
+%title
+  - if content_for?(:title)
+    = yield :title or SystemSetting.get_value("page_description")  
+  - else
+    HealClick
+    
+- if content_for?(:meta_description)
+  %meta{content: (yield :meta_description), name: "description"}/
+- else
+  %meta{content: SystemSetting.get_value("page_description"), name: "description"}/
+  
+- if content_for?(:meta_keyword)
+  %meta{content: (yield :meta_keyword), name: "keyword"}/
+
+%meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+%link{:rel => "icon", :href => "//s3-us-west-2.amazonaws.com/healclick-production-oregon/system/static/favicon.ico", :type => "image/x-icon"}/

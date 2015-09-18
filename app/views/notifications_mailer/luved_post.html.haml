@@ -1,0 +1,18 @@
+%p
+  Hello, #{@post.user.username}
+
+%p
+  - if @post.tracking_update?
+    #{@by_user.username} luvs your tracking update
+  - else
+    #{@by_user.username} luvs your #{@post.class.name.downcase} "#{truncate(@post.content, :length => 100, :omission => "... (continued)")}"
+
+%p
+
+  To read more, go to:
+
+  %br/
+  - url = "#{post_url(@post)}"
+  = link_to url, url
+%p
+  The HealClick Team

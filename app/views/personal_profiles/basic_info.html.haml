@@ -1,0 +1,97 @@
+- if !current_user.finished_profile
+  = content_for :top_right do
+    .col-lg-10.col-md-9.col-sm-8.col-xs-10
+      = link_to profile_photo_personal_profile_path(), id: :skip_link, class: 'pull-right' do
+        Skip This For Now
+        = fa_icon 'arrow-right'
+      
+- unless after_sign_up_steps?
+  = render 'profile_tabs'
+
+= form_for current_user, url: personal_profile_path, html: {class: 'form-horizontal user-basic-info-form resp-form'} do |f|
+  %fieldset
+    = hidden_field_tag 'user[basic_info_step]', true
+    - if after_sign_up_steps?
+      %legend
+        .left
+          = title 'Tell us about yourself'
+        .clearfix
+    - else
+      - title 'Basic Info'
+
+  %fieldset.col-lg-6.col-md-6.col-sm-6.col-xs-12.compensate
+    .control-group
+      = f.label :first_name, class: 'control-label'
+      .controls
+        = f.text_field :first_name, class: 'form-control'
+    
+    .control-group
+      = f.label :last_name, class: 'control-label'
+      .controls
+        = f.text_field :last_name, class: 'form-control'
+    
+    .control-group
+      = f.label :gender, class: 'control-label'
+      .controls
+        = f.select :gender, [["I'd rather not say", ''], %w(Male male), %w(Female female)], {}, { class: 'form-control' }
+    
+    .control-group
+      = f.label :birth_date, class: 'control-label'
+      .controls.date_select
+        = f.date_select :birth_date, {include_blank: true, start_year: 1900, end_year: 2000, order: [:month, :day, :year]}, { class: 'form-control select2' }
+
+  %fieldset.col-lg-6.col-md-6.col-sm-6.col-xs-12.compensate
+    .control-group
+      = f.label :country_id, class: 'control-label'
+      .controls
+        = f.select :country_id, [['Please Select', '']] + Country.order('name asc').map{|c| [c.name, c.id]}, {}, { class: 'form-control select2' }
+
+    .control-group
+      = f.label :city, class: 'control-label'
+      .controls.height-34
+        = f.text_field :city, class: 'input input-medium form-control' 
+
+    .control-group.country-select{class: ('hide' unless current_user.country_cache == 'United States')}
+      = f.label :state, 'State / Province', class: 'control-label'
+      .controls
+        .row
+          .col-xs-5
+            = f.select :state, [''] + Country.us_states, {}, {class: 'form-control select2'}
+
+    .control-group
+      = f.label :zipcode, class: 'control-label'
+      .controls
+        = f.text_field :zipcode, class: 'input input-sm form-control'
+    
+  %fieldset.col-lg-12.col-md-12.col-sm-12.col-xs-12
+    .control-group
+      = f.label :bio, 'Describe yourself', class: 'control-label'
+      .controls
+        = f.text_area :bio, cols: 60, rows: 3, class: 'col-sm-6 form-control'
+
+  .clearfix
+  %br
+  - unless after_sign_up_steps?
+    %fieldset.col-lg-12.col-md-12.col-sm-12.col-xs-12
+      .control-group
+        .controls
+          = f.submit 'Save', class: 'btn btn-success expand-on-xs'
+
+  - else
+    %fieldset.col-lg-6.col-md-6.col-sm-6.col-xs-12.col-lg-offset-3.col-md-offset-3.col-sm-offset-3
+      .control-group
+        .controls
+          .col-lg-6.col-md-6.col-sm-6.col-xs-12
+            = button_tag 'Post to news feed', class: 'btn btn-success btn-block', value: 'as_topic', name: 'commit'
+          .col-lg-6.col-md-6.col-sm-6.col-xs-12
+            = button_tag 'Save to profile only', class: 'btn btn-default btn-block', name: 'commit', value: 'Continue'
+          .clearfix
+          .col-lg-12.col-md-12.col-sm-12.col-xs-12
+            %i  
+              %small
+                Psst. Click post to feed to share the about me section text of your profile to the site news feed. This will allow others to see you are new here and say hello. Don't be shy
+    .clearfix
+  - unless after_sign_up_steps?
+    .clearfix
+    %hr/
+    = render 'conditions_container'

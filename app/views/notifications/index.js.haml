@@ -1,0 +1,13 @@
+:plain
+  $(".notifications-widget .popover").remove();
+  $("ul.list-notification").find(".updateable, script").remove();
+  $("#{j render('shared/notification_links')}").insertAfter("ul.list-notification>li:first");
+  $(".notifications-widget").replaceWith("#{j render('shared/notifications')}");
+  $(document).trigger('init_notifications_popover');
+  health_tracker_box = $(".health-tracker-top-link:visible");
+  if(health_tracker_box.is('*')) {
+    $("#health_tracker_popover").replaceWith("#{j render('notifications/tracker')}");
+    $(document).trigger('init_health_tracker');
+  }
+
+= render 'shared/update_page_title'

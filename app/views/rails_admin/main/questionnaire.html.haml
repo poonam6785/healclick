@@ -1,0 +1,8 @@
+= form_tag '/system_settings', method: :post do |f|
+  %fieldset
+    %label.checkbox
+      = hidden_field_tag 'system_settings[enabled_questionnaire]', 0
+      = check_box_tag 'system_settings[enabled_questionnaire]', '1', SystemSetting.get_boolean_value(:enabled_questionnaire)
+      Enabled Questionnaire?
+  %fieldset
+    = submit_tag 'Save', class: 'btn btn-success'

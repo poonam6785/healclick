@@ -1,0 +1,12 @@
+:plain
+  $('#doctors_container tr[data-doctor-id="#{@doctor.id}"]').replaceWith('#{j render(@doctor)}');
+  $('.review_form_modal').modal('hide');
+
+  if ($('#post-container').length > 0){
+    $('#post-container').html('#{j render(partial: "posts/review_show", locals: {post: @post}) }')
+  }
+
+  if ($('#post_body_container_#{@post.id}').length > 0){
+    $('#post_body_container_#{@post.id}').parent().replaceWith('#{j render(partial: "posts/post_body", locals: {post: @post}) }')
+    $('#post_body_container_#{@post.id}').closest('.post-container').find('h4 a').html('#{@post.title}');
+  }

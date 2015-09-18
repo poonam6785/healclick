@@ -1,0 +1,23 @@
+development:
+  twitter_key: 'm1tDfhZPU5rM5QF54Eo5OA'
+  twitter_secret: '7PBDC9itzMXhk8tG5yQ5uVcxNI95nvuBdsLiqb50oKA'
+  facebook_key: '409625359138172'
+  facebook_secret: '600d79153f9afef90103a161a5d7e4c2'
+
+test:
+  twitter_key: ''
+  twitter_secret: ''
+  facebook_key: ''
+  facebook_secret: ''
+
+production:
+  twitter_key: ''
+  twitter_secret: '' 
+  facebook_key: ''
+  facebook_secret: ''
+
+staging:
+  twitter_key: ''
+  twitter_secret: '' 
+  facebook_key: ''
+  facebook_secret: ''

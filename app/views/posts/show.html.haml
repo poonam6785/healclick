@@ -1,0 +1,97 @@
+- title = "#{@post.title} - HealClick #{@post.conditions.first.name rescue ''}"
+
+= meta_tag(title, title)
+
+= render 'shared/page_category_select'
+
+.clearfix
+- condition = get_cached_condition_id
+- unless @post.tracking_update?
+  - if @post.is_a?(Review)
+    - if @post.treatment_review.present? && @post.treatment_review.treatment.present?
+      %p.breadcrumb
+        = link_to 'All Treatments', summary_reviews_path
+        &gt;
+        = link_to @post.treatment_review.treatment.treatment_summary.treatment_name, treatment_summary_reviews_path(@post.treatment_review.treatment.treatment_summary)
+        &gt;
+        - if current_user
+          = link_to "#{truncate(@post.user.username, length: 16)}'s Review", post_review_path_helper(@post)
+        - else
+          = link_to "Review", post_review_path_helper(@post)
+
+  - else
+    %p.breadcrumb
+      = link_to 'All Topics', topics_path(condition_id: condition)
+      &gt;
+      = subtopic_link_hekper condition
+      &gt;
+      = @post.title
+
+.col-lg-12.col-md-12.col-sm-12.col-xs-12
+  - unless @post.tracking_update?
+    .pull-left
+      %h4
+        = title @post.title
+
+  .pull-right
+    = time_ago_in_words(@post.created_at) + " ago"
+
+    - if current_user && !@post.tracking_update?
+      - if current_user.following_post?(@post)
+        = link_to 'Un-Bookmark', unfollow_post_path(@post), class: 'btn btn-success'
+      - else
+        = link_to 'Bookmark', follow_post_path(@post), class: 'btn btn-warning'
+
+  .clearfix
+.clearfix
+%hr
+
+%br
+
+.col-lg-4.col-md-4.col-sm-4.col-xs-12
+  = author_link(@post, "150x150")
+  .clearfix
+
+.col-lg-8.col-md-8.col-sm-8.col-xs-12
+  #post-container.fit-in-page
+    = render partial: 'review_show', locals: {post: @post}
+
+- if @post.comments.without_parent.present?
+  .clearfix
+  %h4
+    Replies
+  %hr
+
+  .comments{id: "replies_container_#{@post.id}"}
+    - @post.comments.without_parent.each do |comment|
+      = render partial: 'comments/comment', locals: {comment: comment, expanded: true}
+
+    .clearfix  
+
+.clearfix
+- if current_user
+  .add_reply_container.subcomment_form{id: "add_reply_container_#{@post.id}"}
+    = simple_form_for @comment, url: post_comments_path(@post) do |f|
+      .col-lg-12.col-md-12.col-sm-12.col-xs-12
+        = f.input :content, label: false, input_html: {class: 'comment_content users-typehead form-control width-100', rows: 5, placeholder: 'Enter a reply...'}
+        .row
+          .col-lg-5.col-md-5.col-sm-5.col-xs-6
+            = f.input :attachment, label: false, input_html: {class: 'file-inputs', title: 'Upload photo'}
+
+          .col-lg-4.col-md-4.col-sm-4.col-xs-6
+            = f.input :anonymous, inline_label: 'Post Anonymously', label: false
+
+          .col-lg-3.col-md-3.col-sm-3.col-xs-12
+            = f.submit 'Reply', 'data-disable-with' => 'Posting...', class: "pull-right btn btn-success expand-on-xs"
+  .clearfix
+
+#comment_form_container
+#post_form_container
+- if current_user
+  = render 'shared/tabbed_review_form'
+
+= content_for :scripts do
+  :javascript
+    $(function() {
+      $('#add_reply_container_#{@post.id}').show();
+    })

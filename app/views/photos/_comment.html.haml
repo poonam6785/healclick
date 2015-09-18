@@ -1,0 +1,5 @@
+%a{name: "comment_#{comment.id}"}
+.comment{id: "comment_container_#{comment.id}"}
+  - cache ['v2', current_user_param, comment] do
+    = render partial: 'comments/full_comment_body', locals: {comment: comment}
+

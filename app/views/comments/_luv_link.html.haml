@@ -1,0 +1,19 @@
+- luv_exists = current_user ? comment.luvs.where(user_id: current_user.id).exists? : false
+- if current_user
+  = link_to luv_comment_path(comment), id: "luv_#{comment.id}", class: "luv-post btn-link #{comment.helpfuls.map(&:user_id).include?(current_user.id) ? "active" : ""}", remote: true do
+    - if luv_exists
+      = fa_icon 'heart'
+    - else
+      = fa_icon 'heart-o'
+    LUV
+    %span.count
+      = comment.luvs_count.to_i
+- else
+  .luv-post
+    - if luv_exists
+      = fa_icon 'heart'
+    - else
+      = fa_icon 'heart-o'
+    LUV
+    %span.count
+      = comment.luvs_count.to_i

@@ -1,0 +1,10 @@
+- sub_comment ||= subcomment
+%div{id: "subcomment_container_#{sub_comment.id}"}
+  
+  %a{name: "comment_#{sub_comment.id}"}
+
+  - cache [current_user_param, sub_comment] do
+
+    = render partial: 'comments/subcomment_content', locals: {sub_comment: sub_comment}
+
+  %hr

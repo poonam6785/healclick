@@ -1,0 +1,5 @@
+:plain
+  $('#post_form_container').html('#{escape_javascript(render partial: 'shared/post_form', locals: {post: @post})}')
+  $('#new_post_container').modal({keyboard: false, backdrop: 'static'});
+  window.attach_users_typehead_event($('#new_post_container').find('.users-typehead'));
+  $('.file-inputs:not(.changed)').addClass('changed').bootstrapFileInput();

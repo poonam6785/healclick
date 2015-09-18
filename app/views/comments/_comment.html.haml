@@ -1,0 +1,10 @@
+- expanded ||= params[:comment_id].to_i == comment.id && params[:expanded].present?
+- expanded = false if comment.comments.blank?
+- expanded = true if !current_user &&   summary_pages?
+%a{name: "comment_#{comment.id}", id: "comment_#{comment.id}"}
+
+.comment.margin-bottom-15-xs{id: "comment_container_#{comment.id}", class: expanded ? 'expanded' : 'collapsed'}
+
+  = render partial: 'comments/full_comment_body', locals: {comment: comment}
+
+  = render partial: 'comments/comment_bottom', locals: {comment: comment}

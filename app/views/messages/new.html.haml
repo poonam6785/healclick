@@ -1,0 +1,6 @@
+.white-bg
+  %legend Compose New Message
+
+  = render partial: "messages_tabs"
+
+  = render partial: "form", locals: {message: @message}

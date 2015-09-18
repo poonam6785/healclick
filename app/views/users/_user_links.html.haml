@@ -1,0 +1,8 @@
+%ul.nav.nav-tabs.nav-stacked.left-menu.minilist
+  %li.left-aligned= link_to '<span class="glyphicon glyphicon-user"></span> Profile'.html_safe, profile_path(user.username)
+  %li.left-aligned= link_to '<span class="glyphicon glyphicon-heart"></span> LUV'.html_safe, luv_user_path(user), remote: true, id: "user_luv_link_#{user.id}"
+  %li.left-aligned
+    - if current_user.following?(user)
+      = link_to '<span class="glyphicon glyphicon-th-large"></span> Remove from my Team'.html_safe, unfollow_user_path(user), remote: true, id: "user_unfollow_link_#{user.id}"
+    - else
+      = link_to '<span class="glyphicon glyphicon-th-large"></span> Add To My Team'.html_safe, follow_user_path(user), remote: true, id: "user_follow_link_#{user.id}"

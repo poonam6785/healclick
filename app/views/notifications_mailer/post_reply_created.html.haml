@@ -1,0 +1,17 @@
+%p
+  Hello, #{@comment.commentable.user.username}
+
+%p
+  - if @comment.commentable.is_a?(Post) && @comment.commentable.tracking_update?
+    #{@comment.anonymous ? "Anonymous" : @by_user.username} replied: "#{truncate(@comment.content, :length => 200, :omission => "... (continued)")} to your Tracking Update"
+  - else
+    #{@comment.anonymous ? "Anonymous" : @by_user.username} replied: "#{truncate(@comment.content, :length => 200, :omission => "... (continued)")}"
+
+%p
+  To read more, go to: 
+  %br/
+  - url = "#{post_url(@comment.commentable)}#comment_#{@comment.id}"
+  = link_to url, url
+
+%p
+  The HealClick Team

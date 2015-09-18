@@ -1,0 +1,27 @@
+- activitiable = activity.activity
+.post-container.full.activity-item-container{id: "activitiable_#{activity.activity.try(:id)}"}
+  .userNamePadding
+    .col-lg-10.col-md-10.col-sm-10.col-xs-12.pull-right
+      .pull-left.inline
+        .hidden-xs.timestamp
+          = "#{time_ago_in_words(activity.created_at)} ago"
+  .centered.col-sm-2.col-xs-5
+    = render partial: 'shared/post_author', locals: {object: activity, size: '200x200'}
+  .post-right.col-sm-8.col-xs-12.col-xs-12.activity-content
+    .visible-xs
+      %h4 &nbsp;
+      %span.timestamp= time_ago_in_words(activity.created_at) + " ago"
+      %br
+      %br
+    - if activity.activity_type == 'Photo' || activity.activity_type == 'CroppedPhoto'
+      %p #{activity.favorite_user.try(:username)} uploaded new photos to their #{link_to 'photo album', user_photos_path(activity.favorite_user)}
+      - activity.favorite_user.photos.order('created_at desc').each do |image|
+        = link_to(image_tag(image.attachment.url(:medium), size: '75x75', class: 'thumb'), user_photo_path(activity.favorite_user.id, image.id), class: 'image-activity-thumb')
+    - else
+      = linked_mentions activity.title
+
+    - if activitiable.is_a?(Comment) && activitiable.content.to_s.length > 400 && !activitiable.media_comment?
+      = link_to('Read More', comment_path(activitiable, _: Time.now.to_i, format: :js), class: 'blue read-more-link',  remote: true)
+
+  .clearfix
+  .grey-border-bottom

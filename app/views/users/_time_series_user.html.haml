@@ -1,0 +1,17 @@
+%h3
+  \##{time_series_user_counter + 1}
+  = time_series_user.try(:username) if params[:action] == 'time_series_analysis_admin'
+#symptoms_chart_container{class: "chart_#{time_series_user.id} chart_container", data: {chart: "chart_symptoms_chart_#{time_series_user.id}"}}
+  %fieldset#visualize-anchor
+    %br
+    .form-group
+      = select_tag 'symptoms_chart[symptom]', user_symptoms_for_chart_filter(time_series_user), class: 'input-medium form-control symptom_select select2-without-search symptom-filter'
+    .form-group
+      = select_tag 'symptoms_chart[treatment]', options_for_graph(time_series_user), class: 'input-medium form-control select2 treatment_select treatment-filter'
+    .form-group
+      = select_tag 'symptoms_chart[lab]', labs_options_for_graph(time_series_user), class: 'input-medium form-control select2 labs-filter'
+    %br/
+  .graph
+    %center
+      %h2 Loading...
+      = link_to '', symptoms_chart_personal_profile_path(id: time_series_user.id, treatments: true, time_series: false, from: (params[:action] == 'time_series_analysis_admin' ? 'time_series_admin' : nil)), class: 'load_symptoms_chart', remote: true

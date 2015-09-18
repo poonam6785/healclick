@@ -1,0 +1,5 @@
+class AddDeletedToUser < ActiveRecord::Migration
+  def change
+    add_column :users, :deleted, :boolean
+  end
+end

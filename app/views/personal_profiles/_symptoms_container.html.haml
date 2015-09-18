@@ -1,0 +1,50 @@
+= render 'profile_tabs'
+
+%fieldset#symptoms-anchor
+  - unless current_user.main_condition_id.nil?
+    - if current_user.popular_symptoms_show? || current_user.popular_symptoms_show.nil?
+      = form_for 'popular_symptoms', url: popular_symptoms_symptoms_path, html: {id: 'new-user-symptoms-form', class: 'form-horizontal'} do |f|
+        .row
+          .col-md-12.col-lg-12.col-sm-12.col-xs-12        
+            .popular-symptoms
+              %p Which of these symptoms do you experience?
+              .symptom-list
+                - SymptomSummary.popular_names.in_groups_of(10) do |summary_group|
+                  .col-lg-6.col-sm-6.col-md-6.col-xs-12
+                    - summary_group.each do |summary|
+                      - next if summary.nil?
+                      .control-group
+                        .controls
+                          %label.checkbox
+                            = check_box_tag 'popular_symptoms[]', summary.capitalize
+                            = summary.capitalize
+        .row.add-symptom-top-margin
+          .col-md-9.col-lg-9.col-sm-12.col-xs-12#new-user-tags-form
+            = text_field_tag :symptom, '', placeholder: 'Enter a Symptom', class: 'typeahead symptom_name', :autocomplete => 'off', id: 'new-user-tags-symptoms'
+
+          .col-md-3.col-lg-3.col-sm-12.col-xs-12  
+            = f.submit 'Save', class: 'btn btn-success', disable_with: 'Saving...'
+    - if (!current_user.popular_symptoms_show? && !current_user.popular_symptoms_show.nil?) || current_user.symptoms.present?
+      .row
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          %h3= l Time.now.in_time_zone, format: :short
+
+        .col-lg-6.col-md-6.col-sm-6.col-xs-6
+          %button.btn.btn-success.btn-toggle-symptoms.pull-right.margin-top-10{data: {target: "#symptom-add"}, onclick: "return false;"}
+            Add Symptoms
+
+        .row.col-lg-7.col-md-12.col-sm-12.col-xs-12.col-lg-offset-3.collapse#symptom-add
+          .col-md-9.col-lg-9.col-sm-12.col-xs-12
+            = text_field_tag :symptom, '', placeholder: "Enter a Symptom", class: "typeahead symptom_name", :autocomplete => "off", id: 'tags-symptoms'
+            %i Separate symptoms with commas
+
+          .col-md-3.col-lg-3.col-sm-12.col-xs-12
+            = button_tag type: 'submit', class: 'btn btn-success symptoms-submit expand-on-xs' do
+              = my_fa_icon('add')
+              Add
+        .clearfix
+        %h4.treatment-header-taking.centered HOW ARE THESE SYMPTOMS TODAY?
+
+        .margin-bottom-10= select_tag :with_selected_symptoms, options_for_select([['', ''], ['I want to track these symptoms', 'track'], ["I don't want to track these symptoms", 'not_track'], ['Delete Permanently', 'delete']]), class: 'select2-without-search', style: 'width: 260px'
+        #symptoms_container
+          = render partial: 'personal_profiles/symptoms'

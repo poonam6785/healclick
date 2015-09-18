@@ -1,0 +1,4 @@
+.dropdown.padding-10
+  .form-inline.pull-left
+    = select_tag 'sort_by', options_for_select([['Recently Joined', user_sorter_path('users.created_at desc')], ['Alphabetical', user_sorter_path('users.username asc')], ['Primary Diagnosis', user_sorter_path('conditions.name asc')], ['Recently Online', user_sorter_path('users.last_sign_in_at desc')], ['Recently Updated', user_sorter_path('users.updated_at desc')]], "?#{URI.unescape request.query_string}"), class: 'select2-without-search'
+  .clearfix

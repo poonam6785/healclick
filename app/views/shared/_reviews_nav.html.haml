@@ -1,0 +1,5 @@
+.nav.nav-tabs
+  %li{class: ('active' if params[:controller] == 'reviews')}
+    = link_to 'Treatments', summary_reviews_path
+  %li{class: ('active' if params[:controller] == 'doctor_reviews')}
+    = link_to 'Doctors', doctor_reviews_path

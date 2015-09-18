@@ -1,0 +1,26 @@
+%tr.treatment{data: {'treatment-id' => treatment.id}}
+  %td.treatment.col-md-5
+    = link_to summary_reviews_path(treatment_name: treatment.treatment), target: :_blank do
+      = matching_tag(treatment.treatment.to_s)
+  %td.selector.col-md-2
+    = treatment.level.to_s.titleize
+  %td.dosage.col-md-3
+    = treatment.current_dose
+  %td.reviews.col-md-2
+    - if treatment.treatment_review.try(:content).present? && treatment.treatment_review.try(:review).present?
+      = link_to "Show Review", post_review_path_helper(treatment.treatment_review.review)
+
+      .modal.hide.fade{id: "review_container_#{treatment.id}"}
+        .modal-header
+          %button{:type => "button", :class => "close", :"data-dismiss" => "modal", :"aria-hidden" => "true"} &times;
+          %h3 #{treatment.treatment.to_s.titleize} - Review
+        .modal-body
+          = simple_format(treatment.treatment_review.content)
+          %br/
+          - if treatment.treatment_review.conditions.present?
+            %p
+              %strong Conditions
+            %ul
+              - treatment.treatment_review.conditions.each do |condition|
+                %li= condition.name
+  %td.line.visible-xs.visible-sm

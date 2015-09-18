@@ -1,0 +1,80 @@
+.modal.fade#new_post_container
+  .modal-dialog
+    .modal-content
+      .hidden.post-conditions-template
+        .form-group.post_condition
+          .controls
+            = select_tag 'post[condition_ids][]', conditions_options_for_post(current_user.main_condition_id), class: 'condition_ids form-control'
+            = link_to 'javascript:void(0);', class: 'remove_post_condition' do
+              %span.symptoms-remove-icon
+
+      = form_for post, remote: @remote do |f|
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} &times;
+          %h3.color-blue
+            - if @post.new_record?
+              What are your thoughts?
+            - else
+              Edit Post
+
+        .modal-body
+          .control-group
+            = f.label :title, class: "control-label"
+            .controls.modal-resp
+              = f.text_field :title, placeholder: "Enter a Topic...", class: 'input-xxlarge form-control'
+
+          .control-group
+            = f.label :content, class: "control-label"
+            .controls.modal-resp
+              = f.text_area :content, rows: 7, class: "input-xxlarge users-typehead form-control", placeholder: "Enter a Post..."
+      
+          .control-group
+            .controls
+              .row
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  = f.file_field :picture, class: "file-inputs btn btn-default", title: "Add a Picture"
+
+
+                .col-lg-6.col-md-6.col-sm-6.col-xs-6
+                  %label.checkbox
+                    = f.check_box :anonymous
+                    Post Anonymously
+          
+          .control-group
+            = f.label :post_category_id, class: "control-label"
+            .controls
+              = f.select :post_category_id, post_categories_options, {}, class: " form-control"
+
+
+          .conditions_container{id: "add_post_conditions_container_#{@post.id}"}
+            %label.control-label Conditions
+            - if @post.conditions.present?
+              - if @post.all_conditions?
+                .form-group.post_condition
+                  .controls
+                    = select_tag "post[condition_ids][]", conditions_options_for_post('all_conditions'), class: 'condition_ids form-control'
+              - else
+                - @post.conditions.each do |condition|
+                  .form-group.post_condition{id: "post_condition_container_#{condition.id}"}
+                    .controls
+                      = select_tag "post[condition_ids][]", conditions_options_for_post(condition), class: 'condition_ids form-control'
+                      = link_to 'javascript:void(0);', class: 'remove_post_condition', id: "post_condition_link_#{condition.id}" do
+                        %span.symptoms-remove-icon
+            - if post.new_record?
+              .form-group.post_condition
+                .controls
+                  = select_tag "post[condition_ids][]", conditions_options_for_post(@post.conditions.present? ? nil : current_user.main_condition_id), class: 'condition_ids form-control'
+            
+            .control-group
+              .controls.label-anon-resp
+                = link_to 'Add Condition', 'javascript:void(0);', class: 'add_post_condition_link', id: "add_post_conditions_link_#{@post.id}"
+
+        .modal-footer
+          %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} Close
+          = f.submit 'Post', :class => 'btn btn-success', 'data-disable-with' => 'Posting...'
+          .hide#default-conditions
+            = conditions_options_for_post
+
+    = content_for :scripts do
+      :javascript
+        $('#post_post_category_id').trigger('change');

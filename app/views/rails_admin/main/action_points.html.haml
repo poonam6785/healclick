@@ -1,0 +1,16 @@
+.sidebar_section
+  %h3= "Action Point settings"
+  = simple_form_for ActionPoints, as: :settings, url: '/system_settings/points_save', method: :put do |f|
+    = f.input :helpful_vote_received
+    = f.input :luv_for_post
+    = f.input :topic_post
+    = f.input :reply_posted
+    = f.input :comment_posted
+    = f.input :profile_pic_uploaded
+    = f.input :about_me_posted
+    = f.input :luvs_sent
+    = f.input :favorite_added
+    = f.input :private_message_sent
+    = f.input :written_treatment_reviews
+    = f.input :post_photo_uploaded
+    = f.submit 'Save', disable_with: 'Saving...', class: 'btn btn-success'

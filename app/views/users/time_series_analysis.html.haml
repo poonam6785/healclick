@@ -1,0 +1,17 @@
+- title 'Time Series Analysis'
+.row
+  .col-sm-4
+    .btn-group#time-series-limit.margin-bottom-10{"data-toggle" => 'buttons-radio'}
+      - %w(5 10 15 25 50).each_with_index do |number, index|
+        %button.btn.btn-info{type: 'button', 'data-limit' => number, class: ('active' if index == 1)}= number
+  .col-sm-8
+    - if params[:action] == 'time_series_analysis_admin'
+      = form_tag '', remote: true, method: :get, class: 'form-horizontal' do
+        .form-group
+          %label.control-label.col-sm-2 Username
+          .col-sm-5
+            = text_field_tag :username, '', class: 'form-control'
+          .col-sm-3
+            = submit_tag 'Search', class: 'btn btn-success', disable_with: 'Searching...'
+.charts-container
+  = render partial: 'time_series_user', collection: @users

@@ -1,0 +1,4 @@
+.dropdown
+  .form-inline.pull-left
+    = select_tag 'sort_by', options_for_select([['Latest Activity', treatment_sorter_path('doctor_summaries.updated_at desc')], ['Most Reviews', treatment_sorter_path('doctor_summaries.reviews_count desc')], ['Highest Rated', treatment_sorter_path('doctor_summaries.rating desc')]], "?#{URI.unescape request.query_string}"), class: 'select2-without-search'
+  .clearfix

@@ -1,0 +1,65 @@
+.post-body
+  .post_content.black.fit-in-page{id: "post_body_container_#{post.id}"}
+    - if post.is_a?(Review) 
+      - if !current_user && post.user.privacy == 3
+        .content You must be a member to view this review
+      - else
+        - if post.doctor_review_id.nil?
+          - target_review =  post.treatment_review
+          .row
+            .col-sm-5.current-result
+              %strong Current Result:
+              #{target_review.try(:treatment).try(:level).to_s.titleize}
+            .col-sm-5
+              %strong Current Dosage:
+              = target_review.try(:treatment).try(:current_dose)
+        - else
+          - target_review  = post.doctor_review
+          .row
+            .col-sm-4
+              %strong Recommended:
+              = target_review.try(:doctor).try(:recommended) ? 'Yes' : 'No'
+            .col-sm-4
+              = target_review.try(:doctor).try(:location)
+        - if target_review.content.present?
+          %p.clearfix
+            %strong Latest Review:
+            %br/
+            .content
+              - if summary_pages?
+                = linked_mentions post.content
+              - else
+                = linked_mentions truncate(post.content, :length => 400, :omission => "...", )
+                - if post.content.to_s.length > 400
+                  = link_to("Read More", post_body_post_path(post, _: Time.now.to_i, format: :js), class: 'blue read-more-link',  remote: true)
+        - total_conditions = target_review.conditions
+        - if total_conditions.present?
+          %p.clearfix
+            = render 'posts/post_conditions', total_conditions: total_conditions
+          .clearfix
+    - else
+      - single_photo = post.photo
+      - if single_photo.present?
+        .left
+          = link_to image_tag(single_photo.attachment.url(:medium_resized)), post_path(post), class: "full-width-img"
+        .clearfix
+
+      - if single_photo.present? || post.media_post?
+        .content= linked_mentions post.content
+
+      - else
+        .content
+          - if post.tracking_update? || post.activity_reply?
+            = post.content.html_safe
+          - else
+            = linked_mentions(truncate(post.content, :length => 400, :omission => "...", ))
+            - if post.content.to_s.length > 400
+              = link_to("Read More", post_body_post_path(post, _: Time.now.to_i, format: :js), class: 'blue read-more-link',  remote: true)    
+  - post_conditions = post.conditions
+  - if post_conditions.present?
+    %p.clearfix
+      - if post.all_conditions?
+        = link_to 'All Conditions', '#', class: "label", style: "font-weight: normal; background-color: #4e93ce"
+      - else
+        - post_conditions.each do |condition|
+          = link_to condition.name.to_s.titleize, conditions_path(condition.slug), class: "label", style: "font-weight: normal; background-color: #4e93ce"  

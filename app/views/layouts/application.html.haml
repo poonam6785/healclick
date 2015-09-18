@@ -1,0 +1,43 @@
+!!!
+%html
+  %head
+    %meta{content: 'text/html; charset=utf-8', 'http-equiv' => 'Content-Type'}/
+    = render 'shared/head'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Gentium+Book+Basic'
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'head_application'
+    = csrf_meta_tags
+    = render 'shared/analytics'
+    = render 'shared/support'
+    - if add_noindex?
+      %meta{name: 'robots', content: 'noindex'}
+  %body{class: body_class}
+    - if !current_user && params[:controller] == 'home' && params[:action] == 'new_home'
+      .guest-bg
+      .guest-bg-video
+    - else
+      .bg-image
+    = render 'shared/top'
+    .container.main
+      - if params[:controller] == 'home' && params[:action] == 'new_home'
+        = yield
+      - else
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          %span#flash= render_flash
+
+        .col-lg-12.col-md-12.col-sm-12.col-xs-12
+          = render partial: 'posts/post_header' if render_post_header
+        - if render_left_menu
+          .col-lg-3.col-md-3.col-sm-12.col-xs-12
+            = render partial: 'shared/left'
+        %div{class: get_container_class}
+          .white.radius-5.padding-10.border
+            = yield
+
+      = render_chat
+      = render 'shared/clicky'
+
+    = yield :before_js
+    = javascript_include_tag 'application'
+    = yield :scripts
+    #is_mobile{class: (is_mobile_device? || is_tablet_device?).to_s}

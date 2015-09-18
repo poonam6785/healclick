@@ -1,0 +1,50 @@
+- content_for :title do
+  = title 'Home', :home
+.row.home-row.margin-bottom-10
+  .bottom-spacing.crow
+    = render 'tracker_bar'
+    = render 'treatments_bar'
+    = render 'talk_bar'
+
+  .col-sm-8.col-md-8.col-lg-8
+    - if current_user
+      .btn-spacing
+        = link_to say_something_posts_path, class: 'btn btn-something btn-success', remote: !current_user.nil? do
+          = image_tag 'comment.png', size: '20x20'
+          Say Something
+        = link_to '#', class: 'btn btn-treatment', id: 'tabbed_form_link' do
+          = image_tag 'pill-xxl.png', size: '20x20'
+          Share Treatment
+      %h2.heading-my-team My Team's Recent Activity
+      .feed-filter
+        = select_tag :filter, options_for_select(feed_filter_options, params[:filter]), class: 'select2-without-search'
+      .white-bg.scroll-pagination
+        = render 'my_click/feed_batch'
+        .loading_container
+          = image_tag 'loading.gif', size: '20x20'
+        - if @combined_records.blank?
+          %center
+            %p.lead
+              You haven't added anyone to Your Team! Find similar patients by checking out our #{link_to 'Users', users_path}, #{link_to 'Topics', topics_path}, and #{link_to 'Treatment Reviews', summary_reviews_path}
+              - if current_user.main_condition.present?
+                from our #{link_to "#{current_user.main_condition.try(:name).try(:titleize)} community", conditions_path(current_user.main_condition.try(:slug))}
+  - if current_user
+    .col-sm-4.col-md-4.col-lg-4.hidden-xs
+      = render 'questionnaire/questionnaire' if show_questionnaire?
+      .box-treatments.box-recently
+        %h3 Recently Active
+        %ul.list-recentlyImages
+          - @active_users.each do |user|
+            %li
+              = link_to user_avatar(user), user_path(user), class: 'pshow_questionnaire?a`rofile-popup-link'
+        %p.text-copyright © HealClick All Rights Reserved.
+    #post_form_container
+      = render partial: 'shared/post_form', locals: {post: @post}
+    = render 'shared/tabbed_review_form'
+
+    #comment_form_container
+-unless current_user
+  = render 'shared/landing_video_form'
+  .row
+    .col-lg-12
+      = image_tag 'healclick-about.jpg', class: 'img-responsive'

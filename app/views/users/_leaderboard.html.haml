@@ -1,0 +1,8 @@
+- ignore_users = User.where(username: ['mojoey', 'frogger', 'carilea']).map(&:id)
+- @top_users ||= User.where('users.id not in (?)', ignore_users).joins(:points).select('SUM(`action_point_users`.score) as total, users.*').where('action_point_users.created_at > ?', 1.week.ago).group('users.id').order('total desc').limit(25)
+%ol
+  - @top_users.each_with_index do |user, index|
+    %li
+      = link_to user_path(user), class: 'profile-popup-link' do
+        = user_avatar(user, size: '30x30')
+        = user.username

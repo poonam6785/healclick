@@ -1,0 +1,422 @@
+# Logfile created on 2014-09-15 15:33:52 +0530 by logger.rb/44203
+[09/15/14 15:33:52 +0530 OD028 (24875)] INFO : Starting the New Relic agent in "development" environment.
+[09/15/14 15:33:52 +0530 OD028 (24875)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/15/14 15:33:52 +0530 OD028 (24875)] INFO : Reading configuration from config/newrelic.yml
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : New Relic Agent Developer Mode enabled.
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Environment: development
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : No known dispatcher detected.
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Application: My Application
+[09/15/14 15:33:53 +0530 OD028 (24875)] WARN : Agent configured not to send data in this environment.
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing middleware-based Excon instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing HTTPClient instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing Dalli Memcache instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing Rails Sunspot instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing deferred Rack instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing ActiveRecord 4 instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing Net instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing Rails 4 Controller instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing Rails4 Error instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Installing Rails 4 view instrumentation
+[09/15/14 15:33:53 +0530 OD028 (24875)] INFO : Finished instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Starting the New Relic agent in "development" environment.
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Reading configuration from config/newrelic.yml
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : New Relic Agent Developer Mode enabled.
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Environment: development
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : No known dispatcher detected.
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Application: My Application
+[09/15/14 15:34:48 +0530 OD028 (24887)] WARN : Agent configured not to send data in this environment.
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing middleware-based Excon instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing HTTPClient instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing Dalli Memcache instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing Rails Sunspot instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing deferred Rack instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing ActiveRecord 4 instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing Net instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing Rails 4 Controller instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing Rails4 Error instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Installing Rails 4 view instrumentation
+[09/15/14 15:34:48 +0530 OD028 (24887)] INFO : Finished instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Starting the New Relic agent in "development" environment.
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Reading configuration from config/newrelic.yml
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : New Relic Agent Developer Mode enabled.
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Environment: development
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Dispatcher: webrick
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Application: My Application
+[09/15/14 15:40:16 +0530 OD028 (24934)] WARN : Agent configured not to send data in this environment.
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing middleware-based Excon instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing HTTPClient instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing Dalli Memcache instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing Rails Sunspot instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing deferred Rack instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing ActiveRecord 4 instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing Net instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing Rails 4 Controller instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing Rails4 Error instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Installing Rails 4 view instrumentation
+[09/15/14 15:40:16 +0530 OD028 (24934)] INFO : Finished instrumentation
+[09/15/14 15:40:17 +0530 OD028 (24934)] INFO : Doing deferred dependency-detection before Rack startup
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Starting the New Relic agent in "development" environment.
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Reading configuration from config/newrelic.yml
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : New Relic Agent Developer Mode enabled.
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Environment: development
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Dispatcher: webrick
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Application: My Application
+[09/17/14 18:14:03 +0530 OD028 (4463)] WARN : Agent configured not to send data in this environment.
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing middleware-based Excon instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing HTTPClient instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing Dalli Memcache instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing Rails Sunspot instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing deferred Rack instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing ActiveRecord 4 instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing Net instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing Rails 4 Controller instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing Rails4 Error instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Installing Rails 4 view instrumentation
+[09/17/14 18:14:03 +0530 OD028 (4463)] INFO : Finished instrumentation
+[09/17/14 18:14:04 +0530 OD028 (4463)] INFO : Doing deferred dependency-detection before Rack startup
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Starting the New Relic agent in "development" environment.
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Reading configuration from config/newrelic.yml
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : New Relic Agent Developer Mode enabled.
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Environment: development
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Dispatcher: webrick
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Application: My Application
+[11/21/14 11:32:40 +0530 OD028 (15373)] WARN : Agent configured not to send data in this environment.
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing middleware-based Excon instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing HTTPClient instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing Dalli Memcache instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing Rails Sunspot instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing deferred Rack instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing ActiveRecord 4 instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing Net instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing Rails 4 Controller instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing Rails4 Error instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Installing Rails 4 view instrumentation
+[11/21/14 11:32:40 +0530 OD028 (15373)] INFO : Finished instrumentation
+[11/21/14 11:32:43 +0530 OD028 (15373)] INFO : Doing deferred dependency-detection before Rack startup
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Starting the New Relic agent in "development" environment.
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Reading configuration from config/newrelic.yml
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : New Relic Agent Developer Mode enabled.
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Environment: development
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Dispatcher: webrick
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Application: My Application
+[11/21/14 12:01:53 +0530 OD028 (15512)] WARN : Agent configured not to send data in this environment.
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing middleware-based Excon instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing HTTPClient instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing Dalli Memcache instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing Rails Sunspot instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing deferred Rack instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing ActiveRecord 4 instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing Net instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing Rails 4 Controller instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing Rails4 Error instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Installing Rails 4 view instrumentation
+[11/21/14 12:01:53 +0530 OD028 (15512)] INFO : Finished instrumentation
+[11/21/14 12:01:54 +0530 OD028 (15512)] INFO : Doing deferred dependency-detection before Rack startup
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Starting the New Relic agent in "development" environment.
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : New Relic Agent Developer Mode enabled.
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Environment: development
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Dispatcher: webrick
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Application: My Application
+[05/19/15 17:28:18 +0530 OD038 (25799)] WARN : Agent configured not to send data in this environment.
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing HTTPClient instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing deferred Rack instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Rack::Builder middleware instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Rails Sunspot instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Memcache instrumentation for dalli gem
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing ActiveRecord 4 instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing middleware-based Excon instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Rails 3+ middleware instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Net instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Rails 4 Error instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Rails 4 Controller instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Installing Rails 4 view instrumentation
+[05/19/15 17:28:18 +0530 OD038 (25799)] INFO : Finished instrumentation
+[05/19/15 17:28:19 +0530 OD038 (25799)] INFO : Doing deferred dependency-detection before Rack startup
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Starting the New Relic agent in "development" environment.
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : New Relic Agent Developer Mode enabled.
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Environment: development
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Dispatcher: webrick
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Application: My Application
+[05/19/15 17:29:13 +0530 OD038 (25824)] WARN : Agent configured not to send data in this environment.
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing HTTPClient instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing deferred Rack instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Rack::Builder middleware instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Rails Sunspot instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Memcache instrumentation for dalli gem
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing ActiveRecord 4 instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing middleware-based Excon instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Rails 3+ middleware instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Net instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Rails 4 Error instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Rails 4 Controller instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Installing Rails 4 view instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Finished instrumentation
+[05/19/15 17:29:13 +0530 OD038 (25824)] INFO : Doing deferred dependency-detection before Rack startup
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Starting the New Relic agent in "development" environment.
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : New Relic Agent Developer Mode enabled.
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Environment: development
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Dispatcher: webrick
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Application: My Application
+[05/19/15 17:30:50 +0530 OD038 (25922)] WARN : Agent configured not to send data in this environment.
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing HTTPClient instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing deferred Rack instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing Rack::Builder middleware instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing Rails Sunspot instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing Memcache instrumentation for dalli gem
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing ActiveRecord 4 instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing middleware-based Excon instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing Rails 3+ middleware instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing Net instrumentation
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/19/15 17:30:50 +0530 OD038 (25922)] INFO : Installing Rails 4 Error instrumentation
+[05/19/15 17:30:51 +0530 OD038 (25922)] INFO : Installing Rails 4 Controller instrumentation
+[05/19/15 17:30:51 +0530 OD038 (25922)] INFO : Installing Rails 4 view instrumentation
+[05/19/15 17:30:51 +0530 OD038 (25922)] INFO : Finished instrumentation
+[05/19/15 17:30:51 +0530 OD038 (25922)] INFO : Doing deferred dependency-detection before Rack startup
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Starting the New Relic agent in "development" environment.
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : New Relic Agent Developer Mode enabled.
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Environment: development
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Dispatcher: webrick
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Application: My Application
+[05/19/15 19:37:01 +0530 OD038 (28422)] WARN : Agent configured not to send data in this environment.
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing HTTPClient instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing deferred Rack instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Rack::Builder middleware instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Rails Sunspot instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Memcache instrumentation for dalli gem
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing ActiveRecord 4 instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing middleware-based Excon instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Rails 3+ middleware instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Net instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Rails 4 Error instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Rails 4 Controller instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Installing Rails 4 view instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Finished instrumentation
+[05/19/15 19:37:01 +0530 OD038 (28422)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Environment: development
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Dispatcher: webrick
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Application: My Application
+[05/25/15 10:39:41 +0530 OD038 (3641)] WARN : Agent configured not to send data in this environment.
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing HTTPClient instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing deferred Rack instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Net instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 10:39:41 +0530 OD038 (3641)] INFO : Finished instrumentation
+[05/25/15 10:39:43 +0530 OD038 (3641)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Environment: development
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Dispatcher: webrick
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Application: My Application
+[05/25/15 11:00:49 +0530 OD038 (8364)] WARN : Agent configured not to send data in this environment.
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing HTTPClient instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing deferred Rack instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Net instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Finished instrumentation
+[05/25/15 11:00:49 +0530 OD038 (8364)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Environment: development
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Dispatcher: webrick
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Application: My Application
+[05/25/15 11:04:25 +0530 OD038 (8397)] WARN : Agent configured not to send data in this environment.
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing HTTPClient instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing deferred Rack instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Net instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Finished instrumentation
+[05/25/15 11:04:25 +0530 OD038 (8397)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Environment: development
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Dispatcher: webrick
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Application: My Application
+[05/25/15 11:44:20 +0530 OD038 (17019)] WARN : Agent configured not to send data in this environment.
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing HTTPClient instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing deferred Rack instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Net instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Finished instrumentation
+[05/25/15 11:44:20 +0530 OD038 (17019)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Environment: development
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : No known dispatcher detected.
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Application: My Application
+[05/25/15 12:06:09 +0530 OD038 (17517)] WARN : Agent configured not to send data in this environment.
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing HTTPClient instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing deferred Rack instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Net instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 12:06:09 +0530 OD038 (17517)] INFO : Finished instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Environment: development
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : No known dispatcher detected.
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Application: My Application
+[05/25/15 12:06:26 +0530 OD038 (17580)] WARN : Agent configured not to send data in this environment.
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing HTTPClient instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing deferred Rack instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Net instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 12:06:26 +0530 OD038 (17580)] INFO : Finished instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Environment: development
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Dispatcher: webrick
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Application: My Application
+[05/25/15 12:08:22 +0530 OD038 (17608)] WARN : Agent configured not to send data in this environment.
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing HTTPClient instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing deferred Rack instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Net instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Finished instrumentation
+[05/25/15 12:08:22 +0530 OD038 (17608)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Environment: development
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Dispatcher: webrick
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Application: My Application
+[05/25/15 12:29:02 +0530 OD038 (18067)] WARN : Agent configured not to send data in this environment.
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing HTTPClient instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing deferred Rack instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Net instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Finished instrumentation
+[05/25/15 12:29:02 +0530 OD038 (18067)] INFO : Doing deferred dependency-detection before Rack startup
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Starting the New Relic agent in "development" environment.
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Reading configuration from config/newrelic.yml (/var/www/healclick)
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : New Relic Agent Developer Mode enabled.
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Environment: development
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Dispatcher: webrick
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Application: My Application
+[05/25/15 12:52:20 +0530 OD038 (18568)] WARN : Agent configured not to send data in this environment.
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing HTTPClient instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing deferred Rack instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Rack::Builder middleware instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Rails Sunspot instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Memcache instrumentation for dalli gem
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing ActiveRecord 4 instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing middleware-based Excon instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Rails 3+ middleware instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Net instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing DelayedJob instrumentation [part 1/2]
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Rails 4 Error instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Rails 4 Controller instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Installing Rails 4 view instrumentation
+[05/25/15 12:52:20 +0530 OD038 (18568)] INFO : Finished instrumentation
+[05/25/15 12:52:21 +0530 OD038 (18568)] INFO : Doing deferred dependency-detection before Rack startup

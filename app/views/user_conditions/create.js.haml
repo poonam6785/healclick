@@ -1,0 +1,9 @@
+:plain
+  $('#conditions_container').html('#{escape_javascript(render partial: 'personal_profiles/user_conditions')}')
+  $('#user_condition_condition_id').val('')
+  $('#user_condition_condition_name').val('')
+  $('#suggest_condition_container').hide()
+  if ($(window).width() > 1200)
+    $(".set-custom-position").css("margin-left", "280px")
+
+  

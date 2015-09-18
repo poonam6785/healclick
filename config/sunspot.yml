@@ -1,0 +1,27 @@
+production:
+  solr:
+    hostname: ec2-west.websolr.com
+    port: 80
+    log_level: WARNING
+    path: /solr/c67eaa9e059
+
+staging:
+  solr:
+    hostname: ec2-west.websolr.com
+    port: 80
+    log_level: WARNING
+    path: /solr/6b2bb577073
+
+development:
+  solr:
+    hostname: localhost
+    port: 8982
+    log_level: INFO
+    path: /solr/development
+
+test:
+  solr:
+    hostname: localhost
+    port: 8982
+    log_level: WARNING
+    path: /solr/test

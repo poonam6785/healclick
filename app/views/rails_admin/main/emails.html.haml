@@ -1,0 +1,17 @@
+= form_tag '/system_settings', method: :post do |f|
+  %fieldset
+    %legend Welcome e-mail (delivered to each user after sign up).
+    %label.checkbox
+      = hidden_field_tag 'system_settings[welcome_email_enabled]', 0
+      = check_box_tag 'system_settings[welcome_email_enabled]', '1', SystemSetting.get_boolean_value(:welcome_email_enabled)
+      Send welcome e-mail to new users
+    %br/
+    = label_tag 'system_settings[welcome_email_subject]', 'Subject'
+    = text_field_tag 'system_settings[welcome_email_subject]', SystemSetting.get_value(:welcome_email_subject), :class => 'input-xxlarge'
+    = label_tag 'system_settings[welcome_email_body]', 'Body'
+    = text_area_tag 'system_settings[welcome_email_body]', SystemSetting.get_value(:welcome_email_body), size: '50x10', :class => 'input-xxlarge'
+    = hidden_field_tag :redirect_to, '/admin/emails'
+    %p.muted
+      {username} will be replaced with user's username. Example: Hello, {username}.
+  %fieldset
+    = submit_tag 'Save', class: 'btn btn-success'

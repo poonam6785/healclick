@@ -1,0 +1,49 @@
+- treatment_review = treatment.treatment_review.nil? ? treatment.build_treatment_review : treatment.treatment_review
+- date ||= @date
+- date ||= Time.zone.now.to_date
+%div{id: "treatment_#{treatment.id}"}
+  = f.fields_for :treatments, treatment do |ff|
+    .row.treatment{data: {'treatment-id' => treatment.id}}
+      = hidden_field_tag :tracking_date, date
+
+      - if show_currently_taking?
+        .col-lg-1.col-md-1.col-sm-1
+          = radio_button_tag "bulk_edit_id_#{treatment.id}", treatment.id, false, class: 'bulk-edit-radio'
+      .treatment.col-lg-2.col-md-2.col-sm-2.col-xs-12
+        = link_to treatment.treatment, summary_reviews_path(treatment_name: treatment.treatment, commit: 'Search'), target: :_blank
+      .taken-today.col-lg-1.col-md-1.col-sm-1.col-xs-12
+
+        - restore_values = restore_treatment_values(ff.object, date)
+        - ff.object.take_today = restore_values.fetch(:take_today, false)
+        .visible-xs
+          %br
+          .pull-left
+            Taken Today?
+        = link_to (ff.object.take_today ? 'Yes' : '?'), '#', class: "label label-default taken-link #{('label-info' if ff.object.take_today)}"
+        = ff.check_box :take_today, class: 'take-today-checkbox hide'
+
+      .dosage.col-lg-2.col-md-2.col-sm-2.col-xs-12
+        = ff.text_field :current_dose, class: 'form-control current-dose', placeholder: 'Enter Dosage', value: restore_values.fetch(:current_dose, ff.object.current_dose)
+
+      .rating.col-lg-2.col-md-2.col-sm-2.col-xs-12
+        - if ff.object.level.blank?
+          - if treatment_review.review.present?
+            = link_to 'Add Rating', edit_review_path(treatment_review.review, date: date), remote: true
+          - else
+            = link_to 'Add Rating', new_review_path(treatment_id: treatment.id), class: 'treatment_review_link', remote: true
+        - else
+          .mobile-label.visible-xs
+            %br
+            Overall Rating:
+            = ff.object.level.try(:humanize).try(:titleize)
+            %br
+          .hidden-xs
+            = ff.object.level.try(:humanize).try(:titleize)
+      .reviews.col-lg-4.col-md-4.col-sm-4.col-xs-12.treatment-edit-show-margin
+        - if treatment.treatment_review.content.present?
+          = link_to edit_review_path(treatment_review.review, date: date), remote: true, class: 'btn btn-success btn-xs' do
+            Edit
+          = link_to post_review_path_helper(treatment_review.review), target: :_blank, class: 'btn btn-success btn-xs' do
+            Show
+        - else
+          = link_to 'Post Review', new_review_path(treatment_id: treatment.id), class: 'treatment_review_link', remote: true

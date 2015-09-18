@@ -1,0 +1,15 @@
+%fieldset.padding-10
+  %legend= 'Users Who Added Me'
+
+  .right
+    = paginate @following_users
+  .clearfix
+
+  - if @following_users.blank?
+    %p1 There are no users
+  - else
+    = render partial: "user", collection: @following_users.map(&:following_user)
+
+  .right
+    = paginate @following_users
+  .clearfix

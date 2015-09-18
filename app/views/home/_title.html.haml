@@ -1,0 +1,4 @@
+- if render_dropdown
+  .row.community-filter
+    .col-sm-5
+      = select_tag 'community_filter', options_for_select(community_options, cookies[:selected_community]), class: 'full-width'

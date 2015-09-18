@@ -1,0 +1,15 @@
+.col-xs-12.col-sm-4.col-md-4.col-lg-4
+  .box-treatments
+    .navbar-header
+      %h1=link_to community_title_for_home('Topics'), topics_path(condition_id: params[:condition_id])
+      %button.navbar-toggle{'data-target' => '.navbar-collapse-3', 'data-toggle' => 'collapse', type: 'button'}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .navbar-collapse.navbar-collapse-3.collapse
+      %ul.list-treatments.list-talk
+        - @topics.each do |post|
+          %li
+            %h6= link_to truncate(post.title, length: 25, omission: '...'), post_review_path_helper(post), class: 'color-green'
+            = truncate(post.content, length: 80, omission: '...')
+    .clearF

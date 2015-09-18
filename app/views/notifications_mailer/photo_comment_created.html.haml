@@ -1,0 +1,16 @@
+%p
+  Hello, #{@comment.commentable.user.username}
+
+%p
+  #{@comment.anonymous ? "Anonymous" : @by_user.username} added a comment to your photo: 
+  %br/
+  #{truncate(@comment.content, :length => 200, :omission => "... (continued)")}
+
+%p
+  To read more, go to: 
+  %br/
+  - url = "#{user_photo_url(@comment.commentable.user, @comment.commentable)}#comment_#{@comment.id}"
+  = link_to url, url
+
+%p
+  The HealClick Team

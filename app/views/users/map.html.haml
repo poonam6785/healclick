@@ -1,0 +1,24 @@
+- title 'Patients Map'
+- content_for :before_js do
+  = javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=false'
+
+- if !current_user.patient_matches_populated?
+  %center
+    %h2.calculating{style: 'margin-top: 100px'} We're calculating your matches....
+
+- else
+  %fieldset
+    %legend
+      .col-lg-2.col-sm-3.col-md-3.col-xs-6
+        %span.view-list.pull-left
+          = link_to_unless_current 'View List', {action: 'index'}
+      
+      .col-lg-2.col-sm-3.col-md-3.col-xs-6
+        %span.view-map.pull-right
+          = link_to_unless_current 'View Map', {action: 'map'}
+      .clearfix
+      %br
+
+    = render 'filters'
+  #google-map
+    = render 'google_map'

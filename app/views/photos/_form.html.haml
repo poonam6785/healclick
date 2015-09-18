@@ -1,0 +1,18 @@
+.modal.fade#new_photo_container
+  .modal-dialog
+    .modal-content
+      = form_for @photo, url: photo_path(@photo, user_id: @user.id), method: :put do |f|
+        .modal-header
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} &times;
+          %h3.color-blue
+            Edit Photo
+
+        .modal-body
+          .control-group
+            = f.label :caption, class: "control-label"
+            .controls.modal-resp
+              = f.text_field :title, placeholder: "Enter the new Title...", class: 'input-xxlarge form-control'
+
+        .modal-footer
+          %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} Close
+          = f.submit 'Post', :class => 'btn btn-success', 'data-disable-with' => 'Posting...'

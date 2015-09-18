@@ -1,0 +1,5 @@
+<% if params[:public].present? %>
+  $('#leaderboard-block .list').removeClass('ajax').html('<%= j render(partial: 'users/leaderboard') %>');
+<% else  %>
+  $('#users-list').html('<%= j render(partial: 'rails_admin/main/user', collection: @top_users) %>');
+<% end %>

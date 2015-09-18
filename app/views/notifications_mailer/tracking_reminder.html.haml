@@ -1,0 +1,10 @@
+Hello, #{@user.username}
+
+%p
+  This is a gentle reminder to track today's symptoms and treatments. Sign into #{link_to "HealClick",  root_url} and click on the Health Tracker. To see how you're doing over time, go to #{link_to "See My Results", my_health_personal_profile_url(medical_editor: :visualize)}
+
+%p
+  To change how often you receive these emails, please go to: 
+  #{link_to settings_url, settings_url}
+
+The HealClick Team

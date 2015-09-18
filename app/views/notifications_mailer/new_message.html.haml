@@ -1,0 +1,15 @@
+%p
+  Hello, #{@message.to_user.username}. You have a new message from 
+  %strong= @message.from_user.username
+
+%p
+  #{@message.from_user.username} wrote:
+  #{truncate(@message.content, :length => 200, :omission => "... (continued)")}
+
+%p
+  To read your message, go to
+  %br/
+  = link_to message_url(@message), message_url(@message)
+
+%p
+  The HealClick Team

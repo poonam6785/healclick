@@ -1,0 +1,199 @@
+@import compass
+@import health-icons
+@import variables
+
+#symptoms_container
+  .symptom
+    min-height: 53px
+    padding: 9px 0 6px !important
+    position: relative
+    border-bottom: 1px solid #cccccc
+    &.first
+      border-top: 1px solid #cccccc
+    &:last-child
+      border: none
+    .symptom-severity
+      padding-top: 5px
+      padding-bottom: 9px
+    .symptom-treatment, .symptom-notify
+      padding-top: 5px
+    .delete-symptom
+      padding-top: 3px
+
+.well-being-container
+  h4
+    color: #777
+    text-transform: uppercase
+
+.well-being-gradient
+  display: table
+  width: 100%
+  .well-being-level
+    display: table-cell
+    text-align: center
+    &:first-child
+      text-align: left
+      width: 17%
+    &:last-child
+      text-align: right
+      width: 17%
+    span
+      width: 32px
+      height: 32px
+      display: inline-block
+      border-radius: 20px
+      &.happy
+        background: #cfdf2d
+      &.smiley
+        background: #e4ba0e
+      &.neutral
+        background: #e17d09
+      &.sad
+        background: #de4405
+      &.angry
+        background: #db0000
+
+.moods
+  padding: 0
+  text-align: center
+  .grades
+    display: table
+    width: 100%
+    .grade
+      letter-spacing: 0px
+      display: table-cell
+      text-transform: capitalize
+      font-size: 13px
+      font-weight: bold
+      color: #555
+      &.none
+        text-align: left
+      &.worst
+        text-align: right
+  .gradient
+    width: 100%
+    height: 10px
+    float: left
+    +filter-gradient(#e8ff14, #db0000, horizontal)
+    // IE6-9
+    +background-image(linear-gradient(left, #e8ff14 0%, #db0000 100%))
+    border-radius: 2px
+
+.symptoms-dragdrop-notice
+  color: #c00
+  margin-top: 25px
+
+.symptoms-sortable
+  form:nth-of-type(n+1)
+    .symptom
+      border-bottom: 1px solid #ccc
+  form:last-child .symptom
+    border-bottom: 0
+  form
+    position: relative
+    &:hover, &.ui-sortable-helper
+      .symptom
+        background: #eee
+        .symptom-drag
+          display: block    
+  .symptom-name
+    text-align: left
+
+.drag
+  display: none
+  position: absolute
+  cursor: move
+  left: -22px
+  width: 30px
+  background: #eee
+  top: 0
+  bottom: 0
+  padding: 10px
+  z-index: 50
+  border-radius: 5px 0 0 5px
+  .fa
+    position: absolute
+    top: 50%
+    margin-top: -0.5em
+    color: #999    
+
+.symptom-add
+  margin: 25px 0 0 0
+  .help-block
+    font-size: 12px
+  .bootstrap-tagsinput input
+    width: 220px !important
+
+.symptoms-remove-icon
+  color: #fff
+  font-weight: bold
+  padding: 0px 4px
+  border-radius: 3px
+  border: 1px solid #b71c1c
+  background: #ec4848
+  display: inline-block
+  line-height: 15px
+  font-size: 12px
+
+.symptoms-remove-icon:after
+  content: "x"
+
+.symptoms-remove-icon
+  color: #fff
+  font-weight: bold
+  padding: 0px 4px
+  border-radius: 3px
+  border: 1px solid #b71c1c
+  background: #ec4848
+  display: inline-block
+  line-height: 15px
+  font-size: 12px
+
+.symptoms-remove-icon:after
+  content: "x"  
+
+#symptom-add
+  display: none
+
+.smaller-level .symptom-level .btn-group
+  width: 100%
+
+.symptom    
+  .col-lg-2.col-md-2.col-sm-2.col-xs-12.float-center
+    .visible-xs 
+      .pull-right.set-reminder-checkbox      
+        margin-top: 20px
+        .pull-left.text-reminder  
+          margin-right: 10px
+
+  .col-lg-1.col-lg-offset-11.col-md-1.col-md-offset-11.col-sm-1.col-sm-offset-11.col-xs-12       
+    position: absolute
+
+    @media (max-width: 768px)
+      margin-top: -5px
+
+  .col-lg-3.col-md-3.col-sm-3.col-xs-12
+    .col-lg-1.col-md-1.col-sm-1.col-xs-2    
+      padding: 0px
+      
+  @media (max-width: 768px)
+    .col-lg-9.col-md-9.col-sm-9.col-xs-10
+      padding-left: 0px
+
+.popular-symptoms
+  .symptom-list
+    margin-left: 5px
+
+.add-symptom-top-margin
+  margin-top: 15px  
+
+  input[type="submit"]
+    height: 32px
+
+.visible-md.visible-lg
+  .col-md-6.col-sm-6.col-xs-12.col-md-offset-3.col-sm-offset-3.well-being-container.text-center.larger-text-box
+    width: 51%
+
+#symptoms .select2-container, #treatments .select2-container
+  @media (max-width: 400px)
+    width: 100% !important

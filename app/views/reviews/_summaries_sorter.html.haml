@@ -1,0 +1,6 @@
+.dropdown.padding-10
+  .form-inline.pull-left
+    = select_tag 'sort_by', options_for_select([['Latest Activity', treatment_sorter_path('posts.created_at desc')], ['Most Reviews', treatment_sorter_path('rcount+desc')], ['Highest Rated', treatment_sorter_path('average_level+desc')]], "?#{URI.unescape request.query_string}"), class: 'form-control select2-without-search'
+
+
+.clearfix

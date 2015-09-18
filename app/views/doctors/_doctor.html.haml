@@ -1,0 +1,31 @@
+%tr.doctor{data: {'doctor-id' => doctor.id}}
+  %td.remove
+    = link_to doctor_path(doctor, format: :js), method: :delete, confirm: 'Are you sure you want to remove this doctor?', remote: true do
+      %span.symptoms-remove-icon
+  %td.doctor
+    = link_to doctor.name, doctor_reviews_path(query: doctor.name, commit: 'Search', condition_id: 'all', country_id: '', state: ''), target: :_blank
+    = link_to edit_doctor_path(doctor), remote: true do
+      %i.icon-pencil
+  %td.selector
+    .visible-xs.table-label Recommended?
+    = link_to 'Yes', doctor_path(doctor, doctors: {recommended: true}), class: "centered label-default label one-line #{"label-info" if doctor.recommended?}", remote: true, method: :patch
+    = link_to 'No', doctor_path(doctor, doctors: {recommended: false}), class: "centered label-default label one-line #{"label-info" if doctor.recommended == false}", remote: true, method: :patch
+  %td.location
+    - if doctor.location.blank?
+      = link_to 'Add Location', new_review_path(doctor_id: doctor.id), remote: true
+    - else
+      = link_to doctor.location, new_review_path(doctor_id: doctor.id), remote: true
+  %td.dates
+    - period = doctors_period doctor
+    - if period.blank?
+      = link_to 'Add Dates', new_review_path(doctor_id: doctor.id), remote: true
+    - else
+      = link_to period, new_review_path(doctor_id: doctor.id), remote: true
+  %td.reviews
+    - if doctor.doctor_review.review.present?
+      = link_to "Show Review", post_path(doctor.doctor_review.review), target: :_blank
+      %br/
+      = link_to 'Edit Review', edit_doctor_review_path(doctor.doctor_review.review), remote: true
+    - else
+      = link_to 'Add Review', new_review_path(doctor_id: doctor.id), class: 'btn btn-success treatment_review_link', remote: true
+  %td.line

@@ -1,0 +1,18 @@
+%fieldset
+  = render 'profile_top'
+    
+  = render 'personal_profile_tabs'
+
+  = render 'profile_quick_message'
+
+  #activity_logs_container.scroll-pagination
+
+    = render partial: 'activity_log_batch'
+
+  .more_posts.centered{style: "margin: 20px;"}
+    = hidden_field_tag :current_page, 1, id: :current_page
+    = hidden_field_tag :content_type, 'activity_log', id: :content_type
+    = hidden_field_tag :username, @user.username, id: :username
+
+    .loading_container
+      = image_tag 'loading.gif', size: "20x20"            

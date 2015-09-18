@@ -1,0 +1,5 @@
+.post-buttons-container
+  .comment-luv-container{id: "comment_luv_container_#{comment.id}"}
+    = render partial: 'comments/luv_link', locals: {comment: comment}
+  .comment-helpful-container{id: "comment_helpful_container_#{comment.id}"}
+    = render partial: 'comments/helpful_link', locals: {comment: comment}

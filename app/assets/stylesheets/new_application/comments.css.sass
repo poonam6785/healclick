@@ -1,0 +1,172 @@
+.replies_container
+  margin: 0px
+  margin-bottom: -4px
+
+.comments_container
+  margin: 10px 0 0 30px
+  background: #f1f7fd
+  border-left: 2px solid #9ACEFF
+  margin-left: 10%
+
+.replies_container .well
+  border: 0px
+
+.bolder
+  font-weight: bold
+
+.edit_user fieldset
+  margin: 0 0 15px 0
+
+.comment.collapsed
+  .comments_container
+    display: none
+
+.comment.expanded
+  .comments_container
+    display: block
+
+
+.add_reply_container
+  margin-top: 20px
+  padding-top: 20px
+  &.top
+    margin-top: 0
+    padding-top: 0
+    margin-bottom: 20px
+    padding-bottom: 10px
+    border-bottom: 1px solid #ccc
+  &.only
+    margin: 0
+    padding: 0
+    border: 0
+  textarea.autogrow
+    min-height: 3em
+
+.replies-wrapper
+  position: relative
+  border-color: #9ACEFF
+  box-shadow: none
+
+.comments .add_reply_container
+  padding-bottom: 30px
+
+.comments_container
+  border-left: 2px solid #9ACEFF
+  width: 93%
+  margin: 15px 0 0 7%
+  padding: 0px 0 15px 0%
+
+  .subcomment
+    border-top: 1px solid #DDDDDD
+    padding: 15px 0 15px 2%
+    position: relative
+
+.add_reply_container.top
+  border-bottom: 1px solid #DDDDDD
+  &:after
+    @extend .clearfix
+
+.add_reply_container
+  display: none
+  padding: 10px 0 10px 0
+
+.replies-wrapper
+  border: 1px solid #9ACEFF
+
+.comment.collapsed .comments_container
+  display: none
+
+.subcomments_link.btn
+  @extend .btn
+  @extend .btn-default
+
+.add-subcomment-button
+  margin-left: 2%
+
+.collapsed.comment, .comment.expanded
+  border-bottom: 1px solid #DDDDDD
+  padding: 10px 0
+  @extend .col-sm-12
+
+.comment_content
+  textarea
+    min-height: 3em
+    padding: 10px !important
+        
+.comment-far-right
+  width: 100px
+  text-align: right
+  float: left
+
+.subcomment-right
+  padding: 10px
+  float: left
+  width: 400px
+  min-height: 100px
+
+.post-far-right
+  text-align: right
+  float: none
+
+.post-absolute-right
+  position: absolute
+  right: 0
+  top: 27px
+
+.post-bottom
+  padding: 5px
+  margin-top: 10px
+  position: relative
+
+.post-bottom-left
+  float: left
+  width: 580px
+  padding-left: 157px
+  margin-bottom: 6px
+
+.post-bottom-right
+  float: right
+  width: 110px
+  text-align: right
+
+.comment-bottom-left
+  float: left
+  width: 650px
+
+.comment-bottom-right
+  float: right
+  width: 100px
+  height: 30px
+  position: relative
+
+.comment
+  border-bottom: 1px solid #DDDDDD
+  padding: 10px
+
+.subcomment
+  border-top: 1px solid #DDDDDD
+  padding: 10px
+  -moz-box-sizing: border-box
+  box-sizing: border-box
+
+.subcomment:last-child
+  margin-bottom: 10px
+
+.comment-bottom-info
+  min-height: 90px
+  padding-top: 65px
+  .post-buttons-container
+    margin-top: -55px
+
+    @media (max-width: 768px)
+      margin-top: 0px
+
+.comment_anonymous    
+  label 
+    margin-left: 20px
+
+.comment-text
+  img
+    display: block
+    max-width: 100%
+    height: auto

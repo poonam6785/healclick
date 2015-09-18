@@ -1,0 +1,5 @@
+:plain
+  $('#photo_form_container').html('#{escape_javascript(render partial: 'form', locals: { photo: @photo })}')
+  $('#new_photo_container').modal({keyboard: false, backdrop: 'static'});
+  window.attach_users_typehead_event($('#new_photo_container').find('.users-typehead'));
+  $('.file-inputs:not(.changed)').addClass('changed').bootstrapFileInput();

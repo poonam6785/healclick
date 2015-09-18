@@ -1,0 +1,20 @@
+- title 'Doctor Reviews', :doctor_reviews
+
+%fieldset
+  .tab-content
+    .tab-pane.active
+      .top-post
+        .bolder.search-count.pull-left
+          = "Showing #{@summaries.total_count} Results" if params[:query].present?
+        
+        .clearfix
+        = render partial: "doctor_reviews/summaries_sorter" unless params[:query].present?
+
+      #treatments_container.scroll-pagination
+        = render partial: 'reviews/summaries_batch'
+
+        .loading_container
+          = image_tag 'loading.gif', size: "20x20"
+
+  = render 'shared/tabbed_review_form' if current_user
+#post_form_container

@@ -1,0 +1,12 @@
+:plain
+  $('#labs-container').html('#{j render partial: 'personal_profiles/labs'}');
+  $('#tags-labs').tagsinput('removeAll');
+  $('.labs-submit').text('Add').prop('disabled', false);
+  init_treatments_select2();
+  var errors = "#{@errors}";
+  if (errors){
+    $.bootstrapGrowl(errors, {
+      type: 'error',
+      offset: {from: 'top', amount: 80}
+    });
+  }

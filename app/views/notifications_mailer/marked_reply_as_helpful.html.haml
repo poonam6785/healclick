@@ -1,0 +1,13 @@
+
+Hello, #{@markable.user.username}
+
+%p
+  #{@user.username} finds this reply helpful: "#{truncate(@markable.content, :length => 200, :omission => "... (continued)").html_safe}"
+
+%p
+  To read more, go to:
+  %br/
+  - url = "#{post_url(@markable.commentable)}#comment_#{@markable.id}"
+  = link_to url, url
+%p
+  The HealClick Team

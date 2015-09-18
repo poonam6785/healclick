@@ -1,0 +1,4 @@
+production: healclickproduction.zg6dvu.0001.usw2.cache.amazonaws.com:11211
+staging: healclickstaging.zg6dvu.0001.usw2.cache.amazonaws.com:11211
+development:
+test:

@@ -1,0 +1,17 @@
+- unless @treatment.blank?
+	:plain
+		$('.review_form_modal').remove();
+		$form = $('#{j render('shared/review_form', id: "review_form_#{@treatment.id}")}');
+		$form.modal({keyboard: false, backdrop: 'static', show: true});
+		$(document).trigger('medical_editor:init');
+		window.attach_users_typehead_event($form.find('.users-typehead'));
+		$("#review_body .select2").select2();
+- else
+	:plain
+		$('.review_form_modal').remove();
+		$form = $('#{j render('shared/doctor_review_form', id: "review_form_#{@doctor.id}")}');
+		$form.find('.treatment_name').attr('disabled', 'disabled');
+		$form.modal({keyboard: false, backdrop: 'static', show: true});
+		$('.doctor_review_form #doctor_review_doctor_attributes_country_id').trigger('change');
+		window.attach_users_typehead_event($form.find('.users-typehead'));
+		$("#review_body .select2").select2();

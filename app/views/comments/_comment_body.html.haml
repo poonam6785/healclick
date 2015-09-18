@@ -1,0 +1,30 @@
+.hidden-xs
+  .pull-left.inline.timestamp
+    = time_ago_in_words(comment.created_at) + ' ago'
+    %br
+    
+.visible-xs.timestamp
+  = time_ago_in_words(comment.created_at) + ' ago'
+
+.hidden-xs
+  .clearfix
+.visible-xs
+  %br 
+
+.comment-text.fit-in-page{id: "comment-text-#{comment.id}"}
+  - if !current_user && comment.user.try(:privacy) != 1
+    = link_to '[You must be a member to view this]', landing_path
+  - else
+    = image_tag comment.attachment.url(:large) unless comment.attachment_file_name.blank?
+    - if comment.media_comment?
+      = linked_mentions(comment.content)
+    - else
+      - if comment.media_comment?
+        = linked_mentions(comment.content)
+      - else
+        - if current_user && !summary_pages?
+          = linked_mentions(truncate(comment.content, length: 400, omission: '...'))
+        - else
+          = linked_mentions comment.content
+      - if comment.content.to_s.length > 400 && !comment.media_comment? && current_user && !summary_pages?
+        = link_to('Read More', comment_path(comment, _: Time.now.to_i, format: :js), class: 'blue read-more-link',  remote: true)

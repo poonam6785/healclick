@@ -1,0 +1,4 @@
+:plain
+  $('#posts_container').append('#{escape_javascript(render(partial: "posts/posts_batch"))}');
+  $('.loading_container').hide();
+  load_useful_link_listeners();

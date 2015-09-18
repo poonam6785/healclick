@@ -1,0 +1,16 @@
+- @doctor_review ||= @doctor.doctor_review.nil? ? @doctor.build_doctor_review : @doctor.doctor_review
+
+.modal.fade#doctor-review-modal.doctor_review_form.review_form_modal
+  .modal-dialog
+    .modal-content
+      - @remote = false if params[:controller] == 'home'
+      
+      = form_for @doctor_review, class: "form-horizontal", remote: @remote do |f|
+        .modal-header
+          %button{:type => "button", :class => "close", :"data-dismiss" => "modal", :"aria-hidden" => "true"} &times;
+          %h4.modal-title
+            = @doctor_review.new_record? ? 'New' : 'Update'
+            Review
+
+        .modal-body
+          = render 'shared/doctor_review_form_body', f: f

@@ -1,0 +1,12 @@
+.col-lg-4.col-md-4.col-sm-4.col-xs-12
+  .well
+    = link_to user_photo_path(photo.user, photo) do
+      .post-left
+        %div.photo-container{style: "background-image: url('#{photo.attachment.url}')"}    
+
+    - if current_user == photo.user
+      %p
+        %br/
+        = link_to 'Use as Profile Photo', set_as_profile_user_photo_path(current_user, photo)
+        %br/
+        = link_to 'Delete Photo', user_photo_path(current_user, photo), method: :delete, confirm: 'Are you sure?'

@@ -1,0 +1,11 @@
+%table.table.medical-doctors-table
+  %thead
+    %tr
+      %th.hidden-xs
+      %th Doctor
+      %th.hidden-xs Recommended?
+      %th.hidden-xs Location
+      %th.hidden-xs Period
+      %th.hidden-xs Review
+  %tbody
+    = render current_user.doctors.recent

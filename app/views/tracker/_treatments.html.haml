@@ -1,0 +1,38 @@
+- date ||= @date
+- date ||= Time.zone.now.to_date
+
+= form_for current_user, url: batch_update_treatments_path, remote: true, html: {class: 'form-inline'} do |f|
+
+  %center
+    .tracking-date
+      = hidden_field_tag :tracking_date, date
+      %span.date= l(date, format: :month_day)
+      %a.btn.btn-link.datepicker{href: '#'}
+        = fa_icon :calendar
+    %h4 Which treatments did you take today?
+
+  .mood-container.scroll
+
+    - treatments = current_user.treatments.currently_taking.by_rank
+    - if treatments.present?
+      - treatments.each do |treatment|
+        .item
+          .desc= treatment.to_s.upcase
+          = f.fields_for :treatments, treatment do |ff|
+            = render 'treatments/tracker_fields', treatment: treatment, form: ff, date: date
+          .clearfix
+    - else
+      %center
+        You currently take no treatments.
+    
+  .row
+    .col-lg-7.col-md-7.col-sm-7.col-xs-7
+      = f.submit "Save", class: "btn btn-success btn-block"
+    .col-lg-5.col-md-5.col-sm-5.col-xs-5
+      = link_to "Cancel", "#", class: "btn btn-default secondary menu-link btn-block", 'data-screen' => :menu
+  = hidden_field_tag 'user[force_submit]'
+
+  %p.text-center
+    = link_to my_health_personal_profile_path(medical_editor: :treatments), class: 'see-all-link' do
+      See All Treatments
+  .clearfix

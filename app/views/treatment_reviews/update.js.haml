@@ -1,0 +1,11 @@
+:plain
+  $('#treatments_container').html('#{j render partial: 'personal_profiles/treatments'}')
+  $('body').trigger('init_treatment_toggles')
+  $('.review_form_modal').modal('hide');
+  $('#post_container_#{@treatment_review.review.id}').html('#{j render(partial: 'posts/post_full_body', locals: {post: @treatment_review.review})}');
+  $('#post-container').html('#{j render(partial: 'posts/review_show', locals: {post: @treatment_review.review})}');
+  $("tr.treatment[data-treatment-id='#{@treatment_review.treatment_id}']").replaceWith('#{j render(partial: 'treatments/treatment', object: @treatment_review.treatment)}')
+  $('body').trigger('init_treatment_toggles');
+  $(".health-tracker-item .popover .treatments").html("#{ j render('tracker/treatments') }");
+  $(window).resize();
+  init_treatments_select2();

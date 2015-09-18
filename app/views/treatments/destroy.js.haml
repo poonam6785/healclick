@@ -1,0 +1,5 @@
+:plain
+  $('#treatments_container .treatment[data-treatment-id="#{@treatment_id}"]').remove();
+  load_period_listeners();
+  load_review_button_listeners();
+  $(".medical-treatments-table").trigger('update');

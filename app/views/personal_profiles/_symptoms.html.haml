@@ -1,0 +1,16 @@
+.row.margin-bottom-10
+  .col-lg-3.col-md-3.col-sm-3.hidden-xs
+  .col-lg-9.col-md-9.col-sm-9.col-xs-12
+    = render 'symptoms/gradient'
+= button_tag 'Save', class: 'btn btn-success pull-right medical-submit margin-bottom-10', data: {target: '#symptoms_container form'}
+.clearfix
+.scrollable-area
+  .clearfix
+  .margin-bottom-10
+    = form_for current_user, url: batch_update_symptoms_path, remote: true do |f|
+      = render partial: 'symptoms/symptom', collection: current_user.symptoms.notify, locals: {f: f}
+  .clearfix
+  %h4.treatment-header-taking Not Currently Tracking
+  .not-taking-table.margin-bottom-10
+    = form_for current_user, url: batch_update_symptoms_path, remote: true do |f|
+      = render partial: 'symptoms/symptom', collection: current_user.symptoms.not_notify, locals: {f: f}

@@ -1,0 +1,12 @@
+%ul.nav.nav-tabs#main_tabs
+  %li{class: active_messages_tab('received')}
+    = link_to "<span class='glyphicon glyphicon-inbox'></span> Received #{current_user.received_messages.unread.count > 0 ? "<span class='badge badge-important'>#{current_user.received_messages.unread.count}</span>" : ""}".html_safe, messages_path
+
+  %li{class: active_messages_tab('sent')}
+    = link_to '<span class="glyphicon glyphicon-share-alt"></span> Sent'.html_safe, sent_messages_path
+
+  %li{class: active_messages_tab('compose')}
+    = link_to '<span class="glyphicon glyphicon-file"></span> Compose'.html_safe, new_message_path
+
+  %li{class: active_messages_tab('notifications')}
+    = link_to "<span class='glyphicon glyphicon-warning-sign'></span> Notifications #{current_user.received_notifications.unread.count > 0 ? "<span class='badge badge-important'>#{current_user.received_notifications.unread.count}</span>" : ""}".html_safe, notifications_path

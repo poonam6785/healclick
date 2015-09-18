@@ -1,0 +1,4 @@
+.nav.nav-tabs
+  %li{class: profile_tab_class('profile')}= link_to 'User Profile', profile_path(@user.username)
+  %li{class: profile_tab_class('activity')}= link_to 'User Activity', activity_path(@user.username)
+%br  

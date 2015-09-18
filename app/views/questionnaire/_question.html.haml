@@ -1,0 +1,19 @@
+- unless @question.nil?
+  .box-treatments.box-questionnaire.box-recently
+    %h5= @question.text
+    = image_tag @question.image.url(:medium), class: 'img-responsive' unless @question.image_file_name.nil?
+    = form_for :answer, url: questionnaire_next_question_path, remote: true do |f|
+      = hidden_field :answer, :question_id, value: @question.id
+      - if @question.multiple_answers?
+        - @question.question_answers.each do |answer|
+          .checkbox
+            %label
+              = check_box_tag 'question_answer_ids[]', answer.id
+              = answer.text
+      - else
+        - @question.question_answers.each do |answer|
+          .radio
+            %label
+              = f.radio_button :question_answer_id, answer.id
+              = answer.text
+      = f.submit 'Next', class: 'btn btn-success', disable_with: 'Processing...'

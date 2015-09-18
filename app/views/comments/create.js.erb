@@ -1,0 +1,18 @@
+$('.comment_content').val('');
+$('.file-input-name').html('');
+$('#replies_container_<%= @post.id %>').html('<%= j render(partial: 'comments/comment', collection: @post.comments.without_parent.order('created_at asc')) %>');
+$('.add_reply_container[data-post-id=<%= @post.id %>]').removeClass('only').show();
+
+<% if @post.comments.without_parent.order("created_at desc").count > 0 %>
+  self.window.location.hash = '#';
+  self.window.location.hash = '#comment_<%= @post.comments.without_parent.order("created_at desc").first.id %>';
+<% end %>
+
+<% if @parent_comment.present? %>
+    $('#subcomments_for_<%= @parent_comment.id %> .subcomments').html('<%= j render(partial: "comments/subcomment", collection: @parent_comment.comments) %>');
+    $('#subcomments_for_<%= @parent_comment.id %>').show();
+    $('#new_subcomment_container_<%= @parent_comment.id %>').show();
+    $('#subcomments_for_<%= @parent_comment.id %> .subcomment_form').hide();
+    self.window.location.hash = '#';
+    self.window.location.hash = '#comment_<%= @comment.id %>';
+<% end %>

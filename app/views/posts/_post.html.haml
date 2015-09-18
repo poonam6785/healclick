@@ -1,0 +1,12 @@
+- no_all_reviews ||= false
+- view ||= @view
+- view ||= 'full'
+
+.post-container{id: "post_container_#{post.id}", class: [view, post.class.name.downcase, no_all_reviews ? 'without-all-reviews' : 'with-all-reviews'].join(' ')}
+
+  - if view == 'list'            
+    = render partial: 'posts/post_list_body', locals: {post: post}
+
+  - else
+    = render partial: 'posts/post_full_body', locals: {post: post}
+  .grey-border-bottom

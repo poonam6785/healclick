@@ -1,0 +1,10 @@
+%table.table.table-striped.rules-table
+  %thead
+    %tr
+      %th Url
+      %th
+  %tbody
+    - NoindexRule.all.each do |rule|
+      %tr
+        %td= rule.url
+        %td= link_to 'Delete', "/noindex_rules/#{rule.id}", method: :delete, remote: true

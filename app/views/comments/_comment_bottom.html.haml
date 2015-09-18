@@ -1,0 +1,38 @@
+.comment-bottom
+  .comments_container{id: "subcomments_for_#{comment.id}", class: comment.comments.present? ? 'with-comments' : 'without-comments'}
+    .subcomments
+      - if comment.comments.present?
+        = render partial: 'comments/subcomment', collection: comment.comments
+
+    .clearfix
+
+    - if current_user && comment.comments.present?
+      .subcomment_button
+        = link_to 'Post Comment', '#', class: 'btn btn-success add-subcomment-button'
+
+    .clearfix
+
+    - if current_user
+      .subcomment_form{id: "new_subcomment_container_#{comment.id}", style: comment.comments.count > 0 ? 'display: none' : ''}
+        .reply-to-post
+          = simple_form_for Comment.new, url: post_comment_comments_path(comment.commentable, comment, format: :js), html: {class: 'new_comment jquery-form'} do |f|
+            .col-lg-12.col-md-12.col-sm-12.col-xs-12
+              = f.input :content, input_html: {class: 'form-control comment_content users-typehead', rows: 5, placeholder: 'Enter a comment...'}, label: false
+            .hidden-xs              
+              .col-lg-5.col-md-5.col-sm-5.col-xs-6
+                = f.input :attachment, label: false, input_html: {class: 'file-inputs', title: 'Upload photo'}            
+              
+              .col-lg-4.col-md-4.col-sm-4.col-xs-6
+                = f.input :anonymous, label: false, inline_label: 'Post Anonymously'
+
+              .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                = f.submit 'Comment', :class => 'btn btn-success btn-block', 'data-disable-with' => 'Posting...'
+
+            .visible-xs
+              .col-lg-5.col-md-5.col-sm-5.col-xs-6
+                = f.input :attachment, label: false, input_html: {class: 'file-inputs', title: 'Upload photo'}
+              .col-lg-3.col-md-3.col-sm-3.col-xs-12
+                = f.input :anonymous, label: false, inline_label: 'Post Anonymously'
+              .col-lg-4.col-md-4.col-sm-4.col-xs-6
+                = f.submit 'Comment', :class => 'btn btn-success btn-block', 'data-disable-with' => 'Posting...'
+      .clearfix

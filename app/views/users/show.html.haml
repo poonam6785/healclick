@@ -1,0 +1,41 @@
+.profile-popup
+  = form_for Message.new(to_user_id: @user.id) do |f|  
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.bold  
+      .profile-title     
+        = link_to @user.username.truncate(20), profile_path(@user.username) 
+
+        - unless params[:google_map].present?        
+          %button{:type => "button", :class => "close close-popover pull-right", :"data-dismiss" => "popover", :"aria-hidden" => "true", id: "popover_closer_#{@user.id}", 'data-target' => '.profile-popup'} &times; 
+
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.bold.user-info-margin-set-profile-popup      
+      = "#{@user.age} | " if @user.age.present?
+      = "#{@user.gender} | " if @user.gender.present?
+      = "#{@user.location.to_s.titleize} | " if @user.location.present?
+      = "#{@user.main_condition.name}" if @user.main_condition.present?     
+
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12
+      .pull-left.padding-right-10.bold
+        = user_avatar(@user, size: "100x100")    
+    
+      = truncate(@user.bio, :length => 120, :omission => "... (continued)")
+      .clearfix
+
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.bold
+      .form-group
+        = f.hidden_field :to_user_id
+        = f.text_area :content, rows: 2, class: 'form-control margin-top-10', placeholder: 'Send a quick message...'
+      .form-group
+        = f.submit 'Send', class: 'btn btn-success btn-block'
+        
+  - unless @user == current_user
+    .popup_user_links_{id: "popup_user_links_#{@user.id}", class: "margin-top-10"}
+      .col-lg-4.col-md-4.col-sm-4.col-xs-4
+        = link_to '<span class=" glyphicon glyphicon-heart"></span> LUV'.html_safe, luv_user_path(@user), class: 'btn btn-danger font-10', remote: true
+
+      .col-lg-8.col-md-8.col-sm-8.col-xs-8
+        - if current_user.following?(@user)
+          = link_to '<span class="glyphicon glyphicon-th-large"></span> Remove From My Team'.html_safe, unfollow_user_path(@user), class: 'btn btn-warning font-10', remote: true
+        - else
+          = link_to '<span class=" glyphicon glyphicon-th-large"></span> Add To My Team'.html_safe, follow_user_path(@user), class: 'btn btn-warning font-10 full-width', remote: true
+
+  .clearfix

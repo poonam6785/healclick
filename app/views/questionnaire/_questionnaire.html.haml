@@ -1,0 +1,15 @@
+- if user_has_unanswered_questions?
+  = render 'questionnaire/question'
+- else
+  .box-treatments.box-questionnaire.box-recently
+    %h5
+      Below is a list of GI symptoms. Select any symptom(s) you recently experienced that are especially bothersome and you need to discuss with your doctor during your visit.
+      %p Please select all that apply:
+    = form_tag questionnaire_save_categories_path, method: :post, remote: true do
+      - QuestionCategory.all.each do |category|
+        .checkbox
+          %label
+            = check_box_tag 'question_category[]', category.id
+            = category.name
+      .centered
+        = submit_tag 'Continue', class: 'btn btn-success btn-lg', disable_with: 'Processing...'

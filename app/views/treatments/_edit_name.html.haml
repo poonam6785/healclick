@@ -1,0 +1,10 @@
+.modal.hide.fade#edit-treatment-name-modal
+  .modal-header
+    %button.close{'data-dismiss' => :modal} &times;
+    %h3 Edit Treatment Name
+  = form_for @treatment, remote: true do |f|
+    .modal-body
+      = f.label :treatment, 'Treatment Name'
+      = f.text_field :treatment, style: "width: 95%"
+    .modal-footer
+      = f.submit 'Save', class: 'btn btn-success', 'data-disable-with' => 'Loading...'

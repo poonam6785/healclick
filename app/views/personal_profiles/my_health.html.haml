@@ -1,0 +1,11 @@
+- title 'My Health'
+- if current_user.finished_profile
+  %a{name: "medical_editor"}  
+  = render 'medical_editor'
+- else
+  = form_for current_user, url: personal_profile_path, html: {class: "form-horizontal user-basic-info-form resp-form"} do |f|
+    = hidden_field_tag "user[my_health_step]", true
+    = f.submit 'Continue', class: 'btn btn-success'
+
+#post_form_container
+  = render 'shared/review_form'

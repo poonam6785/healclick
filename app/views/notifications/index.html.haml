@@ -1,0 +1,23 @@
+%legend
+  = title 'My Notifications'
+  
+  - unless @notifications.blank?
+    .pull-right
+      = link_to 'Mark all as read', mark_all_as_read_notifications_path, confirm: 'Are you sure you want to mark all notifications as read?', class: "btn btn-xs btn-success"
+      
+      = link_to 'Delete all notifications', delete_all_notifications_path, method: :delete, confirm: 'Are you sure you want to delete all notifications', class: "btn btn-xs btn-danger"
+
+= render partial: "messages/messages_tabs"
+
+.pull-right
+  = paginate @notifications
+.clearfix
+
+- if @notifications.any?
+  = render partial: "notification", collection: @notifications
+- else
+  .text-center There are no Notifications
+
+.pull-right
+  = paginate @notifications
+.clearfix

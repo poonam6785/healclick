@@ -1,0 +1,12 @@
+:plain
+  $('#symptoms_container').html('#{j render partial: 'personal_profiles/symptoms'}');
+  $("#symptoms_container .toggle").each(function() {
+      var $checkbox;
+      $checkbox = $(this).closest('.symptom-notify').find('input.notify:first');
+      return $(this).toggles({
+        drag: false,
+        on: $checkbox.is(':checked'),
+        checkbox: $checkbox
+      });
+    });
+  $('.scrollable-area').css({'height': ($(window).height() - 90) + 'px'})

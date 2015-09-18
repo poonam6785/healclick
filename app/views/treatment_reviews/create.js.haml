@@ -1,0 +1,6 @@
+:plain
+  $('.review_form_modal').modal('hide');
+  $('.review_form_modal').find('input, textarea').not('#treatment_review_treatment_attributes_period').val('');
+  $('#posts_container').prepend('#{j render(partial:'posts/post', locals: {post: @treatment_review.review})}');
+  $(".health-tracker-item .popover .treatments").html("#{ j render('tracker/treatments') }");
+  $(window).resize();

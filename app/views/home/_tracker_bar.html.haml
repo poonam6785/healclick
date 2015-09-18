@@ -1,0 +1,40 @@
+.col-sm-4.col-md-4.col-lg-4
+  .box-treatments.box-daily.health-tracker-item
+    .navbar-header
+      %h3= link_to 'Daily Health Tracker', my_health_personal_profile_path(medical_editor: :symptoms, anchor: :medical_tabs)
+      %button.navbar-toggle{'data-target' => '.navbar-collapse-2', 'data-toggle' => 'collapse', type: 'button'}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .navbar-collapse.navbar-collapse-2.collapse
+      - unless cookies[:hide_tracker_video].present?
+        .how-it-works
+          = link_to 'SEE HOW IT WORKS', '#', data: {toggle: 'modal', target: '#how-it-works-video'}
+          %button.close.remove-tracker-help{type: 'button'}
+            %span{'aria-hidden' => 'true'} ×
+      %h3.overall-title{class: ('with-video' unless cookies[:hide_tracker_video].present?)} Overall, I'm feeling...
+      .overall-rate
+        - if current_user
+          = form_for current_user, url: batch_update_symptoms_path, remote: true do |f|
+            = render 'personal_profiles/well_being', form: f, blank: false
+        - else
+          = render 'fake_well_being'
+      .tracker-controls
+        - %w(symptoms treatments events labs_and_metrics doctors).each do |screen|
+          - anchor = screen == 'labs_and_metrics' ? 'labs' : screen
+          = link_to my_health_personal_profile_path(medical_editor: anchor, anchor: 'medical_tabs'), class: "col-sm-6 col-xs-6 icon-link #{screen}-link", 'data-screen' => screen do
+            = image_tag "tracker/#{screen}.png", class: 'img-responsive margin-auto'
+            = screen.humanize
+        = link_to my_health_personal_profile_path(medical_editor: :visualize, anchor: 'medical_tabs'), class: 'col-sm-6 col-xs-6 icon-link health-graph-link' do
+          = image_tag 'tracker/statistics.png', size: '57x57'
+          %div Health Graph
+  .modal.fade#how-it-works-video{role: 'dialog'}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{'data-dismiss' => 'modal', type: 'button'}
+            %span{'aria-hidden' => 'true'} ×
+            %span.sr-only Close
+          %h4.modal-title How To Use Our Health Tracker
+        .modal-body
+          %iframe{allowfullscreen: '', frameborder: '0', height: '281', mozallowfullscreen: '', src: '//player.vimeo.com/video/100963945', webkitallowfullscreen: '', width: '100%'}

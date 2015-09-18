@@ -1,0 +1,13 @@
+#posts_container
+  - if @combined_records.present?
+    - @combined_records.each do |record|
+      - if record.is_a?(Post) || record.is_a?(Review)
+        = render partial: 'posts/post', locals: {no_all_reviews: false, post: record}
+      - else
+        = render partial: 'my_click/activity', locals: {activity: record}
+
+    = paginate @combined_records
+
+    = content_for :scripts do
+      :javascript
+        $(".activity-item-container img").error(function() {$(this).parent().hide();});

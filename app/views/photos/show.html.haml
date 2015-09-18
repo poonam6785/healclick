@@ -1,0 +1,48 @@
+#photo_form_container
+%p.breadcrumb
+  = link_to "All Photos of #{@user.username.camelize}'s", photos_path(user_id: @user.id)
+  &gt;
+  = @photo.title
+
+- if current_user == @photo.user
+  %div(style='float:right;')
+    = link_to 'Edit', edit_photo_path(@photo, :user_id => @user.id), remote: true
+    |
+    = link_to 'Delete', user_photo_path(current_user, @photo), method: :delete, confirm: 'Are you sure?'
+
+.clearfix
+
+.well.centered
+  = image_tag @photo.attachment.url(:large)
+  - if @photo.user == current_user
+    %p
+      %br/
+      = link_to 'Use as Profile Photo', set_as_profile_user_photo_path(current_user, @photo)
+
+- if @photo.description.present?
+  .well
+    = linked_mentions(@photo.description)
+
+
+%fieldset
+  %legend
+    Comments
+
+  .comments
+    = render partial: 'comment', collection: @photo.comments.without_parent
+    .clearfix
+
+  #add_reply_container
+    = form_for @comment, url: user_photo_comments_path(@photo.user, @photo), remote: true do |f|
+      .control-group
+        .controls
+          = f.text_area :content, class: 'input-xxlarge form-control', rows: 5, placeholder: 'Enter a comment...', id: "new_subcomment_textarea_#{@comment.id}"
+      .control-group
+        .controls
+          = f.label class: 'control-label checkbox' do
+            = f.check_box :anonymous, class: 'checkbox-label'
+            Comment Anonymously
+      .control-group
+        = f.submit 'Comment', class: 'btn btn-success'
+
+#comment_form_container

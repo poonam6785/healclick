@@ -1,0 +1,24 @@
+%fieldset
+  .tab-content
+    .tab-pane.active
+      .top-post.padding-10
+        .form-inline
+          = select_tag 'sort_by', options_for_select([['Latest Activity', post_sorter_path('posts.last_interaction_at desc')], ['Newest', post_sorter_path('posts.created_at desc')],  ['Most Interactions', post_sorter_path('posts.interactions_count desc')], ['Most Helpful', post_sorter_path('posts.helpfuls_count desc')],  ['Most Viewed', post_sorter_path('posts.views_count desc')]], "?#{URI.unescape request.query_string}"), class: 'select2-without-search'
+
+      #posts_container.scroll-pagination
+        = render partial: "posts/posts_batch"
+
+      .more_posts.centered{style: "margin: 20px;"}
+        = hidden_field_tag :current_page, 1, id: :current_page
+        = hidden_field_tag :content_type, 'my_click', id: :content_type
+        = hidden_field_tag :content_path, post_sorter_path(params[:sort_by]), id: :content_path
+
+        .loading_container
+          = image_tag 'loading.gif', size: "20x20"
+
+#profile_popup
+
+#post_form_container
+= render 'shared/tabbed_review_form'
+
+#comment_form_container

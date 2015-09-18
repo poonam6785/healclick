@@ -1,0 +1,4 @@
+:plain
+  $('#users-container').append('#{j render(partial: "users/user", collection: @following_users.map(&:followed_user))}');
+  $('.loading_container').hide();
+  load_useful_link_listeners();

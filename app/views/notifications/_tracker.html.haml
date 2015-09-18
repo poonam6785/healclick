@@ -1,0 +1,28 @@
+#health_tracker_popover
+  - cache current_user do
+    .header.hide
+
+    .content.hide
+      .menu.screen
+        .text-center
+          %h4= link_to 'Daily Health Tracker', my_health_personal_profile_path(medical_editor: :symptoms, anchor: :medical_tabs)
+          .well-being
+            = form_for current_user, url: batch_update_symptoms_path, remote: true do |f|
+              %center
+                %h4 Overall, I'm feeling...
+              = render 'personal_profiles/well_being', form: f, blank: false
+
+        .scroll.col-sm-10.col-xs-10.col-sm-offset-1.col-xs-offset-1.margin-bottom-10
+          - %w(symptoms treatments events labs_and_metrics doctors).each do |screen|
+            - anchor = screen == 'labs_and_metrics' ? 'labs' : screen
+            = link_to my_health_personal_profile_path(medical_editor: anchor, anchor: 'medical_tabs'), class: "col-sm-6 col-xs-6 icon-link #{screen}-link", 'data-screen' => screen do
+              = image_tag "tracker/#{screen}.png", class: 'img-responsive margin-auto'
+              %big= screen.humanize
+          = link_to my_health_personal_profile_path(medical_editor: :visualize, anchor: 'medical_tabs'), class: 'col-sm-6 col-xs-6 icon-link health-graph-link' do
+            = image_tag 'tracker/statistics.png'
+            %big Health Graph
+
+        .clearfix
+
+        .text-center
+          = link_to 'Close', 'javascript:void(0)', class: 'btn btn-default secondary', onClick: "$('.health-tracker-item .popover').toggle('hide');"

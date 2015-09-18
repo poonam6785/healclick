@@ -1,0 +1,16 @@
+.modal.fade{:id => "eventModal#{@event.id}"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button{:type => "button", :class => "close", :"data-dismiss" => "modal", :"aria-hidden" => "true"} &times;
+        %h4.modal-title Edit event
+
+      = simple_form_for @event, :remote => true do |f|        
+        .modal-body        
+          = f.input_field :body, :label => false, :placeholder => "Add an event...", :class => "form-control"
+        
+        .modal-footer            
+          = f.submit 'Post', :class => 'btn btn-success'
+          %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} Close
+
+        .clearfix

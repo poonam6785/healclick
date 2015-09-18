@@ -1,0 +1,16 @@
+%fieldset
+  .form-horizontal
+    .col-lg-10.col-md-10.col-sm-10.col-xs-12
+      = text_field_tag :doctor, '', placeholder: "Enter a doctor Name", class: "typeahead", :autocomplete => "off", id: 'tags-doctors'
+      %i Separate names with commas
+
+    .col-lg-2.col-md-2.col-sm-2.col-xs-12
+      = button_tag type: 'submit', class: 'btn btn-success doctors-submit expand-on-xs' do
+        = my_fa_icon('add')
+        Add
+    
+    .clearfix
+    %br
+
+  .well#doctors_container
+    = render partial: 'personal_profiles/doctors'

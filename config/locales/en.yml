@@ -1,0 +1,172 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  
+  date:
+    formats:
+      month_year: "%m/%y"
+      event: "%l:%M %P %Z, %B %d, %C"
+      month_day: "%b %-d"
+  time:
+    formats:
+      short: "%b %-d, %Y"
+      event: "%l:%M %P %Z, %B %d, %Y"
+
+
+  admin:
+    actions:
+      edit_symptoms_for_summary:
+        title: Edit symptoms
+        breadcrumb: Edit symptoms
+        menu: Edit symptoms
+      export_duplicate_symptoms:
+        title: Export duplicate symptoms
+        menu: Export duplicates
+        title: Export duplicates
+        breadcrumb: Export duplicates
+      version_stats:
+        title: Version stats
+        menu: Version stats
+        title: Version stats
+        breadcrumb: Version stats
+      emails:
+        title: Emails
+        menu: Emails
+        breadcrumb: Emails
+        link: Emails
+      questionnaire:
+        title: Questionnaire
+        menu: Questionnaire
+        breadcrumb: Questionnaire
+        link: Questionnaire
+      shop:
+        title: Shop
+        menu: Shop
+        breadcrumb: Shop
+        link: Shop
+      seo:
+        title: SEO
+        menu: SEO
+        breadcrumb: SEO
+        link: SEO
+      action_points:
+        title: Action Points Settings
+        menu: Action Points
+        breadcrumb: Action Points
+        link: Action Points
+      point_leaders:
+        title: Point Leaders
+        menu: Point Leaders
+        breadcrumb: Point Leaders
+        link: Point Leaders
+      users_ranking:
+        title: Users Ranking
+        menu: Users Ranking
+        breadcrumb: Users Ranking
+        link: Users Ranking      
+      bulk_merge_symptom_summaries:
+        bulk_link: Merge selected Symptom Summaries
+        breadcrumb: Merge selected Symptom Summaries
+        link: Merge selected Symptom Summaries
+        menu: Merge selected Symptom Summaries
+      bulk_product_search_enable:
+        bulk_link: Mass Enable Product Search
+        breadcrumb: Mass Enable Product Search
+        link: Mass Enable Product Search
+        menu: Mass Enable Product Search
+      merge_doctor_summaries:
+        bulk_link: Merge selected Doctor Summaries
+      merge_post_categories:
+        bulk_link: Merge selected Post Categories
+      bulk_edit_reviews:
+        bulk_link: Edit Treatment Name
+        title: Edit Treatment Name
+        breadcrumb: Edit Treatment Name
+      bulk_edit_treatments:
+        bulk_link: Merge selected Symptom Summaries
+        title: Merge selected Symptom Summaries
+        breadcrumb: Merge selected Symptom Summaries
+      bulk_edit_treatment_summaries:
+        bulk_link: Merge selected Treatment Summaries
+        title: Merge selected Treatment Summaries
+        breadcrumb: Merge selected Treatment Summaries
+      export_summaries:
+        menu: Export Treatment Summaries
+        bulk_link: Export Treatment Summaries
+        title: Export Treatment Summaries
+        breadcrumb: Export Treatment Summaries
+      recover:
+        bulk_link: Recover
+        title: Recover
+        breadcrumb: Recover
+      delete_category_children:
+        menu: Delete all 
+        title: Delete all  
+        breadcrumb: Delete all  
+      delete_sub_category_children:
+        menu: Delete all    
+        title: Delete all  
+        breadcrumb: Delete all
+
+  activerecord:
+    attributes:
+      user:
+        patient_or_caregiver: ""
+
+    errors:
+      models:
+        user:
+          attributes:
+            patient_or_caregiver:
+              accepted: "You must be a patient or caregiver to become a member"
+        symptom:
+          attributes:
+            symptom:
+              taken: You have already entered this symptom below
+        treatment:
+          attributes:
+            treatment:
+              taken: You have already entered this treatment below
+        doctor:
+          attributes:
+            name:
+              taken: You have already entered this doctor below
+
+  user:
+    match_descriptions:
+      poor: 'Low Match'
+      ok: 'Ok Match'
+      good: 'Good Match'
+      great: 'Great Match'
+      high: 'High Match'
+
+  medical_editor:
+    tabs:
+      visualize: Health Graph
+      symptoms: Symptoms
+      treatments: Treatments
+      events: Events
+      doctors: Doctors
+      labs: Labs and other metrics
+    notices:
+      symptoms: To add a symptom to the daily tracker, select "ON" for Tracking Reminder
+      treatments: To add a treatment to the daily tracker, select "Yes" for "Currently Taking?"

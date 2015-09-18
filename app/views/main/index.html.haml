@@ -1,0 +1,43 @@
+- content_for :title do
+  - title "", :landing
+
+= content_for :top_right do  
+  = render partial: 'shared/top_login_form'
+
+%span#flash
+  = render_flash
+
+= render 'shared/landing_video_form'
+.row.text-center
+  .col-lg-4.col-md-4.col-sm-4.col-xs-12
+    %h3.color-green Match
+    %p.font-18.color-blue
+      HealClick matches patients
+      %br/
+      based on shared diagnoses,
+      %br/
+      symptoms, treatment, and age.
+    = image_tag 'match.png', class: "img-responsive align-center"
+  
+  .col-lg-4.col-md-4.col-sm-4.col-xs-12
+    %h3.color-green Share
+    %p.font-18.color-blue
+      Now patients can easily
+      %br/
+      share treatments and
+      %br/
+      experiences.
+    = image_tag 'share.png', class: "img-responsive align-center"
+  
+  .col-lg-4.col-md-4.col-sm-4.col-xs-12
+    %h3.color-green Research
+    %p.font-18.color-blue
+      We can turn all this
+      %br/
+      patient information into
+      %br/
+      desperately-needed research.
+    = image_tag 'research.png', class: "img-responsive align-center"
+
+  .col-lg-8.col-md-8.col-sm-12.col-xs-12.visible-xs.visible-sm
+    %iframe.img-responsive{src: "//player.vimeo.com/video/80001271?byline=0&amp;portrait=0", width:"567", height:"320", frameborder: "0", webkitallowfullscreen: "webkitallowfullscreen", mozallowfullscreen: "mozallowfullscreen",  allowfullscreen: "allowfullscreen", class: ""}

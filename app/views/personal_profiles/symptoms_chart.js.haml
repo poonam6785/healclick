@@ -1,0 +1,21 @@
+- if @symptoms_chart.series_data.present?
+  $(".chart_#{@user.id} .graph").html('#{j high_stock "symptoms_chart_#{@user.id}", @symptoms_chart}');
+  $('.highcharts-grid:eq(1), .highcharts-xaxis-labels:last').remove();
+  $('.highcharts-series[clip-path="url(#highcharts-2)"]:last').remove()
+  $('.highcharts-series[clip-path="url(#highcharts-3)"]:last').remove()
+  chart_name = "chart_symptoms_chart_#{@user.id}"
+  chart = window[chart_name];
+  if (!$('body').hasClass('time_series_analysis')){
+  chart.yAxis[0].addPlotLine({id: 'events', value: 6, width: 2, color: 'rgba(68, 170, 213, 0.6)', label: {text: 'My Events',verticalAlign: 'top', style: {fontSize: '16px'}}});
+  }
+  chart.yAxis[1].addPlotLine({id: 'symptom-name', value: 10, width: 2, label: {text: 'Symptom Severity', y: -20, style: {fontSize: '16px'}}})
+  var filters = $('.chart_#{@user.id} .treatment-filter:input, .chart_#{@user.id} .labs-filter:input, .chart_#{@user.id} .symptom-filter:input')
+  filters.each(function(){this.selectedIndex = 1});
+  filters.trigger('change');
+  filters.select2('val', '');
+
+  $(".chart_#{@user.id} .symptom_select").trigger('change')
+  $(".chart_#{@user.id} .treatment_select").trigger('change')
+- else
+  :plain
+    $(".chart_#{@user.id} h2").html('No data to display');

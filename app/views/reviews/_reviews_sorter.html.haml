@@ -1,0 +1,3 @@
+.dropdown.sorting-container
+  .form-inline.pull-left
+    = select_tag 'sort_by', options_for_select([['Latest Activity', post_sorter_path('posts.last_interaction_at desc')], ['Best Effectiveness', post_sorter_path('posts.treatment_level desc, posts.updated_at desc')], ['Newest', post_sorter_path('posts.created_at desc')], ['Most Helpful', post_sorter_path('posts.helpfuls_count desc')]], URI.unescape(request.fullpath.gsub(/\//, ''))), class: 'select2-without-search'

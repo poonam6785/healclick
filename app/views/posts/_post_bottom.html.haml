@@ -1,0 +1,26 @@
+.row
+  .col-lg-8.col-md-8.col-xs-12.col-sm-12
+    - if post.activity_reply? && show_expand_replies?(post.content)
+      = link_to 'Expand All Replies', expand_replies_post_path(post), class: "btn btn-success activity_post_#{post.activity_post_id} expand-replies", remote: true, data: {post_activity_id: post.activity_post_id}
+    - else
+      - post_interactions_count = post.interactions_count
+      = link_to replies_number(post_interactions_count).html_safe, 'javascript:void(0)', id: "replies_count_#{post.id}", class: 'btn btn-default post-comments', 'data-href' => post_comments_path(post, _: Time.now.to_i)
+
+      - if post_interactions_count > 1
+        = link_to 'Skip To The Latest', 'javascript:void(0)', id: "replies_count_#{post.id}", class: 'btn post-latest-comment btn-success', 'data-href' => post_comments_path(post, _: Time.now.to_i, skip_to_latest: true)
+
+    - if current_user && !post.tracking_update? && !post.activity_reply?
+      - if current_user.following_post?(post)
+        = link_to unfollow_post_path(post), class: 'btn btn-success bookmark-link bookmarked', remote: true do
+          Un-Bookmark
+      - else
+        = link_to follow_post_path(post), class: 'btn btn-warning bookmark-link', remote: true do
+          Bookmark
+
+  .col-lg-4.col-md-4.col-xs-12.col-sm-12.pull-right
+    .post-buttons-container.with_margin
+      .post-luv-container{id: poly_luv_id(post)}
+        = render partial: 'posts/luv_link', locals: {post: post}
+      .post-helpful-container{id: poly_helpful_id(post)}
+        = render partial: 'posts/helpful_link', locals: {post: post}
+      .clearfix

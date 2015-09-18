@@ -1,0 +1,4 @@
+- if activity_log.is_a?(Post) ||  activity_log.activity.is_a?(Post)
+  = render partial: 'posts/post', locals: {post: (activity_log.is_a?(Post) ? activity_log : activity_log.activity)}
+- else
+  = render partial: 'my_click/activity', locals: {activity: activity_log}

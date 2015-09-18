@@ -1,0 +1,61 @@
+= form_for(current_user, url: personal_profile_path, remote: true, html: {id: "update-primary-condition-form"}) do |f|
+  .form-inline    
+    .col-lg-4.col-md-4.col-sm-4.col-xs-12.control-group
+      = f.label :main_condition_id, 'Primary Condition', class: 'control-label'      
+      .controls.height-34.full-select2
+        = f.select :main_condition_id, Condition.active.order('name asc').reject{|c| c.name.blank?}.map{|c| [c.name, c.id]}, { prompt: 'Please select' }, class: "select2"
+    
+    .col-lg-4.col-md-4.col-sm-4.col-xs-12.control-group
+      = f.label :main_condition_diagnosed_at, "When were you diagnosed?", class: 'control-label'
+      .controls.height-34
+        = f.date_select :main_condition_diagnosed_at, { discard_day: true, order: [:month, :year], prompt: true, start_year: 1900, end_year: Time.now.year }, {:class => "form-control select2"}
+    
+    .clearfix
+    .col-lg-4.col-md-4.col-sm-4.col-xs-12.control-group.with-margins
+      %label.checkbox.add-margin
+        = f.check_box :main_condition_not_officially_diagnosed
+        Not Officially Diagnosed            
+
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12.control-group
+      .controls
+        .clearfix
+        = f.submit 'Save', class: 'btn btn-success expand-on-xs'
+
+  .clearfix
+
+%hr/
+
+%fieldset.col-lg-6.col-md-6.col-sm-6.col-xs-12.compensate
+  = form_for(@user_condition, remote: true, html: {class: "form-inline"}) do |f|
+    .control-group
+      = f.label :condition_id, 'Other Conditions', class: 'control-label'
+      .controls.height-34.full-select2
+        = f.select :condition_id, [['Please Select', '']] + Condition.active.order('name asc').reject{|c| c.name.blank?}.map{|c| [c.name, c.id]}, {}, class: "form-control select2"
+    
+    .controls.set-top-margin
+      .clearfix
+      = f.submit 'Add', class: 'btn btn-success expand-on-xs'
+      = link_to "Don't see yours listed?", "javascript:void(0);", id: "suggest_condition_link"    
+
+    .clearfix
+
+%fieldset.col-lg-6.col-md-6.col-sm-6.col-xs-12.compensate
+  #suggest_condition_container{style: "display:none;"}
+    = form_for @user_condition, remote: true, html: {class: "form-inline"} do |f|
+      .control-group
+        = f.label :condition_name, class: "control-label"
+        .controls
+          = f.text_field :condition_name, placeholder: "Enter diagnosis", class: "form-control"
+      
+      .controls.set-top-margin
+        .clearfix
+        = f.submit "Suggest", class: 'btn btn-success expand-on-xs'
+
+    .clearfix
+.clearfix
+
+%br
+
+%fieldset.col-lg-12.col-md-12.col-sm-12.col-xs-12.well#conditions_container
+  = render partial: 'personal_profiles/user_conditions'
+.clearfix

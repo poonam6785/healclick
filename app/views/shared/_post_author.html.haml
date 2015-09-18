@@ -1,0 +1,24 @@
+- no_username ||= false
+- no_score ||= false
+- object.user = object.favorite_user if object.respond_to?(:favorite_user) && !object.favorite_user_id.nil?
+
+.post-left{id: "author_#{object.user.id}"}
+  - if object.respond_to?(:anonymous) && object.anonymous
+    - unless no_username
+      %h4.blue= current_user ? 'Anonymous' : 'Private'
+    #{user_avatar(User.new, size: size, class: 'img-responsive')}
+
+  - else
+    - if current_user || (object.is_a?(Post) && object.faq_or_blog?)
+      = link_to user_path(object.user), class: 'profile-popup-link' do
+        - unless no_username
+          %h4= truncate(object.user.username, length: 15) || truncate(object.user.full_name, length: 15)
+        = user_avatar(object.user, size: size, class: 'img-responsive')
+    
+    - else
+      %h4.black Private
+      = user_avatar(nil, size: size, class: 'img-responsive')
+
+    - if current_user && !no_score && current_user != object.user
+      = render partial: 'shared/add_team', locals: {user: object.user}
+      .clearfix

@@ -1,0 +1,11 @@
+:plain
+  $('#doctors_container tbody').prepend('#{j render(partial: 'doctors/doctor', collection: @doctors)}');
+  $('#tags-doctors').tagsinput('removeAll');
+  $('.doctors-submit').text('Add').prop('disabled', false);
+  var errors = "#{@errors}";
+  if (errors){
+    $.bootstrapGrowl(errors, {
+      type: 'error',
+      offset: {from: 'top', amount: 80}
+    });
+  }

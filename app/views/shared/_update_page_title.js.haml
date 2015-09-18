@@ -1,0 +1,6 @@
+- if (total_count = current_user.received_messages.unread.count + current_user.received_notifications.unread.count) > 0
+  :plain
+    document.title = "(#{total_count}) " + $('body').data('page-title');
+- else
+  :plain
+    document.title = $('body').data('page-title');

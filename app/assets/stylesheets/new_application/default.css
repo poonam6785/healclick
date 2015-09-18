@@ -1,0 +1,1191 @@
+.fa {
+  min-width: 14px;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.fa + .fa {
+  padding-left: 10px;
+}
+
+input[class*=col-], select[class*=col-], textarea[class*=col-] {
+  float: none;
+}
+
+.clearF {
+  clear: both;
+  height: 0px;
+  font-size: 0px;
+  line-height: 0px;
+}
+
+.mandatory {
+  color: #F00;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0px auto;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+#logo {
+  float: left;
+  margin-top: 4px;
+}
+
+.table-box .trow {
+  float: left;
+  width: 100%;
+  padding: 4px 0px;
+  border-bottom: #D0D0D0 solid 1px;
+  -webkit-transition: all 0.4s ease-out;
+  -moz-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.table-box .trow:first-child {
+  font-weight: bold;
+  border-bottom: #D0D0D0 solid 2px;
+}
+
+.table-box .trow:nth-child(even), .table tr:nth-child(even) {
+  background-color: #fff;
+}
+
+.table-box .trow:nth-child(odd), .table tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.table-box .trow:hover {
+  background-color: #EEE;
+}
+
+.table-box .trow .tcolumn {
+  float: left;
+  width: 18%;
+  padding-left: 0.5%;
+}
+
+.table-box .trow .w12 {
+  width: 12%;
+}
+
+.table-box .trow .w24 {
+  width: 24%;
+}
+
+.tcolumn a {
+  color: #393972;
+  text-decoration: none;
+}
+
+.tcolumn a:hover {
+  text-decoration: underline;
+}
+
+.table-box .trow .tcolumn:first-child {
+  width: 10%;
+}
+
+.alRight {
+  text-align: right;
+}
+
+.alCent {
+  text-align: center;
+}
+
+.fright {
+  float: right;
+}
+
+.frow {
+  width: 100%;
+  padding-bottom: 0px;
+  display: inline-block;
+}
+
+.frow > div:first-child {
+  float: left;
+  width: 75px;
+  font-weight: bold;
+}
+
+.frow > div + div a, .frow > div span {
+  color: #ed174f;
+}
+
+.frow > div:first-child span {
+  color: #F00;
+}
+
+.frow > div + div {
+  position: relative;
+  margin-left: 75px;
+}
+
+.frow > div + div p {
+  padding-bottom: 0px;
+}
+
+.frow > div + div .fa-calendar-o {
+  position: absolute;
+  top: 10px;
+  left: 230px;
+}
+
+.crow, .ccrow {
+  width: 100%;
+  display: inline-block;
+}
+
+.ccrow {
+  padding-bottom: 10px;
+}
+
+ul.list-normal, ul.list-normalN {
+  width: 100%;
+  list-style: none;
+  display: inline-blockl;
+  padding: 5px 0px 20px 0px;
+}
+
+ul.list-normalN > li + li {
+  padding-top: 10px;
+}
+
+button.close {
+  position: relative;
+  z-index: 100;
+}
+
+button.close:hover {
+  background: none;
+}
+
+.carousel {
+  margin-bottom: 0px;
+}
+
+.navbar-default .navbar-toggle:hover {
+  border-color: #333;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: #333;
+}
+
+.navbar-default {
+  background: none;
+}
+
+.modal-body {
+  padding: 10px 0px 0px 0px;
+}
+
+.modal-content {
+  padding: 10px 15px;
+}
+
+.nrow {
+  padding-bottom: 15px;
+}
+
+.nrow > div:first-child {
+  font-weight: bold;
+}
+
+.f11 {
+  font-size: 11px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bposi {
+  position: relative;
+}
+
+h1 {
+  color: #2c6eb7;
+  font-size: 25px;
+  padding-bottom: 30px;
+}
+
+/*-------------------------------------------------------------------------------------------COMMON CSS CLOSE*/
+/**Bootstrap CSS Changes Start*/
+#topbar {
+  padding: 20px 0px;
+  background-color: #2c6eb7;
+  box-shadow: 0px 2px 2px #afafaf;
+}
+
+
+#navigation {
+  float: right;
+  padding: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  list-style: none;
+  margin-bottom: 18px;
+}
+
+#navigation li {
+  float: left;
+  margin-left: 5px;
+}
+
+#navigation li a {
+  color: #FFF;
+  padding: 6px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+#navigation li a:hover, #navigation li.active a {
+  text-decoration: none;
+  background-color: inherit;
+  border-color: #FFF;
+}
+
+.conditions-spacing {
+  overflow: hidden;
+}
+.conditions-spacing .title{
+  color: #fff;
+  float: left;
+  margin-top: 10px;
+}
+.conditions-spacing .select2-choice{
+  height: 36px;
+  line-height: 36px;
+}
+.conditions-spacing .select2-container{
+  float: left;
+}
+.conditions-spacing .select2-arrow b{
+  background: url(/assets/select2.png) no-repeat 0 5px !important;
+}
+
+.conditions-spacing .select2-container {
+  padding: 0;
+  margin: 0 11px;
+}
+
+ul.list-notification {
+  float: right;
+  list-style: none;
+  padding: 0 0 3px 0;
+  margin: 0;
+}
+
+ul.list-notification li {
+  float: left;
+}
+
+ul.list-notification li + li{
+  padding-left: 10px;
+}
+
+ul.list-notification li > a {
+  display: block;
+  position: relative;
+}
+
+.notification-cricle {
+  right: -15px;
+  top: -6px;
+  padding: 0px 5px;
+  line-height: 18px;
+  color: #ff0000;
+  text-align: center;
+  position: absolute;
+  border-radius: 10px;
+  background-color: #FFF;
+  box-shadow: 0px 0px 6px #FFF;
+}
+
+ul.list-notification li a.icon-clock {
+  background: url(../images/icon-sprite.png) no-repeat 10px top;
+}
+
+ul.list-notification li a.icon-message {
+  background: url(../images/icon-sprite.png) no-repeat 10px -50px;
+}
+
+ul.list-notification li a.icon-alert {
+  background: url(../images/icon-sprite.png) no-repeat 15px -100px;
+}
+
+ul.list-notification li a.user-name {
+  height: inherit;
+  width: inherit;
+}
+
+.profile-box {
+  left: 5px;
+  float: left;
+  padding-top: 2px;
+  position: relative;
+}
+
+.profile-box img {
+  height: 30px;
+  width: 30px;
+  border: solid 1px #FFF;
+  border-radius: 50px;
+}
+
+.box-user-name {
+  float: right;
+  color: #FFF;
+  border: solid 1px #FFF;
+  border-radius: 5px;
+  padding: 5px 15px;
+}
+
+input[type="text"].input-search {
+  border-radius: 3px;
+  border: solid 1px #CCC;
+}
+
+.box-treatments {
+  padding: 18px 25px;
+  background-color: #FFF;
+  border: solid 1px #f3f3f3;
+  padding-bottom: 0;
+}
+
+
+ul.list-treatments {
+  padding: 0px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 18px;
+  list-style: none;
+  display: inline-block;
+  -ms-word-break: break-all;
+  word-break: break-all;
+}
+
+ul.list-treatments li {
+  padding-bottom: 20px;
+}
+
+ul.list-treatments li h6 {
+  color: #1d940f;
+  font-size: 19px;
+  padding-bottom: 8px;
+}
+
+.text-see-all {
+  font-size: 12px;
+  padding-left: 10px;
+  color: #4481d1;
+}
+
+.box-daily {
+  text-align: center;
+  padding: 18px 33px;
+  padding-bottom: 0;
+}
+
+.box-daily .navbar-header h3 {
+  margin: 0px auto;
+}
+
+ul.list-talk li {
+  padding-bottom: 0px;
+}
+
+.bottom-spacing {
+  padding-bottom: 5px;
+}
+
+.heading-my-team {
+  color: #000;
+  font-size: 20px;
+  padding: 14px 20px;
+  background-color: #FFF;
+  margin: 0;
+}
+
+ul.list-team-resent {
+  width: 100%;
+  padding: 0px;
+  font-size: 14px;
+  list-style: none;
+  display: inline-block;
+}
+
+ul.list-team-resent li {
+  float: left;
+  min-height: 190px;
+  padding: 5px 0px 15px 0px;
+  background-color: #FFF;
+  border: solid 1px #ececec;
+}
+
+ul.list-team-resent li + li {
+  margin-top: 6px;
+}
+
+ul.list-team-resent li:first-child {
+  border-top: none;
+}
+
+ul.list-team-resent li h4 {
+  font-size: 16px;
+  color: #4081d2;
+  font-weight: bold;
+}
+
+.blue-color {
+  color: #4081d2;
+}
+
+.resent-img-box {
+  border-radius: 3px;
+  border: solid 1px #407fd0;
+}
+
+.resent-img-box img {
+  width: 100%;
+  margin: 6px 0px;
+  border: solid 1px #dbdeda;
+}
+
+.yellow-heading {
+  display: block;
+  color: #3e3e3e;
+  margin-bottom: 5px;
+  /*background-color:#fffda8;*/
+}
+
+.yellow-heading:hover {
+  text-decoration: none;
+}
+
+.resent-contant {
+  padding-top: 25px;
+}
+
+.box-questionnaires {
+  min-height: 370px !important;
+  margin-bottom: 15px;
+}
+
+.box-questionnaires h3 {
+  color: #000;
+  padding-top: 60px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.box-recently {
+  border-radius: 3px;
+  margin-bottom: 40px;
+  min-height: inherit !important;
+}
+
+.box-recently h3 {
+  color: #7f7f7f;
+}
+
+ul.list-recentlyImages {
+  padding: 0px;
+  width: 100%;
+  list-style: none;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+ul.list-recentlyImages li {
+  float: left;
+  height: 60px;
+  width: 60px;
+}
+
+.text-copyright {
+  text-align: center;
+  color: #a8a8a5;
+  padding: 0px;
+}
+
+.navbar-toggle .icon-bar {
+  width: 22px;
+  height: 2px;
+  display: block;
+  border-radius: 1px;
+  background: #888888;
+}
+
+.navbar-collapse {
+  padding: 0px;
+  clear: both;
+  max-height: inherit;
+}
+
+.navbar-header {
+  width: 100%;
+}
+
+
+.btn-treatment {
+  color: #FFF;
+  border-color: #4cae4c;
+  background-color: #5cb85c;
+}
+
+.btn-treatment:hover {
+  border-color: #398439;
+  background-color: #449d44;
+}
+
+.btn-spacing {
+  float: right;
+  text-align: right;
+  background-color: #FFF;
+  padding: 10px 20px 0px 24px;
+}
+
+ul.list-icon-face {
+  width: 100%;
+  list-style: none;
+  display: inline-block;
+  padding: 0px 0px 0px 0px;
+  text-align: center;
+}
+
+ul.list-icon-face li {
+  float: left;
+  width: 20%;
+}
+
+ul.list-icon-face li a {
+  height: 32px;
+  display: block;
+}
+
+.text-minutes {
+  color: #999;
+  font-size: 12px;
+  text-align: right;
+}
+
+html body .symptom-level .btn-group {
+  background-image: -moz-linear-gradient(left center, #e8ff14 0%, #db0000 100%);
+  border-radius: 5px;
+}
+
+.symptom-level .btn {
+  color: #3c7ccf;
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  background-image: -webkit-gradient(linear, to bottom, to top, color-stop(0%, #fff), color-stop(100%, #efefef));
+  background-image: -webkit-linear-gradient(to bottom, #fff 0%, #efefef 100%);
+  background-image: -moz-linear-gradient(to bottom, #fff 0%, #efefef 100%);
+  background-image: -o-linear-gradient(to bottom, #fff 0%, #efefef 100%);
+  background-image: linear-gradient(to bottom, #ffffff 0%, #efefef 100%);
+  padding-left: 0;
+  padding-right: 0;
+  width: 23px;
+  text-align: center;
+}
+
+.symptom-level .btn:hover {
+  background-color: transparent;
+}
+
+.symptom-level .btn:hover .rate {
+  color: #000;
+}
+
+.symptom-level .btn:not(:first-child) {
+  border-left: 0
+}
+
+.symptom-level .btn:not(:last-child) {
+  border-right: 0
+}
+
+.symptom-level .btn span.rate {
+  display: none
+}
+
+.symptom-level .btn.active, .symptom-level .btn:hover {
+  background-image: none;
+  background-color: transparent;
+  font-weight: bold;
+  color: white;
+  text-shadow: none
+}
+
+.symptom-level .btn.active span.rate, .symptom-level .btn:hover span.rate {
+  display: inline
+}
+
+.symptom-level .btn.active span.muted, .symptom-level .btn:hover span.muted {
+  display: none
+}
+
+.symptom-level .btn.active.initially {
+  background: #cccccc !important
+}
+
+.no-touch .symptom-level .btn:hover {
+  color: white;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: transparent !important;
+  background-position: 0 30px;
+  -webkit-transition: none;
+  transition: none
+}
+
+.no-touch .symptom-level .btn:hover span.rate {
+  display: inline
+}
+
+.no-touch .symptom-level .btn:hover span.muted {
+  display: none
+}
+
+.navbar-collapse-4 {
+  float: right;
+}
+
+/**Bootstrap CSS Changes End*/
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1280px) {
+
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+}
+
+@media (min-width: 1440px) {
+  .hide1440 {
+    display: none;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hide1200 {
+    display: none;
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .hide1200 {
+    display: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .hide1080 {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  h3 {
+    font-size: 22px;
+  }
+
+  .hide1024 {
+    display: none;
+  }
+
+  .symptom-level .btn {
+    width: 19px;
+  }
+
+  /*ul.list-icon-face li + li{ padding-left:10px;}*/
+  ul.list-talk {
+    font-size: 13px;
+  }
+
+  ul.list-treatments li h6 {
+    font-size: 15px;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 980px) {
+  .container {
+    width: 100%;
+  }
+
+  .hide980 {
+    display: none;
+  }
+
+  #navigation li a {
+    padding: 6px 5px;
+  }
+
+  .conditions-spacing {
+    padding-right: 25px;
+  }
+
+  .box-daily h3 {
+    font-size: 20px;
+  }
+
+  ul.list-healthTracker li h5 {
+    font-size: 14px;
+  }
+
+  .box-daily {
+    padding: 18px 20px;
+  }
+
+  /*ul.list-icon-face li + li{ padding-left:23px;}*/
+}
+
+@media (max-width: 900px) {
+  .hide900 {
+    display: none;
+  }
+
+  ul.list-treatments li h6 {
+    font-size: 13px;
+  }
+
+  ul.list-treatments li {
+    padding-bottom: 5px;
+  }
+
+  ul.list-healthTracker li a {
+    padding: 10px 0px;
+  }
+
+  .box-daily h3 {
+    font-size: 18px;
+  }
+
+  ul.list-recentlyImages li {
+    width: 54px;
+  }
+
+  #navigation li {
+    margin-left: 3px;
+  }
+
+  /*ul.list-icon-face li + li{ padding-left:17px;}*/
+  .symptom-level .btn {
+    width: 16px;
+  }
+
+  ul.list-talk {
+    font-size: 12px;
+  }
+
+  ul.list-talk li p {
+    padding-bottom: 9px;
+  }
+
+  .heading-my-team {
+    font-size: 16px;
+  }
+
+  ul.list-treatments li {
+    padding-bottom: 8px;
+  }
+
+  ul.list-team-resent {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 854px) {
+  .hide854 {
+    display: none;
+  }
+
+  .box-daily h3 {
+    font-size: 15px;
+  }
+
+  ul.list-treatments li h6 {
+    font-size: 13px;
+  }
+
+  ul.list-healthTracker li h5 {
+    font-size: 12px;
+  }
+
+  ul.list-recentlyImages li {
+    width: 50px;
+  }
+
+  .box-questionnaires h3 {
+    font-size: 20px;
+  }
+
+  ul.list-icon-face {
+    padding-bottom: 13px;
+  }
+
+  ul.list-talk {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 800px) {
+  .hide800 {
+    display: none;
+  }
+
+  ul.list-healthTracker li {
+    width: 50%;
+  }
+
+  .text-see-all {
+    font-size: 11px;
+  }
+
+  .box-questionnaires h3 {
+    font-size: 20px;
+  }
+
+  ul.list-recentlyImages li {
+    width: 46px;
+  }
+
+  ul.list-healthTracker li span {
+    width: 70px;
+    background-size: 44px;
+    height: 50px;
+  }
+
+  ul.list-healthTracker li h5 {
+    font-size: 11px;
+  }
+
+  ul.list-healthTracker li span.icon-symptoms {
+    background-position: center -104px;
+  }
+
+  ul.list-healthTracker li span.icon-treatments {
+    background-position: center -163px;
+  }
+
+  ul.list-healthTracker li span.icon-events {
+    background-position: center -223px;
+  }
+
+  ul.list-healthTracker li span.icon-health {
+    background-position: 17px -284px;
+  }
+
+  .heading-my-team {
+    float: left;
+    width: 100%;
+  }
+
+  .btn-spacing {
+    float: none;
+    background-color: #FFF;
+    padding: 10px 10px 0 10px;
+  }
+
+  .btn-something, .btn-treatment {
+    width: 48%;
+  }
+
+  ul.list-treatments li h6 {
+    font-size: 11px;
+  }
+
+  .box-treatments {
+    min-height: 520px;
+  }
+
+  ul.list-talk {
+    font-size: 10px;
+    line-height: 11px;
+  }
+
+  ul.list-talk li {
+    padding-bottom: 0px;
+  }
+
+  .yellow-heading {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide768 {
+    display: none;
+  }
+
+  #navigation {
+    font-size: 14px;
+  }
+
+  .conditions-spacing {
+    padding-right: 0px;
+  }
+
+  ul.list-recentlyImages li {
+    width: 43px;
+  }
+
+  ul.list-team-resent {
+    line-height: 16px;
+  }
+
+  .text-see-all {
+    padding-left: 4px;
+  }
+
+  .text-copyright {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hide720 {
+    display: none;
+  }
+
+  .box-daily {
+    margin-bottom: 20px;
+  }
+
+  .box-questionnaires h3, .box-recently h3 {
+    font-size: 16px;
+  }
+
+  ul.list-recentlyImages li {
+    width: 39px;
+    height: auto;
+  }
+
+  .conditions-spacing, .spacing-remove {
+    display: none;
+  }
+
+  #navigation {
+    margin-bottom: 40px;
+  }
+
+  .navbar-toggle {
+    background-color: #FFF;
+    margin: 0px;
+  }
+
+  .box-treatments h1 {
+    float: left;
+    color: #3e3e3e;
+    padding-bottom: 0px;
+  }
+
+  .box-treatments {
+    margin-bottom: 20px;
+  }
+
+  .navbar-toggle {
+    border: solid 1px #888888;
+  }
+
+  .navbar-toggle:hover {
+    background-color: #DDD;
+  }
+
+  .navbar-collapse {
+    padding: 0px;
+    margin-top: 30px;
+  }
+
+  .box-daily {
+    padding: 18px 25px;
+  }
+
+  .box-daily h3 {
+    float: left;
+    padding: 0px;
+    font-size: 25px;
+  }
+
+  ul.list-healthTracker li {
+    width: 50%;
+  }
+
+  .spacing-search {
+    text-align: center;
+    padding-bottom: 25px;
+  }
+
+  ul.list-notification {
+    float: none;
+    width: 300px;
+    margin: 0px auto;
+    padding-top: 30px;
+  }
+
+  .bottom-spacing {
+    padding-bottom: 0px;
+  }
+
+  .box-treatments {
+    min-height: inherit;
+  }
+
+  ul.list-icon-face {
+    margin-top: 20px;
+  }
+
+  #logo {
+    float: none;
+  }
+
+  #navigation {
+    float: none;
+    display: inline-block;
+    width: 100%;
+  }
+
+  #navigation li {
+    float: none;
+  }
+
+  #navigation li a {
+    display: block;
+    border: none;
+  }
+
+  #navigation li a:hover {
+    background-color: #428fe4;
+  }
+
+  .navbar-collapse-4, .box-navigation {
+    float: none;
+  }
+
+  ul.list-treatments li h6 {
+    font-size: 13px;
+  }
+
+  .box-navigation .navbar-toggle {
+    margin: -33px 0px 20px 0px;
+  }
+
+  .btn-something, .btn-treatment {
+    width: 49%;
+  }
+
+  ul.list-healthTracker li h5 {
+    font-size: 14px;
+  }
+
+  #navigation li {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 766px) {
+
+}
+
+@media (max-width: 766px) {
+}
+
+@media (max-width: 640px) {
+  .box-questionnaires h3, .box-recently h3 {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 603px) {
+}
+
+@media (max-width: 600px) {
+}
+
+@media (max-width: 480px) {
+  .box-treatments h1, .box-daily h3 {
+    font-size: 20px;
+    padding-top: 5px;
+  }
+
+  .box-treatments, .box-daily {
+    padding: 10px 10px;
+  }
+
+  .btn-spacing {
+    float: none;
+    background-color: #FFF;
+  }
+
+  .btn-something, .btn-treatment {
+    margin-left: 0px !important;
+    width: 100%;
+  }
+
+  .btn-treatment {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  #logo {
+    margin-bottom: 15px;
+  }
+
+  ul.list-team-resent [class*="col-"] {
+    width: 100%;
+  }
+
+  .heading-my-team {
+    text-align: center;
+  }
+
+  .resent-contant .alRight {
+    text-align: left;
+  }
+
+  .spacing-search input {
+    width: 100%;
+  }
+
+  ul.list-healthTracker li a {
+    padding: 20px 0px;
+  }
+}
+
+@media (max-width: 320px) {
+}
+
+@media (max-width: 240px) {
+}
+
+@media (max-width: 176px) {
+}
+
+@media (min-width: 768px){
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+
+  .box-treatments{
+    height: 460px;
+  }
+
+}

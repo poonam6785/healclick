@@ -1,0 +1,18 @@
+.post-container.treatment-summary-container{id: "treatment_container_#{treatment_summary.id}"}
+
+  - cache [current_user_param, treatment_summary] do
+
+    %h4{style: 'margin-left: 10px'}= link_to treatment_summary.treatment_name, treatment_summary_reviews_path(treatment_summary), class: 'green'
+
+    .left.post-body.treatment-res
+      %div{id: "treatment_container_#{treatment_summary.id}"}
+        .pull-left
+          .rating
+            %span.empty
+              - 5.times do
+                = fa_icon 'star-o'
+            %span.filled{style: "width: #{treatment_summary.review_average.to_f/5.00*93.00}px"}
+              - 5.times do
+                = fa_icon 'star'
+        = link_to "(See all #{pluralize(treatment_summary.reviews_count, 'review')})", treatment_summary_reviews_path(treatment_summary), class: 'see-all'
+    .clear

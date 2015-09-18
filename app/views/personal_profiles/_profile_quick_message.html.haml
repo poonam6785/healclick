@@ -1,0 +1,18 @@
+.modal.fade#quick_message_container
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button{:type => "button", :class => "close", :"data-dismiss" => "modal", :"aria-hidden" => "true"} &times;
+        %h3 Message to #{@user.username}
+
+      = form_for @message do |f|
+        .modal-body
+          = f.hidden_field :to_user_id        
+          = hidden_field_tag :from_profile, true
+          
+          .control-group
+            = f.text_area :content, rows: 6, class: 'form-control users-typehead'
+        
+        .modal-footer
+          = f.submit 'Send Message', class: 'btn btn-success'
+          %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} Close

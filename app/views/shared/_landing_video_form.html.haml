@@ -1,0 +1,45 @@
+.row.player
+  .col-lg-8.col-md-8.col-sm-12.col-xs-12.visible-lg.visible-md
+    %iframe.img-responsive{src: "//player.vimeo.com/video/80001271?byline=0&amp;portrait=0", width:"567", height:"320", frameborder: "0", webkitallowfullscreen: "webkitallowfullscreen", mozallowfullscreen: "mozallowfullscreen",  allowfullscreen: "allowfullscreen", class: ""}
+
+  .col-lg-4.col-md-4.col-sm-12.col-xs-12
+    .text-center.font-40.color-blue Sign Up
+
+    = form_for(@resource, :as => 'user', :url => registration_url('user', protocol: authentication_protocol)) do |f|
+      = devise_error_messages!
+
+      .form-group
+        = f.text_field :username, placeholder: "Username", class: 'form-control', required: true
+
+      .form-group
+        = f.email_field :email, :autofocus => true, placeholder: "Email", class: 'form-control', required: true
+
+      .form-group
+        = f.password_field :password, placeholder: "Password", class: 'form-control', required: true
+
+      .form-group
+        = f.password_field :password_confirmation, placeholder: "Password Confirmation", class: 'form-control', required: true
+
+      .form-group
+        %label
+          = f.check_box :patient_or_caregiver, required: true
+          I'm a patient or caregiver
+
+      .form-group
+        By clicking Sign Up, you agree to our
+        = link_to 'http://healclick.freshdesk.com/solution/categories/113952/folders/263095/articles/176736-term-of-use', target: :_blank do
+          Terms of Use
+        %br/
+        and that you have read our
+        = succeed '.' do
+          = link_to 'Privacy Policy', 'http://healclick.freshdesk.com/solution/categories/113952/folders/263095/articles/176732-privacy-policy', target: :_blank
+
+      .form-group
+        - @resource.build_referral
+        = f.fields_for :referral do |rf|
+          = rf.hidden_field :link, value: session['referrer']
+        = f.submit "Sign Up", class: 'btn btn-success btn-block'
+
+
+  .col-lg-8.col-md-8.col-sm-12.col-xs-12.visible-xs
+    %iframe.img-responsive{src: "//player.vimeo.com/video/80001271?byline=0&amp;portrait=0", width:"567", height:"320", frameborder: "0", webkitallowfullscreen: "webkitallowfullscreen", mozallowfullscreen: "mozallowfullscreen",  allowfullscreen: "allowfullscreen", class: ""}

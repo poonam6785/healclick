@@ -1,0 +1,38 @@
+- date = Time.zone.now.to_date
+
+.ev-cont#events-anchor
+  = simple_form_for @event, :remote => true do |f|
+    %center.events
+      .tracking-date
+        = f.hidden_field :date
+        %span.date= l(date, format: :month_day)
+        %a.btn.btn-link.datepicker{href: '#'}
+          = fa_icon :calendar
+    .col-lg-10.col-md-10.col-sm-10.col-xs-12
+      = f.input_field :body, :label => false, :placeholder => "Add an event...", :class => "form-control"
+    
+    .col-lg-2.col-md-2.col-sm-2.col-xs-12
+      = button_tag type: 'submit', class: 'btn btn-success btn-block' do
+        = my_fa_icon('add')
+        Post
+    
+  .clearfix
+  %br
+
+.col-lg-12.col-md-12.col-sm-12.col-xs-12
+  %ul#events.list-group
+    = render @events
+
+.clearfix
+
+- if @events.count > 15
+  %ul.pagination.ev-pag{"data-max" => @p}
+    %li#prev.disabled{"data-p" => -1}
+      %a{href: "#"} &laquo;
+    - @p.times do |t|
+      %li{:id => "page#{t+1}", "data-p" => t+1}
+        %a{href: "#"}= t+1
+    %li#next{"data-p" => -2}
+      %a{href: "#"} &raquo;
+
+      

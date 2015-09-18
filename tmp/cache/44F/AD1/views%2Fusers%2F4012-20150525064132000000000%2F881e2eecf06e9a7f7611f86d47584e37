@@ -1,0 +1,9 @@
+o: ActiveSupport::Cache::Entry:@valueI"Q<div class='header'>
+<a class="pull-left" data-disable-with="Loading..." data-remote="true" href="/notifications/mark_all_as_read">Mark All As Read
+</a><a class="pull-right" href="/notifications">View All Notifications
+</a><div class='clearfix'></div>
+</div>
+<div id='latest_notifications_container'>
+</div>
+<div class='clearfix'></div>
+:ET:@created_atf1432536093.1274543:@expires_in0

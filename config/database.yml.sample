@@ -1,0 +1,12 @@
+development: &development
+  adapter: mysql2
+  host: localhost
+  database: healclick
+  username: badger
+  password: badger
+
+staging:
+  <<: *development
+
+production:
+  <<: *development

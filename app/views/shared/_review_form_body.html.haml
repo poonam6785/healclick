@@ -1,0 +1,88 @@
+- if @treatment.present?
+  = hidden_field_tag :treatment_id, @treatment.id
+  = hidden_field_tag :base_treatment, @treatment.treatment
+= f.fields_for :treatment do |ft|
+
+  = ft.hidden_field :level
+  = ft.hidden_field :treatment_type
+  = ft.hidden_field :id
+
+  - ft.object.user_id = current_user.id if ft.object.user_id.blank?
+  = ft.hidden_field :user_id
+
+  = ft.hidden_field :skip_review_update
+  
+  .row
+    .col-lg-7.col-md-6.col-sm-12.col-xs-12.custom-width-col-lg-7    
+      .control-group
+        = ft.label :treatment, class: "control-label"
+        .controls
+          = ft.text_field :treatment, class: "width-100 typeahead treatment_name form-control", autocomplete: "off"
+          %p.text-error.error-unique.hide You already entered this treatment earlier.
+    
+      .control-group
+        %label.control-label Treatment Rating
+        .controls
+          = link_to 'Much<br/>Worse'.html_safe, "javascript:void(0);", class: "font-9 centered label label-default treatment_label #{'label-info' if ft.object.level == 'much_worse'}", id: "treatment_level_much_worse"
+          = link_to 'Little<br/>Worse'.html_safe, "javascript:void(0);", class: "font-9 centered label-default label treatment_label #{'label-info' if ft.object.level == 'little_worse'}", id: "treatment_level_little_worse"
+          = link_to 'No<br/>Change'.html_safe, "javascript:void(0);", class: "font-9 centered label label-default treatment_label #{'label-info' if ft.object.level == 'no_change'}", id: "treatment_level_no_change"
+          = link_to 'Little<br/>Better'.html_safe, "javascript:void(0);", class: "font-9 centered label-default label treatment_label #{'label-info' if ft.object.level == 'little_better'}", id:  "treatment_level_little_better"
+          = link_to 'Much<br/>Better'.html_safe, "javascript:void(0);", class: " font-9 centered label-default label treatment_label #{'label-info' if ft.object.level == 'much_better'}", id: "treatment_level_much_better"
+          %p.text-error.hide.error-level You must select a rating
+
+      .control-group
+        %label.control-label Treatment Type
+        .controls
+          = link_to 'Drug', "javascript:void(0);", class: "centered label label-default treatment_type_link one-line  #{'label-info' if ft.object.treatment_type == 'drug'}", data: {value: 'drug'}
+          = link_to 'Supplement', "javascript:void(0);", class: " centered label-default label treatment_type_link one-line #{'label-info' if ft.object.treatment_type == 'supplement'}", data: {value: 'supplement'}
+          = link_to 'Diet', "javascript:void(0);", class: "centered label label-default treatment_type_link one-line #{'label-info' if ft.object.treatment_type == 'diet'}", data: {value: 'diet'}
+          = link_to 'Other', "javascript:void(0);", class: "centered label-default label treatment_type_link one-line #{'label-info' if ft.object.treatment_type == 'other'}", data: {value: 'other'}
+
+    .col-lg-5.col-md-6.col-sm-12.col-xs-12
+      .control-group
+        = ft.label :currently_taking, 'Currently Taking?', class: "control-label"
+        .controls
+          .hide
+            - ft.object.currently_taking = true if ft.object.new_record?
+            = ft.check_box :currently_taking, class: "input-medium change-currently-taking"
+          .toggle.toggle-currently-taking    
+
+      .control-group
+        = ft.label :current_dose, class: "control-label"
+        .controls
+          = ft.text_area :current_dose, rows: 4, class: "form-control"
+
+  .row        
+    .col-lg-12.col-md-12.col-sm-12.col-xs-12    
+      .control-group
+        = f.label :content, class: "control-label"
+        .controls
+          = f.text_area :content, placeholder: "Describe your treatment", rows: 4, class: 'input form-control users-typehead'
+
+      .control-group.conditions_container{id: "add_conditions_container_#{@treatment_review.id}"}
+        %label.control-label Conditions
+        
+        - if @treatment_review.conditions.present?
+          - @treatment_review.conditions.each do |condition|
+            .control-group.treatment_condition{id: "treatment_condition_container_#{condition.id}"}
+              .controls
+                = select_tag "treatment_review[condition_ids][]", options_for_select([['Select Condition', '']] + Condition.active.where("name is not null and name != ?", "").order('name asc').map{|c| [c.name, c.id]}, condition.id), class: "form-control"
+                = link_to 'javascript:void(0);', class: 'remove_treatment_condition' do
+                  %i.fa.fa-times-circle
+        
+        - if @treatment_review.new_record?
+          .control-group.treatment_condition
+            .controls
+              = select_tag "treatment_review[condition_ids][]", options_for_select(Condition.active.where("name is not null and name != ?", "").order('name asc').map{|c| [c.name, c.id]}, current_user.main_condition.try(:id)), class: " form-control"
+              = link_to 'javascript:void(0);', class: 'remove_treatment_condition' do
+                %i.fa.fa-times-circle
+
+        .control-group
+          .controls
+            = link_to 'Add Condition', 'javascript:void(0);', class: 'add_condition_link', id: "add_conditions_link_#{@treatment_review.id}"
+  
+.clearfix
+
+.modal-footer
+  = f.submit 'Save', class: 'btn btn-success', data: {disable_with: 'Saving...'}
+  %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} Close  

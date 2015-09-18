@@ -1,0 +1,37 @@
+%ul.nav.nav-tabs
+  %li.active= link_to 'Basic', '#basic', data: {toggle: 'tab'}
+  %li= link_to 'Noindex', '#noindex', data: {toggle: 'tab'}
+
+.tab-content
+  .tab-pane.active#basic
+    = form_tag '/system_settings', method: :post do |f|
+      %fieldset
+        = label_tag 'system_settings[page_title_template]', 'Page Title Template'
+        = text_field_tag 'system_settings[page_title_template]', SystemSetting.get_value(:page_title_template), :class => 'input-xxlarge'
+        = label_tag 'system_settings[page_description]', 'Page Description'
+        = text_area_tag 'system_settings[page_description]', SystemSetting.get_value(:page_description), size: '50x10', :class => 'input-xxlarge'
+        = hidden_field_tag :redirect_to, '/admin/seo'
+      %fieldset
+        %p Possible variables:
+        %ul
+          %li
+            = label_tag 'system_settings[page_title_sitename]', '%%sitename%% - site name'
+            = text_field_tag 'system_settings[page_title_site_name]', SystemSetting.get_value(:page_title_site_name), :class => 'input-xxlarge'
+          %li
+            = label_tag 'system_settings[page_title_separator]', '%%sep%% - separator'
+            = text_field_tag 'system_settings[page_title_separator]', SystemSetting.get_value(:page_title_separator), :class => 'input-xxlarge'
+          %li
+            :plain
+              %%page%% - current page title
+            %ul
+              - ['landing', 'home', 'treatment_reviews', 'doctor_reviews'].each do |page|
+                = label_tag "system_settings[page_title_#{page}]", page.humanize
+                = text_field_tag "system_settings[page_title_#{page}]", SystemSetting.get_value("page_title_#{page}")
+      %fieldset
+        = submit_tag 'Save', class: 'btn btn-success'
+
+  .tab-pane#noindex
+    = form_for :noindex_rule, url: '/noindex_rules', class: 'form-search', method: :post, remote: true do |f|
+      = f.text_field :url, class: 'input-medium search-query'
+      = f.submit 'Add', class: 'btn', data: {disable_with: 'Saving...'}
+    = render 'noindex_rules/rules'

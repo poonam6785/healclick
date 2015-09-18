@@ -1,0 +1,6 @@
+:plain
+  $('#edit-doctor-review-form').remove();
+  $('body').append('<div id="edit-doctor-review-form">#{j render('shared/doctor_review_form') }</div>');
+  $('#edit-doctor-review-form .review_form_modal').modal({keyboard: false, backdrop: 'static', show: true});
+  $('.doctor_review_form #doctor_review_doctor_attributes_country_id').trigger('change');
+  $("#review_body .select2").select2();

@@ -1,0 +1,22 @@
+- if @summaries.any?
+  - @summaries.each do |summary|
+    - if summary.latest_review.blank? && summary.is_a?(TreatmentSummary)
+      - t = TreatmentSummary.find(summary.id)
+      - t.reload_numbers
+      - summary.reload
+    .full
+      - if summary.is_a?(TreatmentSummary)
+        = render partial: 'reviews/treatment_summary', locals: {treatment_summary: summary}
+      - else
+        = render partial: 'reviews/doctor_summary', locals: {doctor_summary: summary}
+  = paginate @summaries
+
+- else
+  .well
+    %p
+      &nbsp;
+    %p#no_content
+      - unless params[:format] == 'js'
+        There is no content available
+    %p
+      &nbsp;

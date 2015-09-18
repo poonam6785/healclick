@@ -1,0 +1,40 @@
+.col-lg-12.col-md-12.col-sm-12.col-xs-12
+  .col-lg-1.col-md-1.col-sm-1.col-xs-4
+    = author_link(post, "40x40", {no_username: true, no_score: true, style: ""})
+
+  - cache [current_user_param, post, 'list'] do
+    .col-lg-5.col-md-5.col-sm-5.col-xs-8    
+      = link_to post, post_review_path_helper(post)
+      %br/
+      %small
+        = succeed "," do
+          - if current_user
+            - if post.respond_to?(:anonymous) && post.anonymous
+              Anonymous
+            - else
+              = truncate(post.user.username, length: 16) 
+          - else
+            Private
+        = l post.created_at, format: :short
+
+    .col-lg-6.col-md-6.col-sm-6.col-xs-12
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        %big
+          Replies:
+          %span.count= post.interactions_count.to_i
+        %br/
+        Views:
+        %span.count= post.views_count.to_i
+      .col-lg-6.col-md-6.col-sm-6.col-xs-6
+        %big
+          - if current_user
+            - if post.last_interaction_user.blank? || (post.anonymous? && post.interactions_count.to_i == 0)
+              Anonymous
+            - else
+              = link_to post.last_interaction_user.username.truncate(20), post.last_interaction_user
+          - else
+            Private
+        %br/
+        = l post.last_interaction_at, format: :short
+    .clearfix
+.clearfix

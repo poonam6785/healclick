@@ -1,0 +1,14 @@
+:plain
+  $('#new_comment_container').modal('hide');
+  if ($('#comment_container_#{@comment.id}').length > 0) {
+    $('#comment_container_#{@comment.id}').html('#{escape_javascript(
+        render(partial: 'comments/full_comment_body', locals: {comment: @comment}) + 
+        render(partial: 'comments/comment_bottom', locals: {comment: @comment})
+      )}');
+  }
+  if ($('#subcomment_container_#{@comment.id}').length > 0) {
+    $('#subcomment_container_#{@comment.id}').html('#{escape_javascript(
+        render(partial: 'comments/subcomment_content', locals: {sub_comment: @comment})
+      )}');
+  }
+  load_main_link_listeners();

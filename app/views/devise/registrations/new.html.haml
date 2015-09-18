@@ -1,0 +1,47 @@
+%fieldset.padding-10
+  %legend Sign Up
+
+  = form_for(resource, :as => resource_name, :url => registration_url(resource_name, protocol: authentication_protocol), html: {class: "form-horizontal"}) do |f|
+    
+    .black
+      = devise_error_messages!
+
+    .control-group.black
+      = f.label :username, class: 'control-label'
+      .controls
+        = f.text_field :username
+    .control-group.black
+      = f.label :email, class: 'control-label'
+      .controls
+        = f.email_field :email, :autofocus => true
+    .control-group.black
+      = f.label :password, class: 'control-label'
+      .controls
+        = f.password_field :password
+    .control-group.black
+      = f.label :password_confirmation, class: 'control-label'
+      .controls
+        = f.password_field :password_confirmation
+    .control-group.black
+      .controls
+        %label.checkbox
+          = f.check_box :patient_or_caregiver
+          I'm a patient or caregiver
+    .control-group.black
+      .controls
+        .disclaimer
+          By clicking Sign Up, you agree to our
+          = link_to 'http://healclick.freshdesk.com/solution/categories/113952/folders/263095/articles/176736-term-of-use', target: :_blank do
+            Terms of Use
+          %br/
+          and that you have read our
+          = succeed '.' do
+            = link_to 'Privacy Policy', 'http://healclick.freshdesk.com/solution/categories/113952/folders/263095/articles/176732-privacy-policy', target: :_blank
+    .control-group
+      .controls
+        - resource.build_referral
+        = f.fields_for :referral do |rf|
+          = rf.hidden_field :link, value: session['referrer']
+        = f.submit "Sign up", class: 'btn btn-success'
+        
+        = render "devise/shared/links"

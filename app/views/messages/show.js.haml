@@ -1,0 +1,4 @@
+:plain
+	$('#dialog-box').prepend("#{j render @messages}")
+	$('#dialog-box').scrollTo(730)
+	$('#paginate-messages').html("#{j paginate @messages}")

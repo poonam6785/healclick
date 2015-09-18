@@ -1,0 +1,8 @@
+:plain
+  $("#edit-treatment-name-modal").on('hidden', function() {
+    $(this).remove();
+  }).modal('hide');
+  $("tr.treatment[data-treatment-id='#{@treatment.id}']").replaceWith('#{j render(partial: 'treatments/treatment', object: @treatment)}')
+  $('body').trigger('init_treatment_toggles');
+  load_period_listeners();
+  load_review_button_listeners();

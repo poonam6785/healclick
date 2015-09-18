@@ -1,0 +1,27 @@
+= form_for message, class: "horizontal-form" do |f|
+  .well
+    .post-header.transparent
+      %strong #{"Reply to " if message.reply_to_message_id.present?} Message:
+
+    = f.hidden_field :reply_to_message_id
+
+    - if message.to_user_id.present?
+      %p
+        %strong To:
+        = message.to_user_username
+        = f.hidden_field :to_user_id
+    - else
+      .clearfix
+      - if params[:action] == 'new'
+        .control-group
+          = f.label :to_user_username, "Recipient", class: "control-label"
+          .controls
+            = f.text_field :to_user_username, class: "typeahead user_full_name form-control", :autocomplete => "off"
+    .control-group
+      = f.label :content, class: "control-label"
+      .controls
+        = f.text_area :content, class: "users-typehead form-control", rows: 8
+
+    %br
+    .control-group
+      = f.submit "Send", class: 'btn btn-success expand-on-xs'

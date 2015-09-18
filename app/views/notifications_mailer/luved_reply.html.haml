@@ -1,0 +1,16 @@
+%p
+  Hello, #{@comment.user.username}
+
+%p
+  #{@by_user.username} luvs your reply "#{truncate(@comment.content, :length => 100, :omission => "... (continued)")}"
+
+%p
+
+  To read more, go to:
+
+  %br/
+  - url = "#{post_url(@comment.commentable)}#comment_#{@comment.id}"
+  = link_to url, url
+
+%p
+  The HealClick Team

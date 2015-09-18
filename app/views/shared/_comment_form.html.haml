@@ -1,0 +1,20 @@
+#new_comment_container.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button{:type => "button", :class => "close", :"data-dismiss" => "modal", :"aria-hidden" => "true"} &times;
+        %h3 Edit Comment / Reply              
+      
+      = simple_form_for comment, remote: true, html: {multipart: true} do |f|
+        .modal-body
+          = auth_token_tag
+          
+          = f.input :content, input_html: {rows: 7, class: "users-typehead form-control", placeholder: "Enter a Post..."}
+          
+          = f.input :attachment, label: false, input_html: {class: 'file-inputs form-control', title: 'Upload photo'}
+          
+          = f.input :anonymous, label: false, inline_label: 'Comment / Reply Anonymously'
+
+        .modal-footer            
+          = f.submit 'Save', :class => 'btn btn-success', 'data-disable-with' => 'Saving...'
+          %button.btn.btn-default{:type => "button", :"data-dismiss" => "modal", :"aria-hidden" => "true"} Close

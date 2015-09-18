@@ -1,0 +1,15 @@
+Hello, #{@markable.user.username}
+
+%p
+  - if @markable.try(:tracking_update?)
+    #{@user.username} finds your Tracking Update helpful
+  - else
+    #{@user.username} finds this post helpful: "#{truncate(@markable.content, :length => 200, :omission => "... (continued)")}"
+
+%p
+  To read more, go to:
+  %br/
+  - url = "#{post_url(@markable)}"
+  = link_to url, url
+%p
+  The HealClick Team

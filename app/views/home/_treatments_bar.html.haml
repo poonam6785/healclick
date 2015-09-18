@@ -1,0 +1,25 @@
+.col-sm-4.col-md-4.col-lg-4
+  .box-treatments
+    .navbar-header
+      %h1
+        = link_to community_title_for_home('Treatments'), summary_reviews_path
+      %button.navbar-toggle{"data-target" => ".navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .navbar-collapse.collapse.navbar-collapse-1
+      %ul.list-treatments.treatment-summary-container
+        - @summaries.each do |summary|
+          %li
+            %h6
+              = link_to summary.treatment_name, treatment_summary_reviews_path(summary), class: 'green'
+            %span.rating
+              %span.empty
+                - 5.times do
+                  = fa_icon 'star-o'
+              %span.filled{style: "width: #{summary.average_level/5.00*93.00}px"}
+                - 5.times do
+                  = fa_icon 'star'
+
+            = link_to "(See all #{pluralize(summary.post_count_by_condition(current_user), 'review')})", treatment_summary_reviews_path(summary), class: 'see-all'
+      .clearF

@@ -1,0 +1,22 @@
+- target = post.comment_id.blank? ? post : post.comment
+- unless target.blank?
+  - path = post.comment_id.blank? ? luv_post_path(post) : luv_comment_path(target)
+  - luv_exists = current_user ? target.luvs.where(user_id: current_user.id).exists? : false
+  - if current_user
+    = link_to path, id: "luv_#{target.id}", class: "luv-post #{luv_exists ? "active" : ""}", remote: true do
+      - if luv_exists
+        = fa_icon 'heart'
+      - else
+        = fa_icon 'heart-o'
+      LUV
+      %span.count
+        = target.luvs_count.to_i
+  - else
+    .luv-post
+      - if luv_exists
+        = fa_icon 'heart'
+      - else
+        = fa_icon 'heart-o'
+      LUV
+      %span.count
+        = target.luvs_count.to_i

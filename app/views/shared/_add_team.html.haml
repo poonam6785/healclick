@@ -1,0 +1,5 @@
+.add-my-team{class: "add-team-#{user.id}"}
+  - if current_user.following?(user)
+    My Teammate
+  - else
+    = link_to 'Add To My Team', follow_user_path(user), remote: true, class: 'btn btn-default btn-xs'

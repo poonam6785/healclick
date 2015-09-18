@@ -1,0 +1,298 @@
+I, [2014-01-23T10:30:19.853589 #5726]  INFO -- : Refreshing Gem list
+I, [2014-01-23T10:30:25.232850 #5726]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+I, [2014-01-23T10:30:25.241990 #5726]  INFO -- : master process ready
+I, [2014-01-23T10:30:25.246463 #5737]  INFO -- : worker=0 ready
+I, [2014-01-23T10:30:25.251593 #5742]  INFO -- : worker=2 ready
+I, [2014-01-23T10:30:25.257854 #5740]  INFO -- : worker=1 ready
+I, [2014-01-23T10:30:25.259039 #5744]  INFO -- : worker=3 ready
+I, [2014-01-23T11:42:58.984591 #5726]  INFO -- : reaped #<Process::Status: pid 5737 exit 0> worker=0
+I, [2014-01-23T11:42:58.984787 #5726]  INFO -- : reaped #<Process::Status: pid 5740 exit 0> worker=1
+I, [2014-01-23T11:42:58.984926 #5726]  INFO -- : reaped #<Process::Status: pid 5742 exit 0> worker=2
+I, [2014-01-23T11:42:58.985051 #5726]  INFO -- : reaped #<Process::Status: pid 5744 exit 0> worker=3
+I, [2014-01-23T11:42:58.985331 #5726]  INFO -- : master complete
+I, [2014-01-23T11:45:21.976613 #23302]  INFO -- : Refreshing Gem list
+I, [2014-01-23T11:45:28.120804 #23302]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-23T11:45:28.120965 #23302]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-23T11:45:28.121302 #23302] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:45:28.121350 #23302] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-23T11:45:28.621753 #23302] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:45:28.621880 #23302] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-23T11:45:29.122306 #23302] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:45:29.122432 #23302] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-23T11:45:29.622875 #23302] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:45:29.623000 #23302] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-23T11:45:30.123319 #23302] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:45:30.123417 #23302] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-23T11:45:30.623837 #23302] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-23T11:46:22.912929 #23340]  INFO -- : Refreshing Gem list
+I, [2014-01-23T11:46:28.306271 #23340]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-23T11:46:28.306418 #23340]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-23T11:46:28.306750 #23340] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:46:28.306799 #23340] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-23T11:46:28.807221 #23340] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:46:28.807349 #23340] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-23T11:46:29.307792 #23340] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:46:29.307913 #23340] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-23T11:46:29.808354 #23340] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:46:29.808481 #23340] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-23T11:46:30.308948 #23340] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-23T11:46:30.309073 #23340] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-23T11:46:30.809527 #23340] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-23T11:46:42.698385 #23360]  INFO -- : Refreshing Gem list
+I, [2014-01-23T11:46:48.148468 #23360]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-23T11:46:48.148615 #23360]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+I, [2014-01-23T11:46:48.158533 #23360]  INFO -- : master process ready
+I, [2014-01-23T11:46:48.168775 #23377]  INFO -- : worker=2 ready
+I, [2014-01-23T11:46:48.170263 #23372]  INFO -- : worker=0 ready
+I, [2014-01-23T11:46:48.176454 #23375]  INFO -- : worker=1 ready
+I, [2014-01-23T11:46:48.176454 #23379]  INFO -- : worker=3 ready
+I, [2014-01-23T11:47:34.588145 #23360]  INFO -- : reaped #<Process::Status: pid 23372 exit 0> worker=0
+I, [2014-01-23T11:47:34.588308 #23360]  INFO -- : reaped #<Process::Status: pid 23375 exit 0> worker=1
+I, [2014-01-23T11:47:34.588398 #23360]  INFO -- : reaped #<Process::Status: pid 23377 exit 0> worker=2
+I, [2014-01-23T11:47:34.588478 #23360]  INFO -- : reaped #<Process::Status: pid 23379 exit 0> worker=3
+I, [2014-01-23T11:47:34.588745 #23360]  INFO -- : master complete
+I, [2014-01-23T11:59:51.153115 #24147]  INFO -- : Refreshing Gem list
+I, [2014-01-23T11:59:56.493559 #24147]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-23T11:59:56.493705 #24147]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+I, [2014-01-23T11:59:56.493981 #24147]  INFO -- : listening on addr=0.0.0.0:20112 fd=13
+I, [2014-01-23T11:59:56.510751 #24158]  INFO -- : worker=0 ready
+I, [2014-01-23T11:59:56.518214 #24147]  INFO -- : master process ready
+I, [2014-01-23T11:59:56.519774 #24163]  INFO -- : worker=2 ready
+I, [2014-01-23T11:59:56.521058 #24161]  INFO -- : worker=1 ready
+I, [2014-01-23T11:59:56.529742 #24167]  INFO -- : worker=3 ready
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+E, [2014-01-23T17:10:12.857692 #24147] ERROR -- : worker=0 PID:24158 timeout (31s > 30s), killing
+E, [2014-01-23T17:10:16.178059 #24147] ERROR -- : worker=1 PID:24161 timeout (31s > 30s), killing
+E, [2014-01-23T17:10:16.178186 #24147] ERROR -- : worker=2 PID:24163 timeout (31s > 30s), killing
+E, [2014-01-23T17:10:17.898370 #24147] ERROR -- : reaped #<Process::Status: pid 24158 SIGKILL (signal 9)> worker=0
+E, [2014-01-23T17:10:17.926107 #24147] ERROR -- : reaped #<Process::Status: pid 24161 SIGKILL (signal 9)> worker=1
+E, [2014-01-23T17:10:17.926229 #24147] ERROR -- : reaped #<Process::Status: pid 24163 SIGKILL (signal 9)> worker=2
+E, [2014-01-23T17:10:17.926299 #24147] ERROR -- : worker=3 PID:24167 timeout (36s > 30s), killing
+E, [2014-01-23T17:10:19.017598 #24147] ERROR -- : reaped #<Process::Status: pid 24167 SIGKILL (signal 9)> worker=3
+I, [2014-01-23T17:10:26.212947 #29326]  INFO -- : worker=2 ready
+I, [2014-01-23T17:10:26.213179 #29329]  INFO -- : worker=3 ready
+I, [2014-01-23T17:10:26.213117 #29323]  INFO -- : worker=1 ready
+I, [2014-01-23T17:10:26.212982 #29320]  INFO -- : worker=0 ready
+I, [2014-01-23T18:10:54.037734 #24147]  INFO -- : reloading config_file=config/unicorn.rb
+I, [2014-01-23T18:10:54.286913 #24147]  INFO -- : Refreshing Gem list
+I, [2014-01-23T18:10:54.287376 #24147]  INFO -- : done reloading config_file=config/unicorn.rb
+I, [2014-01-23T18:10:54.287433 #24147]  INFO -- : reloading config_file=config/unicorn.rb
+I, [2014-01-23T18:10:54.305426 #24147]  INFO -- : Refreshing Gem list
+I, [2014-01-23T18:10:54.305750 #24147]  INFO -- : done reloading config_file=config/unicorn.rb
+I, [2014-01-23T18:10:57.720579 #24147]  INFO -- : reaped #<Process::Status: pid 29329 exit 0> worker=3
+I, [2014-01-23T18:10:57.728142 #24147]  INFO -- : reaped #<Process::Status: pid 29320 exit 0> worker=0
+I, [2014-01-23T18:10:57.728293 #24147]  INFO -- : reaped #<Process::Status: pid 29323 exit 0> worker=1
+I, [2014-01-23T18:10:57.738293 #30365]  INFO -- : worker=3 ready
+I, [2014-01-23T18:10:57.739369 #24147]  INFO -- : reaped #<Process::Status: pid 29326 exit 0> worker=2
+I, [2014-01-23T18:10:57.743863 #30368]  INFO -- : worker=0 ready
+I, [2014-01-23T18:10:57.752782 #30373]  INFO -- : worker=2 ready
+I, [2014-01-23T18:10:57.753548 #30371]  INFO -- : worker=1 ready
+I, [2014-01-23T18:11:34.538087 #24147]  INFO -- : reaped #<Process::Status: pid 30365 exit 0> worker=3
+I, [2014-01-23T18:11:34.638570 #24147]  INFO -- : reaped #<Process::Status: pid 30368 exit 0> worker=0
+I, [2014-01-23T18:11:34.638675 #24147]  INFO -- : reaped #<Process::Status: pid 30371 exit 0> worker=1
+I, [2014-01-23T18:11:34.638746 #24147]  INFO -- : reaped #<Process::Status: pid 30373 exit 0> worker=2
+I, [2014-01-23T18:11:34.638931 #24147]  INFO -- : master complete
+I, [2014-01-24T08:17:28.396799 #3828]  INFO -- : Refreshing Gem list
+I, [2014-01-24T08:17:33.775978 #3828]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T08:17:33.794409 #3828]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-24T08:17:33.795024 #3828] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:17:33.795102 #3828] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-24T08:17:34.295536 #3828] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:17:34.295659 #3828] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-24T08:17:34.796084 #3828] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:17:34.796207 #3828] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-24T08:17:35.296660 #3828] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:17:35.296782 #3828] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-24T08:17:35.797227 #3828] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:17:35.797352 #3828] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-24T08:17:36.297812 #3828] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-24T08:25:07.270245 #4559]  INFO -- : Refreshing Gem list
+I, [2014-01-24T08:25:12.787229 #4559]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T08:25:12.787372 #4559]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-24T08:25:12.787690 #4559] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:25:12.787738 #4559] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-24T08:25:13.288170 #4559] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:25:13.288296 #4559] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-24T08:25:13.788691 #4559] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:25:13.788786 #4559] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-24T08:25:14.289153 #4559] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:25:14.289246 #4559] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-24T08:25:14.789683 #4559] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:25:14.789810 #4559] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-24T08:25:15.290249 #4559] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-24T08:33:25.281149 #4831]  INFO -- : Refreshing Gem list
+I, [2014-01-24T08:33:30.774940 #4831]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T08:33:30.775089 #4831]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-24T08:33:30.775407 #4831] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:33:30.775457 #4831] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-24T08:33:31.275938 #4831] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:33:31.276064 #4831] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-24T08:33:31.776515 #4831] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:33:31.776642 #4831] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-24T08:33:32.277073 #4831] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:33:32.277196 #4831] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-24T08:33:32.777692 #4831] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T08:33:32.777816 #4831] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-24T08:33:33.278246 #4831] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-24T11:13:29.988513 #7632]  INFO -- : Refreshing Gem list
+I, [2014-01-24T11:13:48.475197 #7632]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T11:13:48.528036 #7632]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-24T11:13:48.528723 #7632] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:13:48.528781 #7632] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-24T11:13:49.029274 #7632] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:13:49.029405 #7632] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-24T11:13:49.529855 #7632] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:13:49.529971 #7632] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-24T11:13:50.030334 #7632] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:13:50.030428 #7632] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-24T11:13:50.530869 #7632] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:13:50.530995 #7632] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-24T11:13:51.031428 #7632] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-24T11:14:15.436450 #7658]  INFO -- : Refreshing Gem list
+I, [2014-01-24T11:14:21.334808 #7658]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T11:14:21.335117 #7658]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-24T11:14:21.335528 #7658] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:14:21.335625 #7658] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-24T11:14:21.836085 #7658] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:14:21.836206 #7658] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-24T11:14:22.336588 #7658] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:14:22.336688 #7658] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-24T11:14:22.837064 #7658] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:14:22.837170 #7658] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-24T11:14:23.356447 #7658] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:14:23.356571 #7658] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-24T11:14:23.856941 #7658] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-24T11:15:07.725042 #7723]  INFO -- : Refreshing Gem list
+I, [2014-01-24T11:15:13.065051 #7723]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T11:15:13.065201 #7723]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+E, [2014-01-24T11:15:13.065514 #7723] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:15:13.065562 #7723] ERROR -- : retrying in 0.5 seconds (4 tries left)
+E, [2014-01-24T11:15:13.565993 #7723] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:15:13.566117 #7723] ERROR -- : retrying in 0.5 seconds (3 tries left)
+E, [2014-01-24T11:15:14.066574 #7723] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:15:14.066700 #7723] ERROR -- : retrying in 0.5 seconds (2 tries left)
+E, [2014-01-24T11:15:14.567145 #7723] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:15:14.567265 #7723] ERROR -- : retrying in 0.5 seconds (1 tries left)
+E, [2014-01-24T11:15:15.067726 #7723] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+E, [2014-01-24T11:15:15.067849 #7723] ERROR -- : retrying in 0.5 seconds (0 tries left)
+E, [2014-01-24T11:15:15.568342 #7723] ERROR -- : adding listener failed addr=0.0.0.0:20112 (in use)
+/home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `bind': Address already in use - bind(2) (Errno::EADDRINUSE)
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:185:in `new_tcp_server'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/socket_helper.rb:165:in `bind_listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:242:in `listen'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `block in bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `each'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:797:in `bind_new_listeners!'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/lib/unicorn/http_server.rb:138:in `start'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/gems/unicorn-4.8.0/bin/unicorn_rails:209:in `<top (required)>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `load'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/unicorn_rails:23:in `<main>'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `eval'
+	from /home/user/.rvm/gems/ruby-2.0.0-p353@healclick/bin/ruby_executable_hooks:15:in `<main>'
+I, [2014-01-24T11:16:22.050950 #7772]  INFO -- : Refreshing Gem list
+I, [2014-01-24T11:16:27.407149 #7772]  INFO -- : unlinking existing socket=/home/user/projects/healclick/shared/unicorn.sock
+I, [2014-01-24T11:16:27.407403 #7772]  INFO -- : listening on addr=/home/user/projects/healclick/shared/unicorn.sock fd=12
+I, [2014-01-24T11:16:27.407710 #7772]  INFO -- : listening on addr=0.0.0.0:20112 fd=13
+I, [2014-01-24T11:16:27.508037 #7772]  INFO -- : master process ready
+I, [2014-01-24T11:16:27.523000 #7788]  INFO -- : worker=2 ready
+I, [2014-01-24T11:16:27.523049 #7783]  INFO -- : worker=0 ready
+I, [2014-01-24T11:16:27.524132 #7792]  INFO -- : worker=3 ready
+I, [2014-01-24T11:16:27.524132 #7786]  INFO -- : worker=1 ready
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.

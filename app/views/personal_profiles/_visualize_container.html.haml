@@ -1,0 +1,17 @@
+#symptoms_chart_container{class: "chart_#{current_user.id} chart_container", data: {chart: "chart_symptoms_chart_#{current_user.id}"}}
+  %fieldset#visualize-anchor
+    %br
+    .form-group
+      = select_tag 'symptoms_chart[symptom]', user_symptoms_for_chart_filter(current_user), class: 'input-medium form-control symptom_select select2-without-search symptom-filter'
+    .form-group
+      = select_tag 'symptoms_chart[treatment]', options_for_graph, class: 'input-medium form-control select2 treatment_select treatment-filter'
+    .form-group
+      = select_tag 'symptoms_chart[lab]', labs_options_for_graph, class: 'input-medium form-control select2 labs-filter'
+    %br/
+  - if current_user.symptoms.blank? && current_user.labs.blank? && current_user.treatments.blank?
+    %center
+      %h3 You haven't entered tracking data yet. To start tracking, go to #{link_to 'symptoms', my_health_personal_profile_path(medical_editor: :symptoms)}, #{link_to 'treatments', my_health_personal_profile_path(medical_editor: :treatments)}, #{link_to 'events', my_health_personal_profile_path(medical_editor: :events)}, or #{link_to 'labs and other metrics', my_health_personal_profile_path(medical_editor: :labs)}
+  .graph
+    %center
+      %h2 Loading...
+      = link_to '', symptoms_chart_personal_profile_path(id: current_user.id, treatments: true), class: 'load_symptoms_chart', remote: true

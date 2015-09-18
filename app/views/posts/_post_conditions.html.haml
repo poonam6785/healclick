@@ -1,0 +1,6 @@
+/ - target_review = post.doctor_review_id.nil? ? post.treatment_review : post.doctor_review
+/ - desired_path = post.doctor_review_id.nil? ? summary_reviews_path : doctor_reviews_path
+/ - target_review.conditions.each do |condition|
+/   = link_to condition.name.to_s.titleize, conditions_path(condition.slug), class: "label", style: "font-weight: normal; background-color: #4e93ce"
+- total_conditions.each do |condition|
+  = link_to condition.name.to_s.titleize, conditions_path(condition.slug), class: "label", style: "font-weight: normal; background-color: #4e93ce"

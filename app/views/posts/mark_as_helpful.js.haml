@@ -1,0 +1,2 @@
+:plain
+  $('#post_helpful_container_#{@post.id}').html('#{escape_javascript(render(partial: 'posts/helpful_link', locals: {post: @post.reload}))}')

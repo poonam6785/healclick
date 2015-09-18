@@ -1,0 +1,56 @@
+/* Typography
+----------------------------*/
+$maintype: #615956;
+$subtype: #86817e;
+$darktype: #2a2723;
+
+/* Textures
+----------------------------*/
+$sand: asset_url(”sand.png”);
+$whitesand: asset_url(”whitesand.png”);
+$debut: asset_url(”debut_light.png”);
+
+
+
+.btn-blue {
+  padding:.5em 1.2em; cursor: pointer; -webkit-appearance: none; outline: none;
+  font-size: 1.1rem; text-transform: uppercase; font-weight: 900;
+  font-family: ‘Helvetica Neue’, Helvetica;
+  color:#fff; text-shadow: 0px -1px rgba(0,0,0,.9); 
+  border:1px solid #1954a0; background: #3174bc;
+  @include background-image(linear-gradient( #5092bf 0%, #3174bc 50%, #1954a0 100%));
+  &:hover { 
+    background: #3174bc;
+  }
+  &:active {
+    background: #3174bc; @include box-shadow( inset 0px 1px 2px #333);
+    @include background-image(linear-gradient( #1954a0 0%, #3174bc 50%, #5092bf 100%));
+  }
+}
+
+// Meter
+.one { 
+  background:#ff4646; opacity: .8; 
+  border:1px solid darken(#ff4646,30%);
+  &:hover { background:#ff4646; opacity: 1; }
+}
+.two { 
+  background:#ffa44e; opacity: .8; 
+  border:1px solid darken(#ffa44e,30%);  
+  &:hover { background:#ffa44e; opacity: 1; }
+}
+.three { 
+  background:#fff561; opacity: .8; 
+  border:1px solid darken(#fff561,30%);  
+  &:hover { background:#fff561; opacity: 1; }
+}
+.four { 
+  background:#d8ff6c; opacity: .8; 
+  border:1px solid darken(#d8ff6c,30%);  
+  &:hover { background:#d8ff6c; opacity: 1; }
+}
+.five { 
+  background:#64ff6e; opacity: .8; 
+  border:1px solid darken(#4cff54,30%);  
+  &:hover { background:#4cff54; opacity: 1; }
+}

@@ -1,0 +1,11 @@
+.well.top-form-container
+  = form_tag "", class: "form-inline", method: :get do
+    .form-group
+      = label_tag :condition_id, "Condition: "
+      - base_conditions = current_user ? [['All Conditions', 'all'], ['My Conditions', 'my_conditions']] : [['All Conditions', 'all']]
+      = select_tag :condition_id, options_for_select(base_conditions + Condition.active.order("name asc").where("name <> '' and name is not null").map{|c| [c.name, c.id.to_s]}, params[:condition_id]), class: "input-medium form-control"
+    .form-group
+      = label_tag :treatment_name, "Treatment Name: "
+      = text_field_tag :treatment_name, params[:treatment_name], class: "typeahead treatment_name form-control", autocomplete: "off"
+    .form-group
+      = submit_tag "Search", class: "btn btn-success"

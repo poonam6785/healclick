@@ -1,0 +1,32 @@
+#dialog-box
+  max-height: 440px
+  margin-bottom: 25px
+  overflow: scroll
+  .img-responsive
+    height: 60px
+    width: 60px
+    .message:last-child
+    margin-bottom: 0
+
+::-webkit-scrollbar 
+  -webkit-appearance: none
+  width: 7px
+
+::-webkit-scrollbar-thumb 
+  border-radius: 4px
+  background-color: rgba(0,0,0,.5)
+  box-shadow: 0 0 1px rgba(255,255,255,.5)
+body.messages
+  .set-message-time-min
+    padding: 0px
+    @media (max-width: 768px)
+      padding-left: 15px
+      padding-right: 15px
+
+
+.message .content
+  word-wrap: break-word
+  
+.notification-cricle.has-notifications
+  background-color: red
+  color: #fff

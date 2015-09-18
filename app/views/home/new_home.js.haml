@@ -1,0 +1,12 @@
+:plain  
+  new_page = '#{j render(partial: 'my_click/feed_batch')}';
+- if params[:page].present?
+  :plain
+    $('#posts_container').append(new_page);
+- else
+  :plain
+    $('#posts_container').html(new_page);
+:plain
+  $('.loading_container').hide();
+  load_useful_link_listeners();
+  $('.file-inputs:not(.changed)').addClass('changed').bootstrapFileInput();

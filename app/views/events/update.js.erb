@@ -1,0 +1,2 @@
+$('#eventModal<%= @event.id%>').modal('hide');
+$('#tab-ev-<%= @event.id%> a span:first-child ').text("<%= @event.body.split.join(' ') %>");

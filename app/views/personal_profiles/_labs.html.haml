@@ -1,0 +1,27 @@
+.margin-bottom-10= select_tag :with_selected_labs, options_for_select([['', ''], ['Delete Permanently', 'delete']]), style: 'width: 200px'
+= button_tag 'Save', class: 'btn btn-success pull-right medical-submit margin-bottom-10', data: {target: '#labs-container form'}
+.clearfix
+.medical-treatments-table.margin-bottom-10
+  .no-padding
+    .row.hidden-xs.table-head
+      .col-lg-1.col-md-1.col-sm-1
+      .col-lg-2.col-md-2.col-sm-2
+        Name
+      .col-lg-3.col-md-3.col-sm-3
+        Current Value
+      .col-lg-3.col-md-3.col-sm-3
+        Unit of Measurement
+  .scrollable-area
+    - current_user.labs.includes(:lab_logs).each do |lab|
+      %div{id: "lab_#{lab.id}"}
+        = form_for lab, url: lab_path(lab), remote: true, html: {class: 'no-padding'} do |f|
+          .row.treatment
+            = hidden_field_tag :date, (@date ||= Time.zone.now.to_date)
+            .col-lg-1.col-md-1.col-sm-1
+              = radio_button_tag "bulk_edit_id_#{lab.id}", lab.id, false, class: 'bulk-edit-radio'
+            .col-lg-2.col-md-2.col-sm-2
+              = f.object.name
+            .col-lg-3.col-md-3.col-sm-3
+              = f.text_field :current_value, class: 'form-control lab-current-value', placeholder: 'Enter number only', value: lab_value_for_date(lab, :current_value, @date.to_date)
+            .col-lg-3.col-md-3.col-sm-3
+              = f.text_field :unit, class: 'form-control lab-unit', value: lab_value_for_date(lab, :unit, @date.to_date)

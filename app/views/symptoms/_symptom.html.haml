@@ -1,0 +1,14 @@
+.col-lg-12.col-md-12.col-sm-12.col-xs-12.no-padding.symptom{data: {'symptom-id' => symptom.id}, class: ('first' if symptom_counter == 0)}
+  = f.fields_for :symptoms, symptom do |ff|
+    = ff.hidden_field :id
+    .col-lg-3.col-md-3.col-sm-3.col-xs-12
+      .col-lg-1.col-md-1.col-sm-1
+        = radio_button_tag "bulk_edit_id_#{symptom.id}", symptom.id, false, class: 'bulk-edit-radio'
+
+      .symptom-name.col-lg-9.col-md-9.col-sm-9.col-xs-10
+        = symptom.symptom
+
+    .col-lg-9.col-md-9.col-sm-9.col-xs-12.smaller-level.symptom-severity
+      = render 'symptoms/level', symptom: symptom, form: ff
+
+    .clearfix

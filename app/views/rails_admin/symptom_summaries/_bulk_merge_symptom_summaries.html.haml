@@ -1,0 +1,17 @@
+= form_tag '', method: :post do |f|
+  %fieldset
+    %legend Pick the symptom summary you want to merge into
+    - @pass_params.each do |key, value|
+      - if value.respond_to?(:each)
+        - value.each do |vv|
+          = hidden_field_tag "#{key}[]", vv
+      - else
+        = hidden_field_tag key, value
+    %ul       
+      - @objects.each do |ts|
+        %label.radio          
+          = radio_button_tag "symptom_summaries", ts.id, (ts.id == @objects.map{|x| x.id}.min)
+          = ts.id.to_s + " - " + ts.symptom_name + (@updated_id.to_i == ts.id ? " - just updated" : "")
+    
+  %fieldset
+    = submit_tag 'Save', class: 'btn btn-success'

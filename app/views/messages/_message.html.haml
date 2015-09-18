@@ -1,0 +1,28 @@
+.well.message{id: "message_#{message.id}", style: "font-weight: #{message.is_read? ? 'normal' : (params[:action] == 'sent' ? 'normal' : 'bold')}", data: {id: message.id}, class: ('clickable' unless params[:action] == 'show')}
+
+  .col-lg-2.col-md-3.col-sm-4.col-xs-12
+    %p
+      = message_author_link(message, (params[:action] == 'index'))
+    %p
+      = message.subject
+  
+  .col-lg-8.col-md-6.col-sm-4.col-xs-12.content
+    - if params[:action] == 'show'
+      = with_highlighted_links simple_format(message.content).try(:html_safe)
+    - else
+      = simple_format(truncate(message.content, :length => 200, :omission => '... Read More').try(:gsub, 'Read More', "#{link_to('Read More', message_path(message), class: 'blue')}").try(:html_safe))
+
+  .col-lg-2.col-md-3.col-sm-4.col-xs-12.set-message-time-min
+    %span.timestamp= time_ago_in_words(message.created_at) + " ago"
+    %br/
+
+    - unless params[:action] == 'show'
+      - if message.to_user == current_user
+        = link_to 'Reply', message_path(message)
+        - unless %w(sent index).include?(params[:action])
+          |
+          = link_to message_path(message), confirm: 'Are yo sure you want to remove this message?', method: :delete do
+            .glyphicon.glyphicon-trash
+            Delete
+
+  .clearfix  

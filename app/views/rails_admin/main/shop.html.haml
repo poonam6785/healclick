@@ -1,0 +1,7 @@
+= form_tag '/system_settings', method: :post do |f|
+  %fieldset
+    = label_tag 'system_settings[shop_url]', 'Shop Url'
+    = text_field_tag 'system_settings[shop_url]', SystemSetting.get_value(:shop_url), :class => 'input-xxlarge'
+    = hidden_field_tag 'redirect_to', '/admin/shop'
+  %fieldset
+    = submit_tag 'Save', class: 'btn btn-success'

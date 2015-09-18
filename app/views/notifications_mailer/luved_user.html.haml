@@ -1,0 +1,10 @@
+%p
+  Hello, #{@user.username}
+
+%p
+  To see #{@by_user.username}, go to
+  %br/
+  #{profile_url(@by_user.username)}
+
+%p
+  The HealClick Team

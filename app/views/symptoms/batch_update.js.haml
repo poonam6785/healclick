@@ -1,0 +1,31 @@
+- if @finished
+  :plain
+    $(".health-tracker-top-link").popover('hide');
+    window.get_notifications()
+- if @js_redirect
+  :plain
+    if(window.location == '#{@desired_path}') {
+      window.location.reload();
+    } else {
+      window.location = '#{@desired_path}';
+    }
+:plain
+  if ($('#symptoms_container').length > 0){
+    $('#symptoms_container').html('#{j render partial: 'personal_profiles/symptoms'}');
+  }
+  if ($('#treatments_container').length > 0){
+    $('#treatments_container').html('#{j render partial: 'personal_profiles/treatments'}');
+  }
+  init_treatments_select2()
+  $('body').trigger('init_treatment_toggles');
+  $("#symptoms_container .toggle").each(function() {
+    var $checkbox;
+    $checkbox = $(this).closest('.symptom-notify').find('input.notify:first');
+    return $(this).toggles({
+      drag: false,
+      on: $checkbox.is(':checked'),
+      checkbox: $checkbox
+    });
+  });
+  $('.medical-submit').prop('disabled', false).text('Save')
+  $('.scrollable-area').css({'height': ($(window).height() - 90) + 'px'})

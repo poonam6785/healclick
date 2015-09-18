@@ -1,0 +1,158 @@
+.medical-treatments-table
+  form
+    padding: 0 20px
+    .row.treatment
+      padding-top: 10px
+      padding-bottom: 10px
+      position: relative
+      border-bottom: 1px solid #ccc
+    &:last-child
+      border-bottom: none
+  .treatment.col-md-3
+    padding-left: 10px
+
+.row.table-head
+  font-weight: bold
+  border-bottom: 2px solid #ccc
+  padding-bottom: 5px
+
+#treatments_container a.edit-treatment-name
+  visibility: hidden
+
+#treatments_container tr:hover a.edit-treatment-name
+  visibility: visible
+
+#treatments_container table
+  th
+    text-align: center
+    line-height: 14px
+    font-size: 12px
+  td
+    &.dosage
+      width: 100px
+      text-align: center
+    &.selector
+      width: 250px
+    &.treatment
+      width: 160px
+    &.dates
+      width: 105px
+
+.medical-treatments-table  
+  .medical-treatments-table .treatment td
+    display: block
+    border: 0
+  .medical-treatments-table th
+    display: inline-block
+    width: 50%
+  .medical-treatments-table
+    tbody tr:first-child
+      td.treatment, td.remove
+        margin: 0
+    td.line
+      display: block !important
+      border-top: 1px solid #dddddd
+      width: 100%
+    td.treatment
+      display: inline-block
+      width: 80%
+      width: -moz-calc(100% - 34px)
+      width: -webkit-calc(100% - 34px)
+      width: calc(100% - 34px)
+      margin: 12px 0 0 0
+    td.remove
+      display: inline-block
+      width: 34px
+      margin: 12px 0 0 0
+    td.dosage
+      display: inline-block
+      width: 26%
+    td.dates
+      display: inline-block
+      width: 27%
+    td.reviews
+      display: inline-block
+      width: 47%      
+
+.take-today-select
+  cursor: pointer
+  background: asset_url('checkbox_empty.png')
+  width: 40px
+  height: 35px
+  float: left
+  background-size: cover
+  &.checked 
+    background: asset_url('checkbox_checked.png')
+    background-size: cover
+    
+.shop-button
+  background-color: #ffff00
+  font-family: "Calibri (Body)"
+  color: #444444
+  img
+    width: 16px
+    height: 16px
+    vertical-align: top
+
+  @media (max-width: 768px)  
+    margin-left: 10px
+    margin-top: -8px
+    margin-bottom: 10px
+
+.reviews.col-lg-2.col-md-2.col-sm-2.col-xs-12
+  @media (max-width: 1200px)
+    padding-right: 0px
+
+  .btn.btn-primary.btn-xs   
+    margin-right: 10px
+
+#treatment-add
+  @media (max-width: 979px) 
+    #comma-help-float-left, .btn
+      float: left
+      
+.float-left-sm-screen
+  @media (max-width: 979px) 
+    text-align: left  
+
+.taken-today.col-lg-1.col-md-1.col-sm-1.col-xs-12
+  .visible-xs    
+    .pull-right  
+      a
+        margin-top: -35px
+
+.add-treatment-checkbox-margin
+  @media (max-width: 768px) 
+    margin-top: -10px
+    margin-left: 10px
+    margin-bottom: 10px
+
+.treatment-edit-show-margin
+  @media (max-width: 768px) 
+    margin-top: 10px
+
+.treatment-header-taking
+  text-align: center
+  margin-top: 40px
+
+.toggle-currently-taking
+  @media (max-width: 768px)
+    float: left
+    margin: 5px 7px
+    
+.not-taking-table
+  background-color: rgba(204,204,204,0.2)
+
+.medical-treatments-table .row
+  margin: 0
+
+.medical-datepicker
+  margin-top: 15px
+  @media (max-width: 400px)
+    margin-top: -10px
+.treatments .select2-chosen, #symptoms .select2-chosen
+  color: #444444
+  
+.box-treatments
+  h1, h6
+    padding-bottom: 0 !important

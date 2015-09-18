@@ -1,0 +1,30 @@
+[global]
+ApplicationName=healclick-ruby
+AwsCredentialFile=/Users/mike/.elasticbeanstalk/aws_credential_file
+DevToolsEndpoint=git.elasticbeanstalk.us-west-2.amazonaws.com
+EnvironmentName=healclick-ruby-env
+EnvironmentTier=WebServer::Standard::1.0
+EnvironmentType=LoadBalanced
+InstanceProfileName=
+OptionSettingFile=/Users/mike/dev/healclick/.elasticbeanstalk/optionsettings.healclick-ruby-env
+RdsDeletionPolicy=Delete
+RdsEnabled=Yes
+RdsSourceSnapshotName=
+Region=us-west-2
+ServiceEndpoint=https://elasticbeanstalk.us-west-2.amazonaws.com
+SolutionStack=64bit Amazon Linux 2013.09 running Ruby 1.9.3
+
+[branches]
+beanstalk=healclick-ruby-dev
+
+[branch:beanstalk]
+ApplicationVersionName=Sample Application
+EnvironmentName=healclick-ruby-dev
+EnvironmentTier=WebServer::Standard::1.0
+EnvironmentType=LoadBalanced
+InstanceProfileName=
+OptionSettingFile=/Users/mike/dev/healclick/.elasticbeanstalk/optionsettings.healclick-ruby-dev
+RdsDeletionPolicy=Delete
+RdsEnabled=Yes
+RdsSourceSnapshotName=
+

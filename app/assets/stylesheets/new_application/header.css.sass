@@ -1,0 +1,736 @@
+@import compass
+@import health-icons
+@import variables
+
+.invisible
+  height: 90px
+
+  @media (max-width: 992px)
+    height: 150px
+
+#navigation
+  @media (max-width: 990px) and (min-width: 768px)
+    li
+      a
+        font-size: 12px
+body.main.index
+  label.checkbox
+    margin-left: 20px
+
+  .invisible
+    @media (max-width: 767px)
+      height: 280px
+
+header
+  .list-notification
+    li:first-child a:hover
+      text-decoration: none
+  .user-dropdown-menu
+    li
+      float: none
+      padding-left: 0 !important
+
+.messages-top
+  background-image: asset_url("nav-icon.png")
+  width: 40px
+  height: 34px
+  margin: 0px !important
+  padding: 0px !important
+  background-position: 0px 292px
+.notifications-top
+  background-image: asset_url("nav-icon.png")
+  width: 30px
+  height: 40px
+  margin: 0px !important
+  padding: 0px !important
+  background-position: 8px 145px
+.top-header
+  .navbar-collapse
+    max-height: 100% !important
+    float: left
+
+  .navbar-inner
+    ul.top_menu_left
+      width: 100%
+      li
+        text-align: center
+
+  .navbar-inner ul.top_menu_right .top-badge
+    margin-right: 3px
+
+  .navbar-inner ul.top_menu_right .top-dropdown-container
+    float: none !important
+    margin: 0px 0 13px 45px
+
+  .navbar-inner
+    padding: 14px 0 4px
+    background: #2C6EB7
+    +box-shadow(#5c5c5c 0 0 4px)
+    a
+      background-color: transparent !important
+
+    li.top-dropdown-container
+      ul.dropdown-menu
+        left: -80%
+        
+        li:hover
+          background-color: $blue
+          a
+            color: white
+
+    ul.top_menu_left
+      margin-bottom: 15px
+      li
+        display: inline-block
+        a
+          background: none
+          color: $white
+          font-size: 16px
+          padding: 10px 15px 2px 15px
+          border-bottom: 2px solid transparent
+          font-weight: bold
+          text-decoration: none
+          &.current, &:hover
+            border-bottom: 2px solid white
+        @media (max-width: 320px)    
+          a
+            padding: 10px 11px 2px 11px
+        .dropdown-menu > li
+          display: block
+        .dropdown-menu > li > a
+          display: block
+          padding: 3px 20px
+          clear: both
+          color: #333
+          white-space: nowrap
+          font-weight: normal
+          font-size: 14px
+          span
+            font-size: 14px
+        .dropdown-menu > li > a:hover, .dropdown-menu > li > a.active
+          +background-image(linear-gradient(to bottom, #0088cc, #0077b3))
+          color: #fff
+    ul.top_menu_right
+      & > li
+        display: inline-block
+        vertical-align: middle
+      .user-top-avatar
+        width: 35px
+        height: 35px
+        +border-radius(50%)
+        border: 1px solid #fff
+        background-size: 100%
+        vertical-align: middle
+        position: absolute
+        left: -40px        
+        z-index: 999
+      .user-top-username
+        display: inline-block        
+        font-size: 12px
+        font-weight: normal
+        color: $white
+        background: none
+        padding: 9px 15px
+        vertical-align: middle
+        +border-radius(10px)
+        border: 1px solid #fff
+        margin: 0 0 0 -12px
+        z-index: 1      
+      .top-dropdown-container
+        margin: 0 0 0 70px
+        @media (max-width: 405px)
+          margin: 0 0 0 60px
+      .top-badge
+        margin-left: -12px
+        margin-top: 3px
+        vertical-align: top
+        background-color: white
+        font-weight: bold
+        +box-shadow(0px 0px 6px white)
+        color: red
+        font-size: 13px
+        padding: 1px 4px
+        background: #ff0000
+        color: #fff
+        +border-radius(100%)
+        &.count-0
+          background: #fff
+          color: red
+
+    .navbar-brand
+      color: #fff
+      font-size: 22px
+      font-weight: normal
+      font-family: Calibri, "Helvetica Neue", Helvetica, Arial, sans-serif
+
+  .sign-in-button
+    text-align: center
+    border-radius: 3px
+    border: 1px solid #ccc
+    background: white
+    text-transform: uppercase
+    padding: .7rem 1.5rem
+    outline: none
+    font-weight: 900
+    -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2)
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2)
+    -webkit-appearance: none
+    color: #436aff
+    font-size: 17px
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 rgba(255, 255, 255, 0.5)
+    background: -webkit-gradient(linear, left top, left bottom, from(#2ec345), to(#1c792b))
+    background: -webkit-linear-gradient(#2ec345 50%, #1c792b 100%)
+    background: linear-gradient(#2ec345 50%, #1c792b 100%)
+    color: #fff
+    text-shadow: 0 -1px 0 rgba(0, 100, 0, 0.5), 0 1px 0 rgba(255, 255, 255, 0)
+    border-color: #218e32
+    margin-left: 10px 
+    &:hover
+      background: #2C6EB7
+      color: white
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0)
+      border-color: #22558e
+      text-decoration: none  
+
+    // Health Tracker
+  .health-tracker-top-link
+    color: #fff
+    font-weight: bold
+    &.active
+      path
+        fill: #ff0000
+
+  .datepicker
+    z-index: 1099 !important
+
+  #health-tracker-bubble
+    position: absolute
+    top: 0px
+    right: 0px
+    &.top-badge
+      margin-right: -2px
+
+  .health-tracker-top-link:hover
+    color: #fff
+
+.health-tracker-item
+  .popover-title
+    display: none
+
+  .scroll
+    overflow-y: auto
+  .scroll
+    border-bottom: 1px solid #c3c3c3
+    padding: 0
+
+  .icon-link
+    text-align: center
+    padding: 15px
+    border: 1px solid #2c6eb7
+
+    big
+      display: block
+
+    img
+      max-width: 29px
+
+    big
+      margin-top: 5px
+    &:hover
+      text-decoration: none
+      background: #eee
+    &.doctors-link
+      padding: 2px 10px 3px 10px
+    &.diagnoses-link
+      padding: 12px 10px 3px 10px
+      img
+        padding-bottom: 5px
+  .popover-content .doctors-link
+    padding: 11px 0
+  .tracker-buttons
+    margin-top: 20px !important
+  .well-being
+    padding: 0 20px 20px 20px
+  .events.screen
+    .event-body
+      padding: 0 5%
+  .symptoms.screen
+    h4
+      font-size: 17px
+  .treatments.screen
+    h4
+      font-size: 17px
+    .form-group
+      .current-dose
+        width: -webkit-calc(100% - 120px)
+        width: -moz-calc(100% - 120px)
+        width: calc(100% - 120px)
+        display: inline
+      .take-today-select
+        cursor: pointer
+        background: asset_url("checkbox_empty.png")
+        width: 40px
+        height: 35px
+        float: left
+        background-size: cover
+        &.checked
+          background: asset_url("checkbox_checked.png")
+          background-size: cover
+    .item .desc
+      margin-bottom: 2px
+  .row
+    padding: 5px 0
+  .btn-default
+    color: #2c6eb7
+  .popover
+    border-radius: 3px
+  .title
+    color: #2c6eb7
+    font-weight: bold
+    font-size: 16px
+    margin: 5px 0 8px 0
+    width: 100%
+    text-align: center
+  .popover-content
+    padding: 9px 9px 9px
+  .moods
+    padding: 8px 24px
+    width: 307px
+    display: inline-block
+    .gradient
+      width: 100%
+      height: 10px
+      +filter-gradient(#e8ff14, #db0000, horizontal)
+      // IE6-9
+      +background-image(linear-gradient(left, #e8ff14 0%, #db0000 100%))
+      border-radius: 2px
+    .health-icon-smiley
+      font-size: 30px
+      float: left
+      color: #52bf48
+    .health-icon-neutral
+      font-size: 30px
+      float: left
+      color: #555
+    .health-icon-sad
+      font-size: 30px
+      float: left
+      color: #f33a37
+    .separator
+      width: 55px
+      float: left
+      margin: 16px 10px 0 10px
+      border-bottom: 1px solid #ccc
+  .mood-container
+    padding: 8px 24px
+    border: 1px solid #ccc
+    border-radius: 3px
+    box-shadow: inset 0px 4px 6px -6px #555
+    margin: 5px 0 15px 0
+    width: 307px
+    .item
+      display: block
+      margin: 8px 0 12px
+      position: relative
+      width: 257px
+      .rating-bg
+        background-image: asset_url("nav-sprite.png")
+        background-position: -5px -168px
+        background-repeat: no-repeat
+        width: 257px
+        height: 20px
+        .slider
+          width: 234px
+          height: 20px
+          margin-left: 11px
+          position: relative
+          .ui-slider-handle
+            background: #2c6eb7
+            color: #fff
+            font-weight: bold
+            font-size: 15px
+            width: 28px
+            height: 28px
+            text-align: center
+            position: absolute
+            border-radius: 50%
+            top: -4px
+            text-decoration: none
+            margin-left: -14px
+            outline: none !important
+            box-shadow: 0 0 0 transparent !important
+            line-height: 28px
+            transition: left 0.1s linear
+            -webkit-backface-visibility: hidden
+      .desc
+        color: #555555
+        font-weight: bold
+        font-size: 13px
+        margin: 5px 0 0 0
+        display: block
+  .secondary
+    font-weight: bold
+    font-size: 15px
+    color: #228c00
+    border: 1px solid #ccc
+    padding: 7px 0
+    width: 90px
+  .primary
+    padding: 7px 0
+    font-weight: bold
+    font-size: 15px
+    color: #fff
+    border: 1px solid #0f57c5
+    background: #7db9e8
+    /* Old browsers
+    background: -moz-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7db9e8), color-stop(5%, #488ff9), color-stop(50%, #488ff9), color-stop(100%, #2b71c9))
+    /* Chrome,Safari4+
+    background: -webkit-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* Opera 11.10+
+    background: -ms-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* IE10+
+    background: linear-gradient(to bottom, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* W3C
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db9e8', endColorstr='#2b71c9',GradientType=0 )
+    /* IE6-9
+    text-shadow: 0 0 0 transparent
+    &:hover
+      background: #7db9e8
+      /* Old browsers
+      background: -moz-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* FF3.6+
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7db9e8), color-stop(5%, #3d8bf7), color-stop(50%, #3383f4), color-stop(100%, #0d62c4))
+      /* Chrome,Safari4+
+      background: -webkit-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* Chrome10+,Safari5.1+
+      background: -o-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* Opera 11.10+
+      background: -ms-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* IE10+
+      background: linear-gradient(to bottom, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* W3C
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db9e8', endColorstr='#0d62c4',GradientType=0 )
+      /* IE6-9
+  .tracker-buttons
+    margin: 0
+    padding-left: 5%
+    padding-right: 5%
+    padding-bottom: 20px
+
+.health-tracker-item
+  .popover
+    max-width: 350px
+    width: 350px
+    border-radius: 3px
+  .title
+    color: #2c6eb7
+    font-weight: bold
+    font-size: 16px
+    margin: 5px 0 8px 0
+    width: 100%
+    text-align: center
+  .popover-content
+    padding: 9px 9px 9px
+  .moods
+    padding: 8px 24px
+    width: 257px
+    display: inline-block
+    .grades .grade
+      width: 18%
+      letter-spacing: -1px
+      display: inline-block
+      text-transform: capitalize
+      text-align: center
+      font-size: 14px
+      &.none
+        text-align: left
+      &.none, &.mild
+        width: 15%
+      &.moderate
+        width: 25%
+      &.extreme
+        text-align: right
+        width: 20%
+    .gradient
+      width: 100%
+      height: 10px
+      +filter-gradient(#e8ff14, #db0000, horizontal)
+      // IE6-9
+      +background-image(linear-gradient(left, #e8ff14 0%, #db0000 100%))
+      border-radius: 2px
+    .health-icon-smiley
+      font-size: 30px
+      float: left
+      color: #52bf48
+    .health-icon-neutral
+      font-size: 30px
+      float: left
+      color: #555
+    .health-icon-sad
+      font-size: 30px
+      float: left
+      color: #f33a37
+    .separator
+      width: 55px
+      float: left
+      margin: 16px 10px 0 10px
+      border-bottom: 1px solid #ccc
+  .mood-container
+    padding: 8px 24px
+    max-height: 325px
+    overflow-y: auto
+    border: 1px solid #ccc
+    border-radius: 3px
+    box-shadow: inset 0px 4px 6px -6px #555
+    margin: 0 0 4px 0
+    width: 257px
+    .item
+      display: block
+      margin: 8px 0 12px
+      position: relative
+      width: 257px
+      .rating-bg
+        background-image: asset_url("nav-sprite.png")
+        background-position: -5px -168px
+        background-repeat: no-repeat
+        width: 257px
+        height: 20px
+        .slider
+          width: 234px
+          height: 20px
+          margin-left: 11px
+          position: relative
+          .ui-slider-handle
+            background: #2c6eb7
+            color: #fff
+            font-weight: bold
+            font-size: 15px
+            width: 28px
+            height: 28px
+            text-align: center
+            position: absolute
+            border-radius: 50%
+            top: -4px
+            text-decoration: none
+            margin-left: -14px
+            outline: none !important
+            box-shadow: 0 0 0 transparent !important
+            line-height: 28px
+            transition: left 0.1s linear
+            -webkit-backface-visibility: hidden
+      .desc
+        color: #555555
+        font-weight: bold
+        font-size: 13px
+        margin: 5px 0 0px 4px
+        display: block
+  .track_symptoms
+    font-weight: bold
+    font-size: 15px
+    color: #228c00
+    border: 1px solid #ccc
+    float: left
+    width: 70%
+    padding: 7px 0
+  .save
+    padding: 7px 0
+    font-weight: bold
+    width: 23%
+    font-size: 15px
+    color: #fff
+    border: 1px solid #0f57c5
+    background: #7db9e8
+    /* Old browsers
+    background: -moz-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* FF3.6+
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7db9e8), color-stop(5%, #488ff9), color-stop(50%, #488ff9), color-stop(100%, #2b71c9))
+    /* Chrome,Safari4+
+    background: -webkit-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* Chrome10+,Safari5.1+
+    background: -o-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* Opera 11.10+
+    background: -ms-linear-gradient(top, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* IE10+
+    background: linear-gradient(to bottom, #7db9e8 0%, #488ff9 5%, #488ff9 50%, #2b71c9 100%)
+    /* W3C
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db9e8', endColorstr='#2b71c9',GradientType=0 )
+    /* IE6-9
+    text-shadow: 0 0 0 transparent
+    float: right
+    &:hover
+      background: #7db9e8
+      /* Old browsers
+      background: -moz-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* FF3.6+
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7db9e8), color-stop(5%, #3d8bf7), color-stop(50%, #3383f4), color-stop(100%, #0d62c4))
+      /* Chrome,Safari4+
+      background: -webkit-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* Chrome10+,Safari5.1+
+      background: -o-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* Opera 11.10+
+      background: -ms-linear-gradient(top, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* IE10+
+      background: linear-gradient(to bottom, #7db9e8 0%, #3d8bf7 5%, #3383f4 50%, #0d62c4 100%)
+      /* W3C
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db9e8', endColorstr='#0d62c4',GradientType=0 )
+      /* IE6-9      
+
+.symptom-level
+  .btn-group
+    +filter-gradient(#e8ff14, #db0000, horizontal)
+    // IE6-9
+    +background-image(linear-gradient(left, #e8ff14 0%, #db0000 100%))
+    border-radius: 5px
+  
+  .btn
+    font-weight: bold
+    border: 1px solid #ccc
+    background-image: -webkit-gradient(linear, to bottom, to top, color-stop(0%, #fff), color-stop(100%, #efefef))
+    background-image: -webkit-linear-gradient(to bottom, #fff 0%, #efefef 100%)
+    background-image: -moz-linear-gradient(to bottom, #fff 0%, #efefef 100%)
+    background-image: -o-linear-gradient(to bottom, #fff 0%, #efefef 100%)
+    background-image: linear-gradient(to bottom, #ffffff 0%,#efefef 100%)    
+    padding-left: 0
+    padding-right: 0
+    &:not(:first-child)
+      border-left: 0
+    &:not(:last-child)
+      border-right: 0
+    text-align: center
+    
+    span.rate
+      display: none
+    
+    &.active, &:hover
+      background-image: none
+      background-color: transparent
+      font-weight: bold
+      color: #ffffff      
+      text-shadow: none
+      span.rate
+        display: inline
+      span.muted
+        display: none  
+        
+    &.active.initially
+      background: #ccc !important      
+
+.no-touch
+  .symptom-level .btn
+    &:hover
+      color: #ffffff
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25)
+      background-color: transparent !important
+      background-position: 0 30px
+      -webkit-transition: none
+      transition: none
+      span.rate
+        display: inline
+      span.muted
+        display: none
+
+.moods
+  padding: 0
+  text-align: center
+  .grades
+    display: table
+    width: 100%
+    .grade
+      letter-spacing: 0px
+      display: table-cell
+      text-transform: capitalize
+      font-size: 13px
+      font-weight: bold
+      color: #555
+      &.none
+        float: left
+      &.worst
+        float: right
+  .gradient
+    width: 100%
+    height: 10px
+    float: left
+    +filter-gradient(#e8ff14, #db0000, horizontal)
+    // IE6-9
+    +background-image(linear-gradient(left, #e8ff14 0%, #db0000 100%))
+    border-radius: 2px          
+
+.remove_treatment_condition
+  font-size: 16px
+  color: #c00
+  &:hover
+    color: #f00
+    text-decoration: none
+
+.treatment_condition
+  .controls:first-child
+    .remove_treatment_condition
+      display: none
+
+
+.notifications-widget
+  .header
+    display: none
+
+  #latest_notifications_container
+    display: none  
+
+  .popover
+    width: 100%
+    max-width: 400px
+
+    @media (max-width: 768px)
+      margin: 0 auto !important
+      left: 0 !important
+      right: 0 !important
+  
+  .popover-content
+    padding-left: 0px
+    padding-right: 0px
+
+  .top_notification
+    border-bottom: 1px solid #EFEFEF
+    margin-bottom: 10px
+    font-size: 9pt
+    cursor: pointer
+
+  .top_notification:hover
+    background-color: #FAFAFA
+
+  .popover-title
+    background-color: #e4e4e4
+
+  .user-rounded-avatar    
+    background-size: contain
+    background-repeat: no-repeat
+    width: 100%
+    height: 60px
+
+    @media (min-width: 1200px)
+      width: 150%
+
+.badge.updateable.top-badge.m-left-top.health-tracker-bubble
+  margin-left: -20px !important
+
+.box-navigation.unauthorized
+  margin-top: -6px
+
+.box-navigation
+  @media (min-width: 768px)
+    float: right
+
+body.unauthorized
+  .box-navigation
+    float: left
+  .conditions-spacing
+    padding: 0
+    margin-top: 28px
+.posts-search .dropdown-menu
+  right: 0
+  width: auto
+  left: auto !important

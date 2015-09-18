@@ -1,0 +1,15 @@
+%p
+  Hello, #{@comment.parent.present? ? @comment.parent.user.username : @comment.commentable.user.username}
+
+%p
+  #{@comment.anonymous ? "Anonymous" : @by_user.username} added a comment to your reply:
+  "#{truncate(@comment.content, :length => 200, :omission => "... (continued)")}"
+
+%p
+  To read more, go to: 
+  %br/
+  - url = "#{post_url(@comment.commentable)}?expanded=true&comment_id=#{@comment.parent_id}#comment_#{@comment.id}"
+  = link_to url, url
+
+%p
+  The HealClick Team

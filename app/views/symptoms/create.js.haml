@@ -1,0 +1,3 @@
+:plain
+  $('#symptoms_container').html('#{escape_javascript(render partial: 'personal_profiles/symptoms')}')
+  $(document).trigger('medical_editor:init');

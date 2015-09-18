@@ -1,0 +1,7 @@
+:plain
+  $('#treatments_container').html('#{escape_javascript(render partial: 'personal_profiles/treatments')}')
+  $('body').trigger('init_treatment_toggles');
+  $('#treatment_treatment').val('')
+  $('#treatment_condition_id').val('')
+  load_period_listeners();
+  load_review_button_listeners();

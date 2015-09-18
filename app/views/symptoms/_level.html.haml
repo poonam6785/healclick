@@ -1,0 +1,11 @@
+- disabled ||= false
+- blank ||= false
+.symptom-level
+  - if (form ||= nil)
+    = form.hidden_field :numeric_level, class: 'symptom-level-input'
+  .btn-group.btn-group-justified{class: disabled ? :disabled : :enabled, data: disabled ? {} : {toggle: 'buttons-radio'}}
+
+    - Symptom::SCALE.each do |n|
+      %a.btn{class: (n == symptom.numeric_level && !blank) ? 'initially active' : '', data: {level: n}} 
+        %span.muted &bull;
+        %span.rate= n

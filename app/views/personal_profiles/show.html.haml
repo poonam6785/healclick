@@ -1,0 +1,126 @@
+%fieldset.padding-10
+
+  = render 'profile_top'
+
+  = render 'personal_profile_tabs'
+
+  .well
+    .content
+      .span4.compensate
+        %p
+          %strong Name:
+          = @user.full_name
+        - unless @user.try(:age).blank?
+          %p
+            %strong Age:
+            #{@user.age} years old
+        %p
+          %strong Gender:
+          #{@user.gender.to_s.titleize}
+      .span4
+        %p
+          %strong Country:
+          #{@user.country.try(:name)}
+        - if current_user == @user
+          %p
+            %strong Zip Code:
+            #{@user.zipcode}
+        %p
+          %strong City:
+          #{@user.city}
+        - unless @user.state.blank?
+          %p
+            %strong State:
+            #{@user.state}
+      .span8.compensate
+        %p
+          %strong About Me:
+          = @user.bio
+      .clear
+
+  %a{name: "conditions"}
+  %fieldset#profile_conditions
+    %legend
+      Conditions
+    .well
+      %span.condition
+        = matching_tag(@user.main_condition.try(:name).to_s)
+      - @user.user_conditions.each do |user_condition|
+        - unless user_condition.condition.blank? || user_condition.condition == @user.main_condition
+          %span.condition= matching_tag(user_condition.condition.name)
+
+- if @user.symptoms.recent.present?
+  %a{name: "symptoms"}
+  %fieldset.padding-10
+    %legend Symptoms
+    .tab-content
+
+      .tab-pane#symptoms_list_container.active
+        #symptoms_container.form-horizontal
+          .row
+            .col-md-3.col-sm-3.table-label.hidden-xs
+              Symptom
+            .col-md-9.col-sm-9.col-xs-12
+              = render 'symptoms/gradient'
+          - @user.symptoms.each do |symptom|
+            .row.symptom
+              .col-md-3.col-sm-3.col-xs-12
+                .symptom-name= matching_tag(symptom.symptom.to_s.titleize)
+
+              .col-md-9.col-sm-9.col-xs-12.symptom-severity
+                = render 'symptoms/level', symptom: symptom, disabled: true
+
+- if @user.treatments.present?
+  %a{name: "treatments"}
+  %fieldset.padding-10
+    %legend
+      Treatments
+    .well
+      %table.table.show-treatments-table
+        %thead
+          %tr
+            %th.treatment-sort Treatment
+            %th.felt-sort How I felt?
+            %th.hidden-xs Current Dosage
+            %th.hidden-xs Review
+        %tbody
+          = render partial: 'treatment', collection: @user.treatments.currently_taking.alphabetical
+      %h3.centered Not Currently Taking
+      %table.table.show-treatments-table
+        %tbody
+          = render partial: 'treatment', collection: @user.treatments.not_currently_taking.alphabetical
+
+- if @user.doctors.present?
+  %a{name: "doctors"}
+  %fieldset.padding-10
+    %legend
+      Doctors
+    .well
+      %table.table.show-doctors-table
+        %thead
+          %tr
+            %th Doctor
+            %th Recommended?
+            %th.hidden-xs Location
+            %th.hidden-xs Period
+            %th.hidden-xs Review
+        %tbody
+          - @user.doctors.order('name').each do |doctor|
+            %tr.doctor
+              %td.doctor
+                = link_to doctor_reviews_path(query: doctor.name, commit: 'Search', condition_id: 'all', country_id: '', state: ''), target: :_blank do
+                  = matching_tag(doctor.name.to_s)
+              %td.recommended
+                = 'Yes' if doctor.recommended?
+                = 'No' if doctor.recommended == false
+              %td.location
+                = doctor.location
+              %td.dates
+                - if doctor.started_on.present?
+                  = doctors_period doctor
+              %td.reviews
+                - if doctor.doctor_review.try(:content).present? && doctor.doctor_review.try(:review).present?
+                  = link_to "Show Review", post_path(doctor.doctor_review.review)
+              %td.line.visible-xs.visible-sm
+
+= render 'profile_quick_message'

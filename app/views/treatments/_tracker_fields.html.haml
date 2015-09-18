@@ -1,0 +1,12 @@
+- restore_values = restore_treatment_values(form.object, date)
+.form-group.no-gutter
+  = form.hidden_field :id
+  - form.object.take_today = restore_values.fetch(:take_today, false)
+  .take-today-select{class: "#{restore_values.fetch(:take_today, false) ? 'checked' : ''}"}
+  .hide
+    = form.check_box :take_today, class: 'take-today-checkbox'
+  = form.text_field :current_dose, placeholder: 'Enter dosage', class: 'form-control current-dose', value: restore_values.fetch(:current_dose, form.object.current_dose)
+  - if treatment.treatment_review.try(:review).present?
+    = link_to 'Edit Review', edit_review_path(treatment.treatment_review.review), remote: true
+  - else
+    = link_to 'Add Review', new_review_path(treatment_id: treatment.id), remote: true

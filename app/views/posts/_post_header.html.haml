@@ -1,0 +1,29 @@
+- view ||= @view
+- view ||= 'full'
+
+.white.padding-10.radius-5.border
+  .row
+    - if current_user
+      .col-lg-1.col-md-1.hidden-xs.hidden-sm
+        = link_to user_avatar(current_user), profile_path(current_user.try(:username)), class: 'img-responsive avatar'
+
+    .col-lg-7.col-md-6.col-sm-6.col-xs-12
+      %h3.post-header-title What's on your mind?
+    .col-lg-4.col-md-5.col-sm-5.col-xs-12.post-filter
+
+    .col-lg-8.col-md-8.col-sm-12.col-xs-12
+      .col-lg-3.col-md-4.col-sm-3.col-xs-12.no-padding
+        = link_to say_something_posts_path, class: 'btn btn-success margin-width-xs btn-something', remote: !current_user.nil? do
+          = image_tag 'comment.png', size: '20x20'
+          Say Something
+
+      .col-lg-3.col-md-4.col-sm-3.col-xs-12.no-padding
+        = link_to current_user.present? ? '#' : say_something_posts_path , class: 'btn btn-success margin-width-xs', remote: !current_user.nil?, id: 'tabbed_form_link' do
+          = image_tag 'pill-xxl.png', size: '20x20'
+          Share Treatment
+
+      .col-lg-3.col-md-4.col-sm-3.col-xs-12.no-padding
+        = link_to current_user.present? ? my_health_personal_profile_path : say_something_posts_path , class: 'btn btn-success margin-width-xs' do
+          = image_tag 'track_my_health.png', size: '20x20'
+          Track My Health
+%br

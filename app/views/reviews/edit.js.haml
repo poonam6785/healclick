@@ -1,0 +1,7 @@
+:plain
+  $('#edit-review-form').remove();
+  $('body').append('<div id="edit-review-form">#{j render('shared/review_form') }</div>');
+  $('#edit-review-form #review_form').modal({keyboard: false, backdrop: 'static'});
+  window.attach_users_typehead_event($('.review_form_modal .users-typehead'));
+  $('#edit-review-form').find('#treatment_level_#{@treatment_review.treatment.try(:level)}').addClass('label-info');
+  $("#review_body .select2").select2();

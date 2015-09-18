@@ -1,0 +1,33 @@
+%nav.navbar.navbar-default{role: "navigation"}
+  .container-fluid.categories.border
+    .navbar-header
+      %button.navbar-toggle{type: "button", 'data-toggle' => 'collapse', 'data-target' => "#my-profile"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      
+      .top-profile
+        .row.padding-10
+          .col-lg-6.col-md-6.col-sm-2.col-xs-4
+            = user_avatar(get_actual_user(@user, current_user), width: 75, height: 75)          
+
+          .col-lg-6.col-md-6.col-sm-6.col-xs-3
+            %strong
+              = link_to truncate(get_actual_user(@user, current_user).pretty_name, length: 15), profile_path(get_actual_user(@user, current_user).username)
+            %br
+            %br
+            - if (@user == current_user) || !@user.present?
+              = link_to basic_info_personal_profile_path, class: "btn btn-success bold" do
+                %span.glyphicon.glyphicon-edit
+                Edit Info
+
+    .navbar-collapse.collapse#my-profile
+      %ul.nav.navbar-nav
+        - if (@user == current_user) || !@user.present?
+          %li= link_to 'My Info', basic_info_personal_profile_path, class: category_is_active?('basic_info')
+          %li= link_to 'My Health', my_health_personal_profile_path, class: category_is_active?('my_health')    
+          %li= link_to 'My Photos', user_photos_path(current_user), class: category_is_active?('user_photos')
+          %li= link_to 'My Teammates', favorite_list_users_path, class: category_is_active?('favorite_list')
+          %li= link_to 'Users Who Added Me', favorited_me_user_path(current_user), class: category_is_active?('favorited_me')
+        - else
+          %li= link_to 'Photos', user_photos_path(@user), class: category_is_active?('user_photos')

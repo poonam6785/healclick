@@ -1,0 +1,29 @@
+%legend
+  .col-lg-6.col-md-7.col-sm-12.col-xs-12.no-padding-xs 
+    = @user.username
+  
+  .col-lg-6.col-md-8.col-sm-12.col-xs-12.no-padding-xs 
+    - if !(current_user == @user)
+      - if current_user.following?(@user)
+        = link_to unfollow_user_path(@user), class: 'btn btn-warning btn-xs' do
+          %span.glyphicon.glyphicon-th-large
+          = 'Remove From My Team'
+        &nbsp
+
+      - else
+        = link_to follow_user_path(@user), class: 'btn btn-warning btn-xs' do
+          %span.glyphicon.glyphicon-th-large
+          = 'Add To My Team'
+        &nbsp   
+
+      = link_to luv_user_path(@user), class: 'btn btn-danger btn-xs' do
+        %span.glyphicon.glyphicon-heart
+        LUV
+      &nbsp
+
+      = link_to 'javascript:void(0);', class: 'btn btn-info quick-message-link btn-xs' do
+        %span.glyphicon.glyphicon-envelope
+        Quick Message
+      
+
+  .clearfix

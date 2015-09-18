@@ -1,0 +1,26 @@
+%h4
+  = "Are you sure you want to delete this category #{@object.name}? The following related items will be deleted:"
+
+
+%ul{style: "list-style-type: circle"}
+  %li{style: "display: block"}
+    %span.label Category
+    = link_to @object.name, "/admin/category/#{@object.id}", class: "pjax"
+
+  %ul
+    - @object.sub_categories.each do |sub_category|
+      %li
+        Sub categories
+        = link_to sub_category.name, "/admin/sub_category/#{sub_category.id}", class: "pjax"
+      %ul  
+        - sub_category.symptom_summaries.each do |symptom_summary| 
+          %li
+            Symptom Summary
+            = link_to symptom_summary.symptom_name, "/admin/symptom_summary/#{symptom_summary.id}", class: "pjax"
+
+
+.form-actions
+  = form_tag delete_category_children_path, method: :get do
+    = submit_tag "Delete all", class: 'btn btn-danger', confirm: 'Are you sure?'
+  
+

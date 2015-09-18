@@ -1,0 +1,12 @@
+- if @summaries.any?
+  - @summaries.each do |treatment_summary|
+    - if treatment_summary.latest_review.blank?
+      - t = TreatmentSummary.find(treatment_summary.id)
+      - t.reload_numbers
+      - treatment_summary.reload
+    = render partial: 'reviews/summary_guest', locals: {treatment_summary: treatment_summary}
+  = paginate @summaries, :params => {:controller => 'home', :action => 'guest_sidebar', paging: true}, remote: true
+
+- else
+  %p#no-content
+    There is no content available

@@ -1,0 +1,42 @@
+.userNamePadding
+  .col-lg-9.col-md-9.col-sm-8.col-xs-12.pull-right.no-padding-xs
+    .pull-left.inline
+      .hidden-xs.timestamp
+        = time_ago_in_words(sub_comment.created_at) + " ago"
+
+    .pull-right.inline
+      - if current_user && (sub_comment.user == current_user || current_user.is_admin)
+        = link_to 'Edit', edit_comment_path(sub_comment), remote: true
+        |
+        = link_to 'Delete', comment_path(sub_comment), method: :delete, remote: true, confirm: 'Are you sure you want to delete this comment?'
+    .clearfix
+.col-lg-3.col-md-3.col-sm-4.col-xs-12
+  .hidden-xs
+    = author_link(sub_comment, '100x100')
+
+.col-lg-9.col-md-9.col-sm-8.col-xs-12.no-padding-xs.fit-in-page
+  .visible-xs
+    .pull-left
+      .subcomment-img
+        = author_link(sub_comment, '100x100')
+
+    %span.timestamp= time_ago_in_words(sub_comment.created_at) + " ago"
+    %br
+
+  = image_tag sub_comment.attachment.url(:large) unless sub_comment.attachment_file_name.blank?
+
+  %div.min-height-85{id: "comment-text-#{sub_comment.id}"}
+    - if !current_user && sub_comment.user.try(:privacy) != 1
+      = link_to '[You must be a member to view this]', landing_path
+    - else
+      - if sub_comment.media_comment?
+        = linked_mentions(sub_comment.content)
+      - else
+        = linked_mentions(truncate(sub_comment.content, :length => 400, :omission => "..."))
+      - if sub_comment.content.to_s.length > 400 && !sub_comment.media_comment?
+        = link_to("Read More", comment_path(sub_comment, _: Time.now.to_i, format: :js), class: 'blue read-more-link',  remote: true)  
+
+  .comment-bottom-info
+    = render partial: 'comments/luv_helpful', locals: {comment: sub_comment}  
+
+.clearfix

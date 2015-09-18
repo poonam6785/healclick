@@ -1,0 +1,23 @@
+- needs_tracking = health_tracker_needs_tracking?
+%ul.list-notification
+  %li.health-tracker-item
+    = link_to 'javascript:void(0);', data: {'needs-tracking' => needs_tracking}, class: 'health-tracker-top-link' do
+      %i.health-icon-alarm{class: ('color-red' if needs_tracking)}
+  -#- if needs_tracking
+  -#  .badge.updateable.top-badge.m-left-top.health-tracker-bubble
+  -#    !
+  = render 'shared/notification_links'
+  
+  %li.dropdown
+    = link_to '#', class: 'user-name', data: {toggle: 'dropdown'} do
+      .profile-box
+        = image_tag user_avatar_url(current_user, :medium)
+      .box-user-name= truncate(current_user.username, length: 15)
+    %ul.dropdown-menu.user-dropdown-menu{:role => 'menu', :'aria-labelledby' => 'dLabel'}
+      %li= link_to '<span class="glyphicon glyphicon-heart"></span> My Health'.html_safe, my_health_personal_profile_path
+      %li= link_to '<span class="glyphicon glyphicon-pencil"></span> My Profile'.html_safe, profile_path(current_user.username)
+      %li= link_to '<i class="health-icon-book"></i> My Bookmarks'.html_safe, bookmarks_personal_profile_path
+      %li= link_to '<i class="health-icon-book"></i> My Topics and Reviews'.html_safe, my_topics_personal_profile_path
+      %li= link_to '<span class="glyphicon glyphicon-wrench"></span> My Settings'.html_safe, settings_path
+      %li= link_to '<span class="glyphicon glyphicon-star"></span> HealClick Blog'.html_safe, 'http://blog.healclick.com'
+      %li= link_to '<span class="glyphicon glyphicon-share-alt"></span> Sign Out'.html_safe, destroy_user_session_path, method: :delete

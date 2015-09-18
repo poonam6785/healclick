@@ -1,0 +1,13 @@
+
+Hello, #{@markable.user.username}
+
+%p
+  #{@user.username} finds this review helpful: "#{truncate(@markable.title, :length => 200, :omission => "... (continued)")}"
+
+%p
+  To read more, go to:
+  %br/
+  - url = "#{post_url(@markable)}"
+  = link_to url, url
+%p
+  The HealClick Team

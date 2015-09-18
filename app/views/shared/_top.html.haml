@@ -1,0 +1,56 @@
+#loading 
+  = spinner_icon
+  Loading...
+%header.top-header
+  #topbar
+    .container
+      .row
+        .col-sm-8.col-md-8.col-lg-7
+          .col-lg-3.col-md-3.col-sm-4.no-padding
+            - if is_mobile_device?
+              = link_to image_tag('logo.png'), logo_url_helper, id: 'logo', title: 'HealClick'
+            - else
+              = link_to image_tag('logo-new.png'), logo_url_helper, id: 'logo', title: 'HealClick'
+          .col-lg-9.col-md-9.col-sm-8.no-padding
+            - if current_user
+              %button.navbar-toggle{data: {toggle: 'collapse', target: '.navbar-collapse-4'}, type: 'button'}
+                %span.icon-bar
+                %span.icon-bar
+                %span.icon-bar
+              .navbar-collapse.navbar-collapse-4.collapse.in
+                %ul#navigation
+                  %li{class: ('active' if params[:action] == 'new_home')}
+                    = link_to 'Home', logo_url_helper
+                  %li{class: ('active' if params[:post_type] == 'any')}
+                    = link_to 'Everything', everything_path(condition_id: params[:condition_id])
+                  %li{class: ('active' if params[:action] == 'summary')}
+                    = link_to 'Treatments', summary_reviews_path
+                  %li{class: ('active' if %w(all_topics medical_topics social_topics fun_stuff introductions).include? (params[:post_type]))}
+                    = link_to 'Topics', topics_path
+                  - if current_user
+                    %li{class: ('active' if request.path =~ /users/)}
+                      = link_to 'Members', users_path
+            .clearfix
+            .conditions-spacing
+              - if render_dropdown
+                .title Select condition:
+                = select_tag 'community_filter', options_for_select(community_options, cookies[:selected_community]), class: 'community_filter col-sm-6 col-md-6 col-lg-6'
+              - else
+                .col-sm-10.col-md-10.col-lg-10
+                  &nbsp;
+        .col-sm-4.col-md-4.col-lg-5.no-padding
+          = render 'shared/user_menu' if current_user
+          - if !current_user
+            = link_to 'SIGN UP', new_user_registration_path, class: 'sign-in-button pull-right expand-on-xs'
+            = link_to 'LOG IN', new_user_session_path, class: 'sign-in-button pull-right expand-on-xs'
+          .clearF
+          .spacing-search
+            - if render_posts_filter && current_user
+              = render partial: 'posts/posts_filter'
+            .clearfix
+            - if render_dropdown && current_user
+              = select_tag 'community_filter', options_for_select(community_options, cookies[:selected_community]), class: 'col-sm-10 col-md-10 col-lg-10 community_filter visible-xs'
+          .clearfix
+- if current_user.present?
+  = render 'shared/notifications'
+  = render 'notifications/tracker'

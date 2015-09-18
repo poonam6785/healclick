@@ -1,0 +1,43 @@
+.post-container.without_border.treatment-summary-container{id: "treatment_container_#{treatment_summary.id}"}
+  .col-lg-12.col-md-12.col-sm-12.col-xs-12.add-bottom-padding
+    %span
+      %h4.inline
+        = link_to treatment_summary.treatment_name, treatment_summary_reviews_path(treatment_summary), class: 'green'
+      
+      %br
+      %span{id: "treatment_container_#{treatment_summary.id}"}      
+        .rating
+          %span.empty
+            - 5.times do
+              = fa_icon 'star-o'
+          %span.filled{style: "width: #{treatment_summary.average_level/5.00*93.00}px"}
+            - 5.times do
+              = fa_icon 'star'
+      
+        = link_to "(See all #{pluralize(treatment_summary.post_count_by_condition(current_user), 'review')})", treatment_summary_reviews_path(treatment_summary), class: 'see-all'
+
+      %span.pull-right.timestamp
+        - if (latest_review = treatment_summary.latest_review).present?          
+          = time_ago_in_words(treatment_summary.latest_review.try(:created_at)) + ' ago'
+
+  - recent_review = Post.where(treatment_review_id: treatment_summary.treatment_reviews.map(&:id)).by_treatment_condition(@condition_id, current_user).order('posts.created_at desc').first
+  - recent_review = latest_review unless recent_review
+  
+  - if recent_review 
+    .summary_recent_review{id: "post_body_container_#{recent_review.id}"}
+      .col-lg-2.col-sm-2.col-md-2.col-xs-12
+        = link_to user_avatar(recent_review.user, size: '120x120'), user_path(recent_review.user), class: 'profile-popup-link pull-left'
+      
+      .col-lg-10.col-sm-10.col-md-10.col-xs-12
+        .content
+          = linked_mentions(truncate(recent_review.content, :length => 200, :omission => "...", ))
+          
+          - if recent_review.content.to_s.length > 200
+            %br
+            = link_to('Read More', post_body_post_path(recent_review, _: Time.now.to_i, format: :js), class: 'blue read-more-link',  remote: true)
+
+      .clearfix
+    %br
+
+.clearfix        
+.grey-border-bottom

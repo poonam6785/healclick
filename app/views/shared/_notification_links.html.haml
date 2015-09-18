@@ -1,0 +1,7 @@
+%li.updateable
+  = link_to messages_path, class: 'messages-top' do
+    %span.notification-cricle{class: ('has-notifications' if current_user.received_messages.unread.count > 0)}= current_user.received_messages.unread.count
+
+%li.updateable#new_notifications_count_badge
+  = link_to 'javascript:void(0);', class: 'notifications-top', id: 'top-notifications-link' do
+    %span.notification-cricle{class: ('has-notifications' if current_user.received_notifications.unread.count > 0)}= current_user.received_notifications.unread.count

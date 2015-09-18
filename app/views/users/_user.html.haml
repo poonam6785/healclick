@@ -1,0 +1,26 @@
+.well{id: "user-block-#{user.id}"}
+  .col-lg-3.col-md-3.col-sm-3.col-xs-6
+    .post-left
+      = user_avatar(user, size: "110x110", class: "img-responsive margin-auto")
+      - unless current_user == user
+        = render partial: 'shared/add_team', locals: {user: user}
+
+  .col-lg-6.col-md-6.col-sm-6.col-xs-12
+    %h4
+      = link_to user_display_name(user), profile_path(user.username)
+    .text
+      = "#{user.age} | " if user.age.present?
+      = "#{user.gender} | " if user.gender.present?
+      = "#{user.location.to_s.titleize} | " if user.location.present?
+      = "#{user.main_condition.name}" if user.main_condition.present?
+      %br/
+      %br/
+    .bio-text
+      %p
+        = truncate(user.bio, :length => 120, :omission => "... (continued)")
+
+  .col-lg-3.col-md-3.col-sm-3.col-xs-6
+    .user_links_container{id: "user_links_container_#{user.id}"}
+      = render partial: 'users/user_links', locals: {user: user}
+
+  .clearfix

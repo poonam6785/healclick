@@ -1,0 +1,19 @@
+- date ||= Time.zone.now.to_date
+
+= simple_form_for Event.new, :remote => true do |f|
+  %center
+    .tracking-date
+      = f.hidden_field :date
+      %span.date= l(date, format: :month_day)
+      %a.btn.btn-link.datepicker{href: '#'}
+        = fa_icon :calendar
+    %h4 Add An Event:
+  .form-group.event-body
+    = f.input_field :body, :label => false, :placeholder => "Enter a Post...", :class => "form-control", rows: 8
+  .row.tracker-buttons
+    = f.submit "Save", class: "btn primary col-sm-7 col-xs-7"
+    = link_to "Cancel", "#", class: "btn btn-default secondary col-sm-4 col-sm-offset-1 col-xs-4 col-xs-offset-1 menu-link", 'data-screen' => :menu
+  %p.text-center
+    = link_to my_health_personal_profile_path(medical_editor: :events), class: 'see-all-link' do
+      See All Events
+  .clearfix

@@ -1,0 +1,5 @@
+:plain
+  $('#posts_container').append('#{j render(partial: "posts/posts_batch")}');
+  $('.loading_container').hide();
+  load_useful_link_listeners();
+  $('.file-inputs:not(.changed)').addClass('changed').bootstrapFileInput();

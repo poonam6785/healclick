@@ -1,0 +1,29 @@
+.treatments.row#treatments-anchor
+  .col-lg-6.col-md-6.col-sm-6.col-xs-6
+    %h3.date.pull-left= l @date, format: :short
+    %a.btn.btn-link.datepicker#treatments-datepicker.medical-datepicker{href: '#'}
+      = fa_icon :calendar
+  .col-lg-6.col-md-6.col-sm-6.col-xs-6
+    %button.btn.btn-success.btn-toggle-symptoms.pull-right.margin-top-10.pull-right{data: {target: '#treatment-add'}, onclick: 'return false;'}
+      Add Treatments
+  .visible-xs
+    %br
+  .clearfix
+
+  .row.col-lg-7.col-md-12.col-sm-12.col-xs-12.collapse.col-lg-offset-3#treatment-add
+    .col-lg-9.col-md-9.col-sm-12.col-xs-12
+      = text_field_tag :treatment, '', placeholder: 'Enter a Treatment Name', class: 'typeahead treatment_name', autocomplete: 'off', id: 'tags-treatments'
+      %i#comma-help-float-left Separate treatments with commas
+    .col-lg-3.col-md-3.col-sm-12.col-xs-12
+      = button_tag type: 'submit', class: 'btn btn-success treatments-submit expand-on-xs' do
+        = my_fa_icon('add')
+        Add
+  
+  .clearfix
+
+  %h4.treatment-header-taking.centered Today's Treatments
+  %br
+  %br
+
+  #treatments_container.margin-bottom-10
+    = render partial: 'personal_profiles/treatments'

@@ -1,0 +1,25 @@
+= form_tag search_url_helper, class: 'form-inline posts-search pull-right', method: :get do
+  = text_field_tag :query, params[:query], placeholder: 'Search...', class: 'form-control search-query autocomplete', data: {url: autocomplete_url_helper}, autocomplete: 'off'
+  - params[:condition_id] = current_user.settings.condition_id if current_user && params[:condition_id].blank?
+  = hidden_field_tag :post_type, params[:post_type]
+  = hidden_field_tag :condition_id, get_cached_condition_id, id: 'cond-id-simple' unless params[:controller] == 'users'
+
+  = hidden_field_tag :from, 'form'
+
+- unless params[:action] == 'summary'
+  .search-by.fresh
+    = form_tag search_by_url_helper, method: :get do
+      -#= hidden_field_tag 'post_type', params[:post_type], id: 'search-by-post-type'
+      -#= hidden_field_tag :condition_id, get_cached_condition_id, id: 'cond-id-search-by'
+      -#.form-group
+      -#  = label_tag :titles_search, 'Titles Only:'
+      -#  = text_field_tag :titles_search, params[:titles_search], class: 'form-control'
+      -#.form-group
+      -#  = label_tag :by_member_search, 'By Member:'
+      -#  = text_field_tag :by_member_search, params[:by_member_search], class: 'form-control', autocomplete: 'off'
+      -#.form-group
+      -#  = label_tag :desease_tag_search, 'Has disease tag(s):'
+      -#  = text_field_tag :desease_tag_search, params[:desease_tag_search], class: 'form-control'
+      .form-group
+        = button_tag(type: 'button', class: 'btn btn-success search-btn expand-on-xs') do
+          %i.health-icon-search

@@ -1,0 +1,20 @@
+- view ||= @view
+- view ||= 'full'
+
+.dropdown.sorting-container
+  - unless params[:controller] == 'my_click'
+    .left
+      %div#navigation{"data-spy" => "affix", "data-offset-top" => "100"}
+        .pull-left
+          = link_to 'Say Something', say_something_posts_path, class: 'btn btn-success icon-custom-comment', remote: !current_user.nil?
+          - if current_user
+            = link_to 'Share Treatment', "javascript:void(0);", id: "tabbed_form_link", class: 'btn btn-success icon-pill'
+          - else
+            = link_to 'Share Treatment', say_something_posts_path, class: 'btn btn-success icon-pill'
+            
+    .clearfix
+    .form-inline
+      = select_tag 'sort_by', options_for_select([['Latest Activity', post_sorter_path('posts.last_interaction_at desc')], ['Newest', post_sorter_path('posts.created_at desc')],  ['Most Interactions', post_sorter_path('posts.interactions_count desc')], ['Most Helpful', post_sorter_path('posts.helpfuls_count desc')],  ['Most Viewed', post_sorter_path('posts.views_count desc')]], URI.unescape(request.fullpath.gsub(/\//, ''))), class: 'select2-without-search'
+
+  .clearfix
+.bolder.search-count

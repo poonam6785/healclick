@@ -1,0 +1,46 @@
+.notifications-widget
+  - cache current_user do
+    .header      
+      = link_to mark_all_as_read_notifications_path, remote: true, 'data-disable-with' => 'Loading...', class: "pull-left" do
+        Mark All As Read
+      
+      = link_to notifications_path, class: "pull-right" do
+        View All Notifications
+
+      .clearfix
+    
+    #latest_notifications_container    
+      - current_user.received_notifications.recent.page(1).per(5).each do |notification|
+        = link_to notification_path(notification), remote: true do
+          .top_notification{style: "#{notification.read? ? "" : "font-weight: bold;"}"}          
+            
+            .col-lg-2.col-md-3.col-sm-3.col-xs-3
+              - if ['LUV_REPLY', 'LUV_POST', 'LUV_COMMENT', 'HELPFUL_COMMENT', 'HELPFUL_REPLY', 'HELPFUL_DISCUSSION', 'HELPFUL_DISCUSSION'].include?(notification.notification_type)
+                = user_rounded_avatar(notification.from_user, size: "50x50", anonymous: false)
+              - else
+                - if notification.unscoped_comment.present?
+                  = user_rounded_avatar(notification.from_user, size: "50x50", anonymous: notification.unscoped_comment.anonymous)
+                - else
+                  = user_rounded_avatar(notification.from_user, size: "50x50", anonymous: notification.notifiable.respond_to?(:anonymous) && notification.notifiable.anonymous)          
+              .clearfix
+            .col-lg-10.col-md-9.col-sm-9.col-xs-9
+              .pull-right.timestamp
+                = time_ago_in_words(notification.created_at) + " ago"
+
+              - if %w(LUV_REPLY LUV_POST LUV_COMMENT HELPFUL_COMMENT HELPFUL_REPLY HELPFUL_DISCUSSION HELPFUL_DISCUSSION).include?(notification.notification_type)
+                = notification.from_user.try(:username)# || "Anonymous"
+              - else
+                - if notification.unscoped_comment.present?
+                  = notification.unscoped_comment.anonymous ? "Anonymous" : notification.from_user.try(:username) || "Anonymous"
+                - else
+                  = (notification.notifiable.respond_to?(:anonymous) && notification.notifiable.anonymous) ? "Anonymous" : notification.from_user.try(:username) || "Anonymous"                  
+            
+              .clearfix
+                %div
+                  - if notification.target_url.blank? || !notification.notifiable.present?
+                    This has been deleted
+                  - else
+                    = notification_content(notification, 100, false)
+            .clearfix
+          .clearfix
+    .clearfix

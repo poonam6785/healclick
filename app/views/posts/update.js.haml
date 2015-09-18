@@ -1,0 +1,5 @@
+:plain
+  $('#new_post_container').modal('hide');
+  $('#post_container_#{@post.id}').html('#{escape_javascript(render partial: 'post_full_body', locals: {post: @post})}');
+  $('#post-container').html('#{j render(partial: 'review_show', locals: {post: @post})}');
+  load_main_link_listeners();

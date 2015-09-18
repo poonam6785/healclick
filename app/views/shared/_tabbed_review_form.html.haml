@@ -1,0 +1,31 @@
+- id ||= :tabbed_review_form
+- @treatment_review ||= @treatment.treatment_review.nil? ? @treatment.build_treatment_review : @treatment.treatment_review
+
+.modal.review_form_modal.tabbed-form-modal.fade{:id => id}
+  .modal-dialog
+    .modal-content
+      .modal-header.no-border-bottom
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} &times;
+        %ul.nav.nav-tabs
+          %span.font-22.pull-left
+            New Review For
+            &nbsp&nbsp&nbsp&nbsp
+
+          %li.active
+
+            = link_to "#treatment_review_form_container", 'data-toggle' => :tab do
+              Treatment
+
+          %li
+            = link_to "#doctor_review_form_container", 'data-toggle' => :tab do
+              Doctor
+      
+      .modal-body     
+        .tab-content
+          .tab-pane.active#treatment_review_form_container
+            = form_for @treatment_review, class: "form-horizontal", remote: @remote do |f|
+              = render 'shared/review_form_body', f: f
+
+          .tab-pane#doctor_review_form_container
+            = form_for @doctor_review, class: "form-horizontal", remote: @remote do |f|
+              = render 'shared/doctor_review_form_body', f: f

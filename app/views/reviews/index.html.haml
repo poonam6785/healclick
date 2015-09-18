@@ -1,0 +1,57 @@
+- reviews_counter = "#{pluralize(@treatment_summaries.first.post_count_by_condition(current_user, get_cached_condition_id), 'Review')}"
+
+- title = "#{@treatment_summaries.first.treatment_name rescue ''} - #{reviews_counter} - HealClick #{@treatment_summaries.first.conditions.first.name rescue ''}"
+
+= meta_tag(title, title)
+
+.row
+  = render 'shared/page_category_select'
+
+  .clearfix
+  - if @treatment_summaries.present? && @treatment_summaries.count == 1
+    .col-lg-9.col-md-8.col-sm-7.col-xs-6
+      - params[:condition_id] = current_user.settings.condition_id if current_user && params[:condition_id].blank?
+      = link_to 'All Treatments', summary_reviews_path(condition_id: params[:condition_id])
+      &gt;
+      = link_to @treatment_summaries.first.treatment_name, treatment_summary_reviews_path(@treatment_summaries.first)
+
+  .col-lg-12.col-md-12.col-sm-12.col-xs-12
+    %h4.green
+      = @treatment_summaries.first.treatment_name
+
+    .treatment-summary-container.pull-left.margin-bottom-10
+      .rating
+        = render 'rating'
+
+    - if @treatment_summaries.first.try(:product_search?)
+      .pull-right
+        = link_to shop_url_helper(@treatment_summaries.first), target: :blank, class: 'shop-button btn btn-default' do
+          = image_tag 'cart.png'
+          BUY NOW
+    .clearfix
+    .row
+      .col-sm-4
+        = select_tag 'reviews-filter', options_for_select(options_for_review_conditions), class: 'select2 full-width'
+    %hr  
+    = render partial: 'reviews/reviews_sorter' unless params[:query].present?
+    %br
+    %br
+
+  #posts_container.scroll-pagination  
+    = render partial: 'posts/posts_batch', locals: {no_all_reviews: true}
+
+  .more_posts.centered{style: 'margin: 20px;'}
+    = hidden_field_tag :current_page, 1, id: :current_page
+    = hidden_field_tag :content_type, 'reviews', id: :content_type
+    = hidden_field_tag :content_path, post_sorter_path(params[:sort_by]), id: :content_path
+
+    .loading_container
+      = image_tag 'loading.gif', size: '20x20'
+
+  = render 'shared/tabbed_review_form' if current_user
+
+  #comment_form_container
+  #post_form_container
+
+  #profile_popup
+  .clearfix

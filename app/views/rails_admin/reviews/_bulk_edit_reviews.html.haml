@@ -1,0 +1,16 @@
+= form_tag '', method: :post do |f|
+  %fieldset
+    - @pass_params.each do |key, value|
+      - if value.respond_to?(:each)
+        - value.each do |vv|
+          = hidden_field_tag "#{key}[]", vv
+      - else
+        = hidden_field_tag key, value
+    %legend Edit treatment name for reviews:
+    %ul
+      - @reviews.each do |review|
+        %li= review.title
+    = label_tag 'New Treatment Name'
+    = text_field_tag :new_treatment_name, '', class: 'col-sm-2'
+  %fieldset
+    = submit_tag 'Save', class: 'btn btn-success'
